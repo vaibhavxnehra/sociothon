@@ -14,7 +14,7 @@ const PARTNERS = [
 ];
 
 const STATS = [
-  { icon: Landmark, label: "Founded", value: 2008, prefix: "" },
+  { icon: Landmark, label: "Founded", value: 2008, prefix: "", plain: true },
   { icon: GraduationCap, label: "NIRF Rank (Engineering)", value: 78, prefix: "#" },
   { icon: Building2, label: "PSU Co-Promoters", value: 4, prefix: "" },
   { icon: Globe2, label: "Global MoU Partners", value: 4, prefix: "" },
@@ -58,7 +58,7 @@ export function AboutRGIPT() {
                 <div className="glass-panel lift-card h-full rounded-2xl p-5">
                   <s.icon className="h-5 w-5 text-primary" />
                   <div className="mt-4 font-display text-3xl font-extrabold">
-                    <Counter to={s.value} prefix={s.prefix} />
+                    <Counter to={s.value} prefix={s.prefix} plain={"plain" in s} />
                   </div>
                   <div className="mt-1 text-xs tracking-wide text-muted-foreground uppercase">{s.label}</div>
                 </div>
