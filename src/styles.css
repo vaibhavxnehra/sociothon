@@ -87,8 +87,7 @@
   }
 
   html {
-    scroll-behavior: smooth;
-    scroll-padding-top: 5.5rem;
+        scroll-padding-top: 5.5rem;
   }
 
   body {
@@ -180,6 +179,7 @@
   filter: blur(100px);
   z-index: -10;
   opacity: 0.6;
+  pointer-events: none;
   animation: float 20s infinite ease-in-out alternate;
 }
 .ambient-orb-1 {

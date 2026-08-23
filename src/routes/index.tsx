@@ -13,7 +13,7 @@ import { Footer } from "@/components/site/Footer";
 
 const TITLE = "SOCI-O-THON & NIRMAAN 2026 | RGIPT Souhardya";
 const DESCRIPTION =
-  "SOUHARDYA 2026 presents SOCI-O-THON & NIRMAAN — a national social innovation hackathon and conference at RGIPT, Jais, Amethi on 30–31 October 2026. ₹30,000 prize pool. Register now.";
+  "SOUHARDYA 2026 presents SOCI-O-THON & NIRMAAN- a national social innovation hackathon and conference at RGIPT, Jais, Amethi on 30–31 October 2026. ₹30,000 prize pool. Register now.";
 
 // Replace with the official registration form link.
 const REGISTER_URL = "https://forms.gle/your-registration-form";
@@ -37,7 +37,7 @@ export const Route = createFileRoute("/")({
         children: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "Event",
-          name: "SOCI-O-THON & NIRMAAN — Souhardya 2026",
+          name: "SOCI-O-THON & NIRMAAN- Souhardya 2026",
           startDate: "2026-10-30",
           endDate: "2026-10-31",
           eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
@@ -55,7 +55,7 @@ export const Route = createFileRoute("/")({
 
 function Index() {
   return (
-    <div className="min-h-screen overflow-x-hidden bg-background relative z-0">
+    <div className="min-h-screen bg-background relative z-0">
       {/* Ambient Background Orbs */}
       <div className="ambient-orb ambient-orb-1"></div>
       <div className="ambient-orb ambient-orb-2"></div>

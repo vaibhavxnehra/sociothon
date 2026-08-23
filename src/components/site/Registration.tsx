@@ -123,7 +123,7 @@ export function Registration({ registerUrl }: { registerUrl: string }) {
                 <div className="px-6">
                   <QrCode className="mx-auto h-16 w-16 text-primary" />
                   <p className="mt-3 text-xs text-muted-foreground">
-                    Registration QR code placeholder — replace with the official QR image.
+                    Registration QR code placeholder- replace with the official QR image.
                   </p>
                 </div>
               </div>

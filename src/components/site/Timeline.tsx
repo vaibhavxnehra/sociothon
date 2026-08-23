@@ -4,7 +4,7 @@ const MILESTONES = [
   { date: "12 August 2026", text: "Registration Opens for SOCI-O-THON & NIRMAAN" },
   { date: "10 September 2026", text: "Early Registration closes; SOCI-O-THON Problem Statements Released" },
   { date: "10–30 September 2026", text: "Registration extended for SOCI-O-THON & NIRMAAN" },
-  { date: "30 September 2026", text: "SOCI-O-THON Round 1 — Idea Submission Deadline" },
+  { date: "30 September 2026", text: "SOCI-O-THON Round 1- Idea Submission Deadline" },
   { date: "2 October 2026", text: "SOCI-O-THON Round 1 Results Announced" },
   { date: "2–30 October 2026", text: "SOCI-O-THON Prototype Development Phase" },
   { date: "30 October 2026", text: "SOCI-O-THON Final Round + NIRMAAN Conference (Day 1)" },
@@ -23,7 +23,7 @@ export function Timeline() {
               Key <span className="text-gradient-primary">dates</span>
             </>
           }
-          subtitle="From registration to the final prize distribution — here's how the journey unfolds."
+          subtitle="From registration to the final prize distribution- here's how the journey unfolds."
         />
 
         <div className="relative mx-auto mt-14 max-w-4xl">

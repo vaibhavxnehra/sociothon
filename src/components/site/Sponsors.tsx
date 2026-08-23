@@ -40,7 +40,7 @@ export function Sponsors() {
 
         <Reveal delay={0.1} className="mt-10 text-center">
           <a
-            href="mailto:arvind.singh@rgipt.ac.in?subject=Sponsorship%20Enquiry%20—%20SOUHARDYA%202026"
+            href="mailto:arvind.singh@rgipt.ac.in?subject=Sponsorship%20Enquiry%20-%20SOUHARDYA%202026"
             className="inline-flex items-center justify-center rounded-full bg-primary px-8 py-3.5 font-display font-semibold text-primary-foreground shadow-[var(--shadow-glow)] transition-transform hover:scale-105"
           >
             Become a Sponsor

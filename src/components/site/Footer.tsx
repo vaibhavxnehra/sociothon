@@ -25,10 +25,10 @@ export function Footer() {
             </div>
             <p className="mt-5 flex items-start gap-2 text-sm text-muted-foreground">
               <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
-              Rajiv Gandhi Institute of Petroleum Technology, Jais, Amethi, Uttar Pradesh — 229304
+              Rajiv Gandhi Institute of Petroleum Technology, Jais, Amethi, Uttar Pradesh- 229304
             </p>
             <p className="mt-5 max-w-md font-display text-lg font-semibold text-gradient-primary">
-              Turning empathy into action — building a future that works for everyone.
+              Turning empathy into action- building a future that works for everyone.
             </p>
           </div>
 

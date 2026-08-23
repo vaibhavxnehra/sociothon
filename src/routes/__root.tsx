@@ -81,7 +81,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         name: "description",
         content:
-          "SOUHARDYA 2026 presents SOCI-O-THON & NIRMAAN at RGIPT, Jais, Amethi — 30 & 31 October 2026.",
+          "SOUHARDYA 2026 presents SOCI-O-THON & NIRMAAN at RGIPT, Jais, Amethi- 30 & 31 October 2026.",
       },
       { name: "author", content: "RGIPT, Jais, Amethi" },
       { property: "og:site_name", content: "SOUHARDYA 2026 · RGIPT" },

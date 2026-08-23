@@ -77,7 +77,7 @@ export function Events() {
               Two events. <span className="text-gradient-primary">One mission.</span>
             </>
           }
-          subtitle="Everything you need to know — process, themes, eligibility and rewards — for each event."
+          subtitle="Everything you need to know- process, themes, eligibility and rewards- for each event."
         />
 
         <Reveal className="mt-10 flex justify-center">
@@ -120,10 +120,10 @@ export function Events() {
             >
               <div className="glass-panel rounded-3xl p-7 sm:p-10">
                 <h3 className="font-display text-3xl font-extrabold sm:text-4xl">
-                  SOCI-O-THON <span className="text-gradient-primary">— Social Innovation Hackathon</span>
+                  SOCI-O-THON <span className="text-gradient-primary">- Social Innovation Hackathon</span>
                 </h3>
                 <p className="mt-4 max-w-3xl text-muted-foreground">
-                  The first hackathon of its kind at this scale — open to students from every field, not just
+                  The first hackathon of its kind at this scale- open to students from every field, not just
                   engineering. Teams take on real social problems, from the grassroots to the citywide, and carry them
                   from a raw idea to a working prototype with a credible plan for impact.
                 </p>
@@ -191,12 +191,12 @@ export function Events() {
             >
               <div className="glass-panel rounded-3xl p-7 sm:p-10">
                 <h3 className="font-display text-3xl font-extrabold sm:text-4xl">
-                  NIRMAAN <span className="text-gradient-primary">— National Social Conference</span>
+                  NIRMAAN <span className="text-gradient-primary">- National Social Conference</span>
                 </h3>
                 <p className="mt-4 max-w-3xl text-muted-foreground">
                   Organized under SOUHARDYA, The Social Fest, NIRMAAN is a conference and presentation competition that
                   brings students face-to-face with IAS/IPS officers, senior government officials and NGO
-                  representatives working at the grassroots of social change — through interactive talks, Q&amp;A
+                  representatives working at the grassroots of social change- through interactive talks, Q&amp;A
                   sessions and NGO showcases.
                 </p>
 
