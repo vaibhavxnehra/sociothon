@@ -26,7 +26,7 @@ export function AboutSouhardya() {
           eyebrow="The Fest"
           title={
             <>
-              SOUHARDYA 2026 — <span className="text-gold-gradient">The Social Fest</span>
+              SOUHARDYA 2026 — <span className="text-gradient-primary">The Social Fest</span>
             </>
           }
           subtitle="One umbrella. Two flagship experiences. SOUHARDYA turns empathy into action by pairing an innovation sprint with a national conversation on social change."

@@ -1,9 +1,11 @@
 import { motion } from "motion/react";
 import { ArrowRight, CalendarDays, MapPin, Sparkles } from "lucide-react";
 import heroBg from "@/assets/hero-globe.jpg";
+import rgiptLogo from "@/assets/rgipt-logo-2.png";
+import socialCouncilLogo from "@/assets/social-council-logo.png";
 import { Countdown } from "./Countdown";
 
-const words = ["SOCI-O-THON", "&", "NIRMAAN"];
+const words = ["SOCI-O-THON & NIRMAAN"];
 
 export function Hero({ registerUrl }: { registerUrl: string }) {
   return (
@@ -14,9 +16,9 @@ export function Hero({ registerUrl }: { registerUrl: string }) {
         aria-hidden="true"
         width={1920}
         height={1088}
-        className="absolute inset-0 -z-20 h-full w-full object-cover opacity-70"
+        className="absolute inset-0 -z-20 h-full w-full object-cover opacity-20 mix-blend-overlay"
       />
-      <div className="absolute inset-0 -z-10 bg-[radial-gradient(80%_60%_at_20%_10%,transparent,var(--navy-deep)_75%)]" />
+      <div className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_top,transparent_0%,var(--background)_100%)]" />
       <div className="grid-noise absolute inset-0 -z-10 opacity-40" />
 
       <motion.div
@@ -43,25 +45,53 @@ export function Hero({ registerUrl }: { registerUrl: string }) {
           Souhardya 2026 Presents
         </motion.div>
 
-        <h1 className="mt-6 text-center font-display text-4xl leading-[1.05] font-extrabold text-balance sm:text-6xl lg:text-7xl">
+        <h1 className="mt-6 flex items-center justify-center gap-8 sm:gap-16 lg:gap-24 text-center font-display text-4xl leading-[1.05] font-extrabold text-balance sm:text-6xl lg:text-7xl w-full text-transparent bg-clip-text bg-gradient-to-b from-white to-white/40 drop-shadow-sm">
+          <motion.img 
+            src={rgiptLogo} 
+            alt="RGIPT Logo" 
+            initial={{ opacity: 0, scale: 0.8, x: -50 }}
+            animate={{ opacity: 1, scale: 1, x: 0, y: [0, -12, 0] }}
+            transition={{ 
+              opacity: { duration: 0.8, ease: "easeOut" },
+              scale: { duration: 0.8, ease: "easeOut" },
+              x: { duration: 0.8, ease: "easeOut" },
+              y: { duration: 5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }
+            }}
+            whileHover={{ scale: 1.12, rotate: -6, filter: "drop-shadow(0 0 25px rgba(255,215,0,0.6))" }}
+            className="h-24 w-auto sm:h-32 lg:h-40 object-contain drop-shadow-2xl transition-all cursor-pointer" 
+          />
           {words.map((w, i) => (
             <motion.span
               key={w}
               initial={{ opacity: 0, y: 30, filter: "blur(8px)" }}
               animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
               transition={{ duration: 0.8, delay: 0.15 + i * 0.15, ease: [0.22, 1, 0.36, 1] }}
-              className={`mr-3 inline-block ${w === "&" ? "text-gold-gradient" : ""}`}
+              className="inline-block"
             >
               {w}
             </motion.span>
           ))}
+          <motion.img 
+            src={socialCouncilLogo} 
+            alt="Social Council Logo" 
+            initial={{ opacity: 0, scale: 0.8, x: 50 }}
+            animate={{ opacity: 1, scale: 1, x: 0, y: [0, -12, 0] }}
+            transition={{ 
+              opacity: { duration: 0.8, ease: "easeOut" },
+              scale: { duration: 0.8, ease: "easeOut" },
+              x: { duration: 0.8, ease: "easeOut" },
+              y: { duration: 4.5, repeat: Infinity, ease: "easeInOut", delay: 0.7 }
+            }}
+            whileHover={{ scale: 1.12, rotate: 6, filter: "drop-shadow(0 0 25px rgba(255,215,0,0.6))" }}
+            className="h-24 w-auto sm:h-32 lg:h-40 object-contain drop-shadow-2xl transition-all cursor-pointer" 
+          />
         </h1>
 
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
-          className="mt-5 text-center font-display text-xl font-semibold text-gold-gradient sm:text-2xl"
+          className="mt-5 text-center font-display text-xl font-semibold text-gradient-primary sm:text-2xl"
         >
           Together for Social Good.
         </motion.p>

@@ -53,7 +53,7 @@ export function Team() {
           eyebrow="Reach Out"
           title={
             <>
-              Organizing <span className="text-gold-gradient">Committee</span>
+              Organizing <span className="text-gradient-primary">Committee</span>
             </>
           }
           subtitle="The faculty team steering SOUHARDYA 2026."
@@ -92,7 +92,7 @@ export function Team() {
 
         <Reveal className="mt-20 text-center">
           <h3 className="font-display text-2xl font-bold sm:text-3xl">
-            Student <span className="text-gold-gradient">Coordinators</span>
+            Student <span className="text-gradient-primary">Coordinators</span>
           </h3>
         </Reveal>
 

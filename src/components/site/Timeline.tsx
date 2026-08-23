@@ -20,7 +20,7 @@ export function Timeline() {
           eyebrow="Roadmap"
           title={
             <>
-              Key <span className="text-gold-gradient">dates</span>
+              Key <span className="text-gradient-primary">dates</span>
             </>
           }
           subtitle="From registration to the final prize distribution — here's how the journey unfolds."

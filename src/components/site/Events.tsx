@@ -74,7 +74,7 @@ export function Events() {
           eyebrow="Rulebooks"
           title={
             <>
-              Two events. <span className="text-gold-gradient">One mission.</span>
+              Two events. <span className="text-gradient-primary">One mission.</span>
             </>
           }
           subtitle="Everything you need to know — process, themes, eligibility and rewards — for each event."
@@ -120,7 +120,7 @@ export function Events() {
             >
               <div className="glass-panel rounded-3xl p-7 sm:p-10">
                 <h3 className="font-display text-3xl font-extrabold sm:text-4xl">
-                  SOCI-O-THON <span className="text-gold-gradient">— Social Innovation Hackathon</span>
+                  SOCI-O-THON <span className="text-gradient-primary">— Social Innovation Hackathon</span>
                 </h3>
                 <p className="mt-4 max-w-3xl text-muted-foreground">
                   The first hackathon of its kind at this scale — open to students from every field, not just
@@ -147,7 +147,7 @@ export function Events() {
                     <Reveal>
                       <div className="lift-card rounded-2xl border border-primary/40 bg-primary/10 p-6 text-center">
                         <p className="text-xs font-semibold tracking-[0.24em] text-primary uppercase">Prize Pool</p>
-                        <p className="mt-2 font-display text-5xl font-extrabold text-gold-gradient">
+                        <p className="mt-2 font-display text-5xl font-extrabold text-gradient-primary">
                           <Counter to={30000} prefix="₹" />
                         </p>
                         <p className="mt-2 text-sm text-muted-foreground">
@@ -191,7 +191,7 @@ export function Events() {
             >
               <div className="glass-panel rounded-3xl p-7 sm:p-10">
                 <h3 className="font-display text-3xl font-extrabold sm:text-4xl">
-                  NIRMAAN <span className="text-gold-gradient">— National Social Conference</span>
+                  NIRMAAN <span className="text-gradient-primary">— National Social Conference</span>
                 </h3>
                 <p className="mt-4 max-w-3xl text-muted-foreground">
                   Organized under SOUHARDYA, The Social Fest, NIRMAAN is a conference and presentation competition that

@@ -19,7 +19,7 @@ export function Sponsors() {
           eyebrow="Partner With Us"
           title={
             <>
-              Sponsorship <span className="text-gold-gradient">tiers</span>
+              Sponsorship <span className="text-gradient-primary">tiers</span>
             </>
           }
           subtitle="Put your brand in front of thousands of students from across India at an Institute of National Importance."

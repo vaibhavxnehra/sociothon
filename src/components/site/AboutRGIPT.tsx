@@ -28,7 +28,7 @@ export function AboutRGIPT() {
           eyebrow="The Host"
           title={
             <>
-              Rajiv Gandhi Institute of <span className="text-gold-gradient">Petroleum Technology</span>
+              Rajiv Gandhi Institute of <span className="text-gradient-primary">Petroleum Technology</span>
             </>
           }
           subtitle="An Institute of National Importance established by an Act of Parliament, Government of India in 2008 — co-promoted by India's major Public Sector Oil Companies and the Oil Industry Development Board."

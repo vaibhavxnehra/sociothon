@@ -36,48 +36,49 @@
   --color-navy: var(--navy);
   --color-navy-deep: var(--navy-deep);
   --color-navy-light: var(--navy-light);
-  --color-gold: var(--gold);
-  --color-gold-bright: var(--gold-bright);
+  --color-primary-accent: var(--primary-accent);
+  --color-primary-accent-bright: var(--primary-accent-bright);
   --color-ring-offset-background: var(--background);
 }
 
 :root {
-  --radius: 0.875rem;
+  --radius: 1rem;
 
-  --navy-deep: oklch(0.19 0.055 254);
-  --navy: oklch(0.26 0.07 253);
-  --navy-light: oklch(0.34 0.075 252);
-  --gold: oklch(0.76 0.14 82);
-  --gold-bright: oklch(0.86 0.13 90);
+  --navy-deep: oklch(0.14 0.02 260);
+  --navy: oklch(0.18 0.03 260);
+  --navy-light: oklch(0.24 0.04 260);
+  
+  --primary-accent: oklch(0.65 0.25 290);
+  --primary-accent-bright: oklch(0.75 0.15 200);
 
-  --background: oklch(0.19 0.055 254);
-  --foreground: oklch(0.97 0.008 250);
-  --card: oklch(0.26 0.07 253);
-  --card-foreground: oklch(0.97 0.008 250);
-  --popover: oklch(0.26 0.07 253);
-  --popover-foreground: oklch(0.97 0.008 250);
-  --primary: oklch(0.76 0.14 82);
-  --primary-foreground: oklch(0.19 0.055 254);
-  --secondary: oklch(0.34 0.075 252);
-  --secondary-foreground: oklch(0.97 0.008 250);
-  --muted: oklch(0.3 0.06 253);
-  --muted-foreground: oklch(0.76 0.03 250);
-  --accent: oklch(0.34 0.075 252);
-  --accent-foreground: oklch(0.97 0.008 250);
+  --background: oklch(0.14 0.02 260);
+  --foreground: oklch(0.98 0 0);
+  --card: oklch(0.18 0.03 260);
+  --card-foreground: oklch(0.98 0 0);
+  --popover: oklch(0.18 0.03 260);
+  --popover-foreground: oklch(0.98 0 0);
+  --primary: var(--primary-accent);
+  --primary-foreground: oklch(0.98 0 0);
+  --secondary: oklch(0.24 0.04 260);
+  --secondary-foreground: oklch(0.98 0 0);
+  --muted: oklch(0.25 0.02 260);
+  --muted-foreground: oklch(0.70 0.02 260);
+  --accent: oklch(0.24 0.04 260);
+  --accent-foreground: oklch(0.98 0 0);
   --destructive: oklch(0.6 0.22 27);
   --destructive-foreground: oklch(0.98 0.005 250);
-  --border: oklch(1 0 0 / 12%);
-  --input: oklch(1 0 0 / 16%);
-  --ring: oklch(0.76 0.14 82);
+  --border: oklch(1 1 1 / 8%);
+  --input: oklch(1 1 1 / 10%);
+  --ring: var(--primary-accent);
 
-  --gradient-gold: linear-gradient(120deg, var(--gold), var(--gold-bright));
+  --gradient-primary: linear-gradient(135deg, var(--primary-accent), var(--primary-accent-bright));
   --gradient-panel: linear-gradient(
     145deg,
-    color-mix(in oklab, var(--navy-light) 70%, transparent),
-    color-mix(in oklab, var(--navy-deep) 80%, transparent)
+    color-mix(in oklab, var(--navy-light) 50%, transparent),
+    color-mix(in oklab, var(--navy-deep) 70%, transparent)
   );
-  --shadow-glow: 0 20px 60px -25px color-mix(in oklab, var(--gold) 55%, transparent);
-  --shadow-panel: 0 24px 70px -35px oklch(0 0 0 / 80%);
+  --shadow-glow: 0 0px 40px -10px color-mix(in oklab, var(--primary-accent) 40%, transparent);
+  --shadow-panel: 0 24px 70px -35px oklch(0 0 0 / 90%);
 }
 
 @layer base {
@@ -95,6 +96,7 @@
     color: var(--color-foreground);
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
   }
 
   h1,
@@ -102,19 +104,30 @@
   h3,
   h4 {
     font-family: var(--font-display);
-    letter-spacing: -0.02em;
+    letter-spacing: -0.03em;
   }
 }
 
 @utility glass-panel {
   background: var(--gradient-panel);
-  backdrop-filter: blur(14px);
-  border: 1px solid color-mix(in oklab, white 12%, transparent);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid color-mix(in oklab, white 15%, transparent);
   box-shadow: var(--shadow-panel);
+  position: relative;
+  overflow: hidden;
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: radial-gradient(circle at top left, color-mix(in oklab, var(--primary-accent-bright) 10%, transparent), transparent 70%);
+    opacity: 0.5;
+  }
 }
 
-@utility text-gold-gradient {
-  background: var(--gradient-gold);
+@utility text-gradient-primary {
+  background: var(--gradient-primary);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -122,13 +135,13 @@
 
 @utility lift-card {
   transition:
-    transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
-    box-shadow 0.35s ease,
-    border-color 0.35s ease;
+    transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+    box-shadow 0.4s ease,
+    border-color 0.4s ease;
   &:hover {
-    transform: translateY(-6px) scale(1.015);
+    transform: translateY(-8px) scale(1.02);
     box-shadow: var(--shadow-glow);
-    border-color: color-mix(in oklab, var(--gold) 55%, transparent);
+    border-color: color-mix(in oklab, var(--primary-accent) 60%, transparent);
   }
 }
 
@@ -143,7 +156,7 @@
     width: 100%;
     transform: scaleX(0);
     transform-origin: right;
-    background: var(--gradient-gold);
+    background: var(--gradient-primary);
     transition: transform 0.3s ease;
   }
   &:hover::after,
@@ -155,7 +168,39 @@
 
 @utility grid-noise {
   background-image:
-    linear-gradient(color-mix(in oklab, white 4%, transparent) 1px, transparent 1px),
-    linear-gradient(90deg, color-mix(in oklab, white 4%, transparent) 1px, transparent 1px);
+    linear-gradient(color-mix(in oklab, white 3%, transparent) 1px, transparent 1px),
+    linear-gradient(90deg, color-mix(in oklab, white 3%, transparent) 1px, transparent 1px);
   background-size: 64px 64px;
+}
+
+/* Ambient Background Animations */
+.ambient-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  z-index: -10;
+  opacity: 0.6;
+  animation: float 20s infinite ease-in-out alternate;
+}
+.ambient-orb-1 {
+  background: var(--primary-accent);
+  width: 40vw;
+  height: 40vw;
+  top: -10%;
+  left: -10%;
+  animation-delay: 0s;
+}
+.ambient-orb-2 {
+  background: var(--primary-accent-bright);
+  width: 30vw;
+  height: 30vw;
+  bottom: -10%;
+  right: -5%;
+  animation-delay: -5s;
+}
+
+@keyframes float {
+  0% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(5%, 10%) scale(1.1); }
+  100% { transform: translate(-5%, -5%) scale(0.9); }
 }

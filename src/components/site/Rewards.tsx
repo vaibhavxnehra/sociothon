@@ -28,7 +28,7 @@ export function Rewards() {
           eyebrow="Rewards"
           title={
             <>
-              Recognition worth <span className="text-gold-gradient">competing for</span>
+              Recognition worth <span className="text-gradient-primary">competing for</span>
             </>
           }
         />
@@ -43,7 +43,7 @@ export function Rewards() {
                 <r.icon className="h-8 w-8 text-primary" />
                 <h3 className="mt-5 font-display text-xl font-bold">{r.title}</h3>
                 {r.highlight ? (
-                  <p className="mt-3 font-display text-4xl font-extrabold text-gold-gradient">
+                  <p className="mt-3 font-display text-4xl font-extrabold text-gradient-primary">
                     <Counter to={30000} prefix="₹" />
                   </p>
                 ) : null}

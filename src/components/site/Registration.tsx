@@ -78,7 +78,7 @@ export function Registration({ registerUrl }: { registerUrl: string }) {
           eyebrow="Registration"
           title={
             <>
-              Secure your <span className="text-gold-gradient">seat</span>
+              Secure your <span className="text-gradient-primary">seat</span>
             </>
           }
           subtitle="Registration fees for students from other colleges and universities."

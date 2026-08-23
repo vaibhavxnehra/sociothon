@@ -55,7 +55,11 @@ export const Route = createFileRoute("/")({
 
 function Index() {
   return (
-    <div className="min-h-screen overflow-x-hidden bg-background">
+    <div className="min-h-screen overflow-x-hidden bg-background relative z-0">
+      {/* Ambient Background Orbs */}
+      <div className="ambient-orb ambient-orb-1"></div>
+      <div className="ambient-orb ambient-orb-2"></div>
+
       <Navbar registerUrl={REGISTER_URL} />
       <main>
         <Hero registerUrl={REGISTER_URL} />
