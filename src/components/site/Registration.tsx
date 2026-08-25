@@ -6,6 +6,7 @@ import {
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
+} from "@/components/ui/accordion";
 import nirmaanQr from "@/assets/nirmaan-qr.png";
 import sociothonQr from "@/assets/sociothon-qr.png";
 
