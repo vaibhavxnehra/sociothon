@@ -6,12 +6,13 @@ import {
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "@/components/ui/accordion";
+import nirmaanQr from "@/assets/nirmaan-qr.png";
+import sociothonQr from "@/assets/sociothon-qr.png";
 
 const FEES = [
-  { window: "Before 10th September", fee: "₹500", stay: "+ ₹250 (Accommodation)" },
-  { window: "10th – 30th September", fee: "₹750", stay: "+ ₹250 (Accommodation)" },
-  { window: "On-spot Registration", fee: "₹1,000", stay: "+ ₹250 (Accommodation)" },
+  { window: "Before 10th September", fee: "₹500", stay: "+ ₹450 per day (Accommodation + Food)*" },
+  { window: "10th – 30th September", fee: "₹750", stay: "+ ₹450 per day (Accommodation + Food)*" },
+  { window: "On-spot Registration", fee: "₹1,000", stay: "+ ₹450 per day (Accommodation + Food)*" },
 ];
 
 const BANK = [
@@ -27,7 +28,7 @@ const FAQS = [
   },
   {
     q: "Is accommodation available?",
-    a: "Yes. Accommodation is available at an additional ₹250 over the registration fee, and can be opted for at the time of registration.",
+    a: "Yes. Accommodation and food are available at an additional ₹450 per day over the registration fee, and can be opted for at the time of registration.",
   },
   {
     q: "What is the team size for SOCI-O-THON?",
@@ -116,30 +117,43 @@ export function Registration({ registerUrl }: { registerUrl: string }) {
             </div>
           </Reveal>
 
-          <Reveal delay={0.1}>
-            <div className="glass-panel flex h-full flex-col items-center justify-center rounded-3xl p-8 text-center">
-              <p className="text-xs font-semibold tracking-[0.24em] text-primary uppercase">Scan to register</p>
-              <div className="mt-6 grid aspect-square w-full max-w-[260px] place-items-center rounded-2xl border border-dashed border-primary/40 bg-navy-deep/60">
-                <div className="px-6">
-                  <QrCode className="mx-auto h-16 w-16 text-primary" />
-                  <p className="mt-3 text-xs text-muted-foreground">
-                    Registration QR code placeholder- replace with the official QR image.
-                  </p>
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-2">
+            <Reveal delay={0.1}>
+              <div className="glass-panel flex h-full flex-col items-center justify-center rounded-3xl p-6 text-center">
+                <h4 className="font-display text-lg font-bold">SOCI-O-THON</h4>
+                <p className="mt-1 text-[10px] font-semibold tracking-[0.2em] text-primary uppercase">Scan to register</p>
+                <div className="mt-5 grid aspect-square w-full max-w-[180px] place-items-center rounded-2xl bg-white p-3">
+                  <img src={sociothonQr} alt="SOCI-O-THON Registration QR" className="h-full w-full object-contain" />
                 </div>
+                <a
+                  href="https://unstop.com/p/soci-o-thon-rajiv-gandhi-institute-of-petroleum-technology-rgipt-jais-uttar-pradesh-1739363?utm_medium=Share&utm_source=maitttri8346&utm_campaign=Online_coding_challenge"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="mt-6 inline-flex w-full items-center justify-center rounded-full bg-primary px-6 py-2.5 font-display text-sm font-semibold text-primary-foreground shadow-[var(--shadow-glow)] transition-transform hover:scale-105"
+                >
+                  Register Now
+                </a>
               </div>
-              <a
-                href={registerUrl}
-                target="_blank"
-                rel="noreferrer"
-                className="mt-7 inline-flex w-full items-center justify-center rounded-full bg-primary px-8 py-3.5 font-display font-semibold text-primary-foreground shadow-[var(--shadow-glow)] transition-transform hover:scale-105"
-              >
-                Register Now
-              </a>
-              <p className="mt-3 text-xs text-muted-foreground">
-                Each NIRMAAN abstract submission requires a separate registration.
-              </p>
-            </div>
-          </Reveal>
+            </Reveal>
+
+            <Reveal delay={0.2}>
+              <div className="glass-panel flex h-full flex-col items-center justify-center rounded-3xl p-6 text-center">
+                <h4 className="font-display text-lg font-bold">NIRMAAN</h4>
+                <p className="mt-1 text-[10px] font-semibold tracking-[0.2em] text-primary uppercase">Scan to register</p>
+                <div className="mt-5 grid aspect-square w-full max-w-[180px] place-items-center rounded-2xl bg-white p-3">
+                  <img src={nirmaanQr} alt="NIRMAAN Registration QR" className="h-full w-full object-contain" />
+                </div>
+                <a
+                  href="https://unstop.com/p/nirmaan-rajiv-gandhi-institute-of-petroleum-technology-rgipt-jais-uttar-pradesh-1739415?lb=vXVoVKWb&utm_medium=Share&utm_source=maitttri8346&utm_campaign=Conferences"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="mt-6 inline-flex w-full items-center justify-center rounded-full bg-primary px-6 py-2.5 font-display text-sm font-semibold text-primary-foreground shadow-[var(--shadow-glow)] transition-transform hover:scale-105"
+                >
+                  Register Now
+                </a>
+              </div>
+            </Reveal>
+          </div>
         </div>
 
         <Reveal delay={0.12} className="mx-auto mt-14 max-w-3xl">
