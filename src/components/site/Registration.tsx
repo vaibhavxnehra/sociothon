@@ -86,9 +86,27 @@ export function Registration({ registerUrl }: { registerUrl: string }) {
           subtitle="Registration fees for students from other colleges and universities."
         />
 
-        <div className="mt-14 grid gap-6 lg:grid-cols-[1.15fr_1fr]">
-          <Reveal>
-            <div className="glass-panel overflow-hidden rounded-3xl">
+        <div className="mt-14 grid gap-6 lg:grid-cols-[1fr_1.35fr_1fr]">
+          <Reveal delay={0.1}>
+            <div className="glass-panel flex h-full flex-col items-center justify-center rounded-3xl p-6 text-center">
+              <h4 className="font-display text-lg font-bold">SOCI-O-THON</h4>
+              <p className="mt-1 text-[10px] font-semibold tracking-[0.2em] text-primary uppercase">Scan to register</p>
+              <div className="mt-5 grid aspect-square w-full max-w-[180px] place-items-center rounded-2xl bg-white p-3">
+                <img src={sociothonQr} alt="SOCI-O-THON Registration QR" className="h-full w-full object-contain" />
+              </div>
+              <a
+                href="https://unstop.com/p/soci-o-thon-rajiv-gandhi-institute-of-petroleum-technology-rgipt-jais-uttar-pradesh-1739363?utm_medium=Share&utm_source=maitttri8346&utm_campaign=Online_coding_challenge"
+                target="_blank"
+                rel="noreferrer"
+                className="mt-6 inline-flex w-full items-center justify-center rounded-full bg-primary px-6 py-2.5 font-display text-sm font-semibold text-primary-foreground shadow-[var(--shadow-glow)] transition-transform hover:scale-105"
+              >
+                Register Now
+              </a>
+            </div>
+          </Reveal>
+
+          <Reveal delay={0.2}>
+            <div className="glass-panel h-full overflow-hidden rounded-3xl">
               <div className="p-7 sm:p-9">
                 <h3 className="font-display text-2xl font-bold">Registration Fees</h3>
                 <div className="mt-6 space-y-3">
@@ -118,43 +136,23 @@ export function Registration({ registerUrl }: { registerUrl: string }) {
             </div>
           </Reveal>
 
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-2">
-            <Reveal delay={0.1}>
-              <div className="glass-panel flex h-full flex-col items-center justify-center rounded-3xl p-6 text-center">
-                <h4 className="font-display text-lg font-bold">SOCI-O-THON</h4>
-                <p className="mt-1 text-[10px] font-semibold tracking-[0.2em] text-primary uppercase">Scan to register</p>
-                <div className="mt-5 grid aspect-square w-full max-w-[180px] place-items-center rounded-2xl bg-white p-3">
-                  <img src={sociothonQr} alt="SOCI-O-THON Registration QR" className="h-full w-full object-contain" />
-                </div>
-                <a
-                  href="https://unstop.com/p/soci-o-thon-rajiv-gandhi-institute-of-petroleum-technology-rgipt-jais-uttar-pradesh-1739363?utm_medium=Share&utm_source=maitttri8346&utm_campaign=Online_coding_challenge"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="mt-6 inline-flex w-full items-center justify-center rounded-full bg-primary px-6 py-2.5 font-display text-sm font-semibold text-primary-foreground shadow-[var(--shadow-glow)] transition-transform hover:scale-105"
-                >
-                  Register Now
-                </a>
+          <Reveal delay={0.3}>
+            <div className="glass-panel flex h-full flex-col items-center justify-center rounded-3xl p-6 text-center">
+              <h4 className="font-display text-lg font-bold">NIRMAAN</h4>
+              <p className="mt-1 text-[10px] font-semibold tracking-[0.2em] text-primary uppercase">Scan to register</p>
+              <div className="mt-5 grid aspect-square w-full max-w-[180px] place-items-center rounded-2xl bg-white p-3">
+                <img src={nirmaanQr} alt="NIRMAAN Registration QR" className="h-full w-full object-contain" />
               </div>
-            </Reveal>
-
-            <Reveal delay={0.2}>
-              <div className="glass-panel flex h-full flex-col items-center justify-center rounded-3xl p-6 text-center">
-                <h4 className="font-display text-lg font-bold">NIRMAAN</h4>
-                <p className="mt-1 text-[10px] font-semibold tracking-[0.2em] text-primary uppercase">Scan to register</p>
-                <div className="mt-5 grid aspect-square w-full max-w-[180px] place-items-center rounded-2xl bg-white p-3">
-                  <img src={nirmaanQr} alt="NIRMAAN Registration QR" className="h-full w-full object-contain" />
-                </div>
-                <a
-                  href="https://unstop.com/p/nirmaan-rajiv-gandhi-institute-of-petroleum-technology-rgipt-jais-uttar-pradesh-1739415?lb=vXVoVKWb&utm_medium=Share&utm_source=maitttri8346&utm_campaign=Conferences"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="mt-6 inline-flex w-full items-center justify-center rounded-full bg-primary px-6 py-2.5 font-display text-sm font-semibold text-primary-foreground shadow-[var(--shadow-glow)] transition-transform hover:scale-105"
-                >
-                  Register Now
-                </a>
-              </div>
-            </Reveal>
-          </div>
+              <a
+                href="https://unstop.com/p/nirmaan-rajiv-gandhi-institute-of-petroleum-technology-rgipt-jais-uttar-pradesh-1739415?lb=vXVoVKWb&utm_medium=Share&utm_source=maitttri8346&utm_campaign=Conferences"
+                target="_blank"
+                rel="noreferrer"
+                className="mt-6 inline-flex w-full items-center justify-center rounded-full bg-primary px-6 py-2.5 font-display text-sm font-semibold text-primary-foreground shadow-[var(--shadow-glow)] transition-transform hover:scale-105"
+              >
+                Register Now
+              </a>
+            </div>
+          </Reveal>
         </div>
 
         <Reveal delay={0.12} className="mx-auto mt-14 max-w-3xl">
