@@ -1,15 +1,14 @@
 import { Reveal, SectionHeading } from "./primitives";
 
 const MILESTONES = [
-  { date: "12 August 2026", text: "Registration Opens for SOCI-O-THON & NIRMAAN" },
-  { date: "10 September 2026", text: "Early Registration closes; SOCI-O-THON Problem Statements Released" },
-  { date: "10–30 September 2026", text: "Registration extended for SOCI-O-THON & NIRMAAN" },
-  { date: "30 September 2026", text: "SOCI-O-THON Round 1- Idea Submission Deadline" },
-  { date: "2 October 2026", text: "SOCI-O-THON Round 1 Results Announced" },
-  { date: "2–30 October 2026", text: "SOCI-O-THON Prototype Development Phase" },
-  { date: "30 October 2026", text: "SOCI-O-THON Final Round + NIRMAAN Conference (Day 1)" },
-  { date: "30 October 2026 (Night)", text: "Cultural Night" },
-  { date: "31 October 2026", text: "NIRMAAN Conference (Day 2) + Prize Distribution" },
+  { date: "18 August 2026", text: "Registration Opens" },
+  { date: "10 September 2026", text: "Registration Closes & Problem Statements (PS) Released" },
+  { date: "10–30 September 2026", text: "PPT Development Phase" },
+  { date: "30 September 2026", text: "Round 1" },
+  { date: "2 October 2026", text: "Round 1 Results Announced" },
+  { date: "2–30 October 2026", text: "Solution Development Phase" },
+  { date: "30 October 2026", text: "Final Presentation Round (Offline at RGIPT, Jais Campus)" },
+  { date: "30 October 2026 (Night)", text: "Cultural Night: Kaviraag" },
 ];
 
 export function Timeline() {
