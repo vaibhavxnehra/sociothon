@@ -19,23 +19,23 @@ import { Reveal, SectionHeading, Counter } from "./primitives";
 const STEPS = [
   {
     icon: FileText,
-    title: "Idea Proposal (Round 1)",
-    body: "Submit a short write-up covering problem understanding, proposed solution, impact potential and feasibility. Online submission as PPT or PDF.",
+    title: "Idea Proposal",
+    body: "Form a team of 3–4 members, submit a well structured PPT presentation covering the problem statement, proposed solution, innovation, feasibility, and expected social impact.",
   },
   {
     icon: ClipboardList,
     title: "Shortlisting",
-    body: "Teams are shortlisted from Round 1 entries and invited to the Final Round at RGIPT.",
+    body: "Proposals will be evaluated on social relevance, innovation, feasibility, sustainability, scalability, and potential impact.",
   },
   {
     icon: Wrench,
-    title: "Prototype Development",
-    body: "Selected teams develop a prototype or model along with an implementation strategy, impact assessment and sustainability plan.",
+    title: "Solution Development",
+    body: "Shortlisted teams will further develop and refine their solutions. A prototype/model is encouraged.",
   },
   {
     icon: FileCheck2,
-    title: "Final Evaluation",
-    body: "Live presentation of the prototype on Final Round day, followed by a Q&A round with judges who decide the winners.",
+    title: "Final Presentation & Evaluation",
+    body: "Teams will present their solutions before an expert jury, followed by a Q&A session. Evaluation will consider innovation, applicability, feasibility, sustainability, scalability, and potential social impact.",
   },
 ];
 
@@ -122,11 +122,14 @@ export function Events() {
                 <h3 className="font-display text-3xl font-extrabold sm:text-4xl">
                   SOCI-O-THON <span className="text-gradient-primary">- Social Innovation Hackathon</span>
                 </h3>
-                <p className="mt-4 max-w-3xl text-muted-foreground">
-                  The first hackathon of its kind at this scale- open to students from every field, not just
-                  engineering. Teams take on real social problems, from the grassroots to the citywide, and carry them
-                  from a raw idea to a working prototype with a credible plan for impact.
-                </p>
+                <div className="mt-4 space-y-4 max-w-3xl text-muted-foreground">
+                  <p>
+                    SOCI-O-THON – Together for Social Good is the Social Innovation Hackathon of SOUHARDYA 2026, providing students from diverse disciplines an opportunity to transform real-world social challenges into innovative and implementable solutions.
+                  </p>
+                  <p>
+                    Participants are encouraged to move beyond ideas and develop solutions with strong potential for practical implementation and social impact. Depending on the nature of the challenge, solutions may be presented as a prototype, model, proof-of-concept, digital solution, process, or implementation framework.
+                  </p>
+                </div>
 
                 <div className="mt-10 grid gap-8 lg:grid-cols-[1.1fr_1fr]">
                   <ol className="relative space-y-6 border-l border-border pl-7">
