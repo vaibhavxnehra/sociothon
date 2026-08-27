@@ -42,9 +42,9 @@ const COMMITTEE = [
 const COORDINATORS = [
   { name: "Gaurav Srivastava", email: "24ce3025@rgipt.ac.in", phone: "+91 91207 74202" },
   { name: "Rudransh Mishra", email: "24cs3043@rgipt.ac.in", phone: "+91 6307606696" },
-  { name: "Khushi Jatolia", email: "24it3028@rgipt.ac.in", phone: "+91 63800 94014" },
-  { name: "Vaibhav", email: "24mc3059@rgipt.ac.in", phone: "+91 88140 92519" },
   { name: "Sonal", email: "24mc3049@rgipt.ac.in", phone: "+91 70428 86792" },
+  { name: "Vaibhav", email: "24mc3059@rgipt.ac.in", phone: "+91 88140 92519" },
+  { name: "Khushi Jatolia", email: "24it3028@rgipt.ac.in", phone: "+91 63800 94014" },
   { name: "Maittri Tripathi", email: "24mc3027@rgipt.ac.in", phone: "+91 79760 34702" },
   { name: "Omika Singh", email: "24pp3005@rgipt.ac.in", phone: "+91 89500 84550" },
   { name: "Ojas Pandey", email: "24re3009@rgipt.ac.in", phone: "+91 63925 84586" },
