@@ -23,6 +23,20 @@ const COMMITTEE = [
     email: "malayaks@rgipt.ac.in",
     phone: "+91 94452 10634",
   },
+  {
+    name: "Dr. Sajal Agarwal",
+    role: "Co-Convener - NIRMAAN",
+    dept: "Dept. of Electrical and Electronics Engineering",
+    email: "sagarwal@rgipt.ac.in",
+    phone: "+91 535 2704 723",
+  },
+  {
+    name: "Dr. Shailesh Kumar",
+    role: "Co-Convener - SOCI-O-THON",
+    dept: "Dept. of Petroleum Engineering",
+    email: "shaileshk@rgipt.ac.in",
+    phone: "+91 535 2704 725",
+  },
 ];
 
 const COORDINATORS = [
