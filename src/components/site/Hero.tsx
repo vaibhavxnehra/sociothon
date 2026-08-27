@@ -120,8 +120,6 @@ export function Hero({ registerUrl }: { registerUrl: string }) {
         >
           <a
             href={registerUrl}
-            target="_blank"
-            rel="noreferrer"
             className="group inline-flex w-full items-center justify-center gap-2 rounded-full bg-primary px-8 py-3.5 font-display font-semibold text-primary-foreground shadow-[var(--shadow-glow)] transition-transform hover:scale-105 sm:w-auto"
           >
             Register Now

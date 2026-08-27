@@ -15,8 +15,8 @@ const TITLE = "SOCI-O-THON & NIRMAAN 2026 | RGIPT Souhardya";
 const DESCRIPTION =
   "SOUHARDYA 2026 presents SOCI-O-THON & NIRMAAN- a national social innovation hackathon and conference at RGIPT, Jais, Amethi on 30–31 October 2026. ₹30,000 prize pool. Register now.";
 
-// Replace with the official registration form link.
-const REGISTER_URL = "https://forms.gle/your-registration-form";
+// Scrolls to the registration section
+const REGISTER_URL = "#register";
 
 export const Route = createFileRoute("/")({
   component: Index,

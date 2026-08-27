@@ -78,8 +78,6 @@ export function Navbar({ registerUrl }: { registerUrl: string }) {
           ))}
           <a
             href={registerUrl}
-            target="_blank"
-            rel="noreferrer"
             className="rounded-full bg-primary px-5 py-2 text-sm font-semibold text-primary-foreground shadow-[var(--shadow-glow)] transition-transform hover:scale-105"
           >
             Register Now
@@ -117,9 +115,8 @@ export function Navbar({ registerUrl }: { registerUrl: string }) {
               ))}
               <a
                 href={registerUrl}
-                target="_blank"
-                rel="noreferrer"
-                className="mt-2 rounded-xl bg-primary px-4 py-3 text-center text-sm font-semibold text-primary-foreground"
+                onClick={() => setOpen(false)}
+                className="mt-6 flex w-full items-center justify-center rounded-xl bg-primary px-5 py-3 font-semibold text-primary-foreground"
               >
                 Register Now
               </a>
