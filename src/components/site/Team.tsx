@@ -45,9 +45,9 @@ const COORDINATORS = [
   { name: "Ms. Sonal", role: "JOINT SECRETARY", email: "24mc3049@rgipt.ac.in", phone: "+91 70428 86792" },
   { name: "Ms. Maittri Tripathi", role: "Coordinator (Soci-o-thon)", email: "24mc3027@rgipt.ac.in", phone: "+91 79760 34702" },
   { name: "Mr. Vaibhav", role: "Coordinator (Soci-o-thon)", email: "24mc3059@rgipt.ac.in", phone: "+91 88140 92519" },
-  { name: "Ms. Khushi Jatolia", role: "Coordinator (Nirmaan - The Conference)", email: "24it3028@rgipt.ac.in", phone: "+91 63800 94014" },
-  { name: "Ms. Omika Singh", role: "Coordinator (Nirmaan - The Conference)", email: "24pp3005@rgipt.ac.in", phone: "+91 89500 84550" },
-  { name: "Mr. Ojas Pandey", role: "Coordinator (Nirmaan - The Conference)", email: "24re3009@rgipt.ac.in", phone: "+91 63925 84586" },
+  { name: "Ms. Khushi Jatolia", role: "Coordinator (Nirmaan)", email: "24it3028@rgipt.ac.in", phone: "+91 63800 94014" },
+  { name: "Ms. Omika Singh", role: "Coordinator (Nirmaan)", email: "24pp3005@rgipt.ac.in", phone: "+91 89500 84550" },
+  { name: "Mr. Ojas Pandey", role: "Coordinator (Nirmaan)", email: "24re3009@rgipt.ac.in", phone: "+91 63925 84586" },
 ];
 
 function initials(name: string) {
