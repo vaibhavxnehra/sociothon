@@ -1,14 +1,14 @@
 import { Reveal, SectionHeading } from "./primitives";
 
 const MILESTONES = [
-  { date: "18 August 2026", text: "Registration Opens" },
-  { date: "10 September 2026", text: "Registration Closes & Problem Statements (PS) Released" },
-  { date: "10–30 September 2026", text: "PPT Development Phase" },
-  { date: "30 September 2026", text: "Round 1" },
-  { date: "2 October 2026", text: "Round 1 Results Announced" },
-  { date: "2–30 October 2026", text: "Solution Development Phase" },
-  { date: "30 October 2026", text: "Final Presentation Round (Offline at RGIPT, Jais Campus)" },
-  { date: "30 October 2026 (Night)", text: "Cultural Night: Kaviraag" },
+  { date: "18 August 2026", text: "Registration Live for\nSOCI-O-THON & NIRMAAN" },
+  { date: "10 September 2026", text: "Early Bird Registration - Rs. 500*\nSOCI-O-THON Problem Statements Released" },
+  { date: "30 September 2026", text: "SOCI-O-THON Round 1\nNIRMAAN: Result of Abstract Submission" },
+  { date: "02 October 2026", text: "SOCI-O-THON Round 1 Results announced" },
+  { date: "02-30 October 2026", text: "SOCI-O-THON Solution Development Phase" },
+  { date: "30 October 2026", text: "SOCI-O-THON Final Round\nNIRMAAN Conference (Day 1)" },
+  { date: "30 October 2026 (Night)", text: "Cultural Night (KAVIRAAG)" },
+  { date: "31 October 2026", text: "NIRMAAN Conference (Day 2)\nand Valedictory Function" },
 ];
 
 export function Timeline() {
@@ -42,7 +42,7 @@ export function Timeline() {
                   />
                   <div className="glass-panel lift-card rounded-2xl p-5">
                     <p className="font-display text-sm font-bold text-primary">{m.date}</p>
-                    <p className="mt-1.5 text-sm text-muted-foreground">{m.text}</p>
+                    <p className="mt-1.5 whitespace-pre-wrap text-sm text-muted-foreground">{m.text}</p>
                   </div>
                 </div>
               </Reveal>
