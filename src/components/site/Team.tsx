@@ -40,20 +40,20 @@ const COMMITTEE = [
 ];
 
 const COORDINATORS = [
-  { name: "Gaurav Srivastava", email: "24ce3025@rgipt.ac.in", phone: "+91 91207 74202" },
-  { name: "Rudransh Mishra", email: "24cs3043@rgipt.ac.in", phone: "+91 6307606696" },
-  { name: "Sonal", email: "24mc3049@rgipt.ac.in", phone: "+91 70428 86792" },
-  { name: "Maittri Tripathi", email: "24mc3027@rgipt.ac.in", phone: "+91 79760 34702" },
-  { name: "Vaibhav", email: "24mc3059@rgipt.ac.in", phone: "+91 88140 92519" },
-  { name: "Khushi Jatolia", email: "24it3028@rgipt.ac.in", phone: "+91 63800 94014" },
-  { name: "Omika Singh", email: "24pp3005@rgipt.ac.in", phone: "+91 89500 84550" },
-  { name: "Ojas Pandey", email: "24re3009@rgipt.ac.in", phone: "+91 63925 84586" },
+  { name: "Mr. Gaurav Srivastava", role: "SECRETARY", email: "secysocialservice@rgipt.ac.in", phone: "+91 91207 74202" },
+  { name: "Mr. Rudransh Mishra", role: "JOINT SECRETARY", email: "24cs3043@rgipt.ac.in", phone: "+91 6307606696" },
+  { name: "Ms. Sonal", role: "JOINT SECRETARY", email: "24mc3049@rgipt.ac.in", phone: "+91 70428 86792" },
+  { name: "Ms. Maittri Tripathi", role: "Coordinator (Soci-o-thon)", email: "24mc3027@rgipt.ac.in", phone: "+91 79760 34702" },
+  { name: "Mr. Vaibhav", role: "Coordinator (Soci-o-thon)", email: "24mc3059@rgipt.ac.in", phone: "+91 88140 92519" },
+  { name: "Ms. Khushi Jatolia", role: "Coordinator (Nirmaan - The Conference)", email: "24it3028@rgipt.ac.in", phone: "+91 63800 94014" },
+  { name: "Ms. Omika Singh", role: "Coordinator (Nirmaan - The Conference)", email: "24pp3005@rgipt.ac.in", phone: "+91 89500 84550" },
+  { name: "Mr. Ojas Pandey", role: "Coordinator (Nirmaan - The Conference)", email: "24re3009@rgipt.ac.in", phone: "+91 63925 84586" },
 ];
 
 function initials(name: string) {
   return name
     .split(" ")
-    .filter((p) => p.toLowerCase() !== "dr.")
+    .filter((p) => !["dr.", "mr.", "ms."].includes(p.toLowerCase()))
     .slice(0, 2)
     .map((p) => p[0])
     .join("");
@@ -118,7 +118,10 @@ export function Team() {
                   <span className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-primary/15 text-sm font-bold text-primary">
                     {initials(c.name)}
                   </span>
-                  <p className="truncate font-display font-semibold">{c.name}</p>
+                  <div className="min-w-0">
+                    <p className="truncate font-display font-semibold">{c.name}</p>
+                    <p className="truncate text-xs font-semibold text-primary mt-0.5 uppercase tracking-wider">{c.role}</p>
+                  </div>
                 </div>
                 <div className="mt-4 space-y-1.5 text-xs">
                   <a
