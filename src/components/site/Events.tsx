@@ -48,11 +48,11 @@ const THEMES = [
 ];
 
 const NIRMAAN_THEMES = [
-  "AI & Digital Innovation",
-  "Sustainability",
-  "Climate Action",
-  "Education",
-  "Community Health",
+  "Women and Child Empowerment",
+  "Rural Development",
+  "Energy and Sustainability",
+  "Mental Wellbeing and Community Care",
+  "Health and Hygiene",
 ];
 
 const ABSTRACT_RULES = [
