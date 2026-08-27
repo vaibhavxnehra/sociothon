@@ -226,8 +226,7 @@ export function Events() {
                         <Trophy className="h-5 w-5 text-primary" />
                         <h4 className="mt-3 font-display text-lg font-bold">Rewards</h4>
                         <p className="mt-2 text-sm text-muted-foreground">
-                          Trophies and goodies for theme-wise winners. Certificates for all registered participants who
-                          attend the conference.
+                          ₹10,000 as prize pool, trophies, goodies and other exciting prizes! + Certificate of Participation
                         </p>
                       </div>
                     </Reveal>
