@@ -70,9 +70,10 @@ export function Footer() {
           </div>
         </div>
 
-        <p className="mt-12 border-t border-border pt-6 text-center text-xs text-muted-foreground">
-          © 2026 SOUHARDYA, RGIPT Jais, Amethi. An Institute of National Importance, Government of India.
-        </p>
+        <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-border pt-6 text-center text-xs text-muted-foreground sm:flex-row sm:text-left">
+          <p>© 2026 SOUHARDYA, RGIPT Jais, Amethi. An Institute of National Importance, Government of India.</p>
+          <p>Made with ❤️ by Gudiya</p>
+        </div>
       </div>
     </footer>
   );
