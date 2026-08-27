@@ -197,10 +197,7 @@ export function Events() {
                   NIRMAAN <span className="text-gradient-primary">- National Social Conference</span>
                 </h3>
                 <p className="mt-4 max-w-3xl text-muted-foreground">
-                  Organized under SOUHARDYA, The Social Fest, NIRMAAN is a conference and presentation competition that
-                  brings students face-to-face with IAS/IPS officers, senior government officials and NGO
-                  representatives working at the grassroots of social change- through interactive talks, Q&amp;A
-                  sessions and NGO showcases.
+                  The conference, held under the flagship of SOUHARDYA 2026, invites paper and poster presentations that bring together IAS/IPS officers, academicians, industry professionals, NGO innovators, and students on a common platform.
                 </p>
 
                 <div className="mt-10 grid gap-6 lg:grid-cols-[1fr_1.1fr]">
