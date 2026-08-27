@@ -205,7 +205,7 @@ export function Events() {
                     <Reveal>
                       <div className="glass-panel lift-card rounded-2xl p-6">
                         <Presentation className="h-5 w-5 text-primary" />
-                        <h4 className="mt-3 font-display text-lg font-bold">Presentation Competition Themes</h4>
+                        <h4 className="mt-3 font-display text-lg font-bold">Themes</h4>
                         <div className="mt-4 flex flex-wrap gap-2">
                           {NIRMAAN_THEMES.map((t) => (
                             <span
