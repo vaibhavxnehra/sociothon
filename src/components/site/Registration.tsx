@@ -25,15 +25,15 @@ const BANK = [
 const FAQS = [
   {
     q: "Who can participate?",
-    a: "Undergraduate students from colleges and universities across India. SOCI-O-THON is open to every discipline, not just engineering. For NIRMAAN, the first author and presenting author(s) must be undergraduate students (BE/B.Tech / Dual Degree).",
+    a: "SOCI-O-THON is open to every discipline of undergraduate students (BE/B.Tech/Dual Degree).\n\nParticipation in NIRMAAN is open to students across undergraduate (UG), postgraduate (PG), and doctoral (PhD) levels, as well as industry personnel.\n\nTo be eligible, the first or presenting author must fall into one of these categories (UG, PG, PhD student, or industry personnel).",
   },
   {
     q: "Is accommodation available?",
     a: "Yes. Accommodation and food are available at an additional ₹450 per day over the registration fee, and can be opted for at the time of registration.",
   },
   {
-    q: "What is the team size for SOCI-O-THON?",
-    a: "Team size details will be shared along with the problem statements released on 10 September 2026. Please check this page for updates.",
+    q: "What is the team size for NIRMAAN?",
+    a: "The team size should be 1-4 members.\n\n₹500 per person.",
   },
   {
     q: "What format should the Round 1 submission be in?",
@@ -41,7 +41,7 @@ const FAQS = [
   },
   {
     q: "Can I submit more than one abstract to NIRMAAN?",
-    a: "Yes. There is no restriction on the number of abstract submissions per participant, but each submission requires a separate registration completed before the submission deadline.",
+    a: "Only one abstract per team is allowed.",
   },
   {
     q: "Will I get a certificate?",
@@ -161,7 +161,7 @@ export function Registration({ registerUrl }: { registerUrl: string }) {
             {FAQS.map((f) => (
               <AccordionItem key={f.q} value={f.q}>
                 <AccordionTrigger className="text-left font-display">{f.q}</AccordionTrigger>
-                <AccordionContent className="text-muted-foreground">{f.a}</AccordionContent>
+                <AccordionContent className="whitespace-pre-wrap text-muted-foreground">{f.a}</AccordionContent>
               </AccordionItem>
             ))}
           </Accordion>
