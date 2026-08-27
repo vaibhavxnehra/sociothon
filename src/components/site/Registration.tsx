@@ -9,6 +9,7 @@ import {
 } from "@/components/ui/accordion";
 import nirmaanQr from "@/assets/nirmaan-qr.png";
 import sociothonQr from "@/assets/sociothon-qr.png";
+import paymentQr from "@/assets/payment-qr.jpg";
 
 const FEES = [
   { window: "Before 10th September", fee: "₹500", stay: "+ ₹450 per day (Accommodation + Food)*" },
@@ -131,6 +132,11 @@ export function Registration({ registerUrl }: { registerUrl: string }) {
                   {BANK.map((b) => (
                     <CopyRow key={b.label} label={b.label} value={b.value} />
                   ))}
+                </div>
+                <div className="mt-8 flex flex-col items-center">
+                  <div className="w-48 overflow-hidden rounded-xl bg-white shadow-md sm:w-56">
+                    <img src={paymentQr} alt="Payment QR Code" className="h-full w-full object-contain" />
+                  </div>
                 </div>
               </div>
             </div>
