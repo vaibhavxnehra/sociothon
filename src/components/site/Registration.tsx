@@ -34,7 +34,7 @@ const FAQS = [
   },
   {
     q: "What is the team size for NIRMAAN?",
-    a: "The team size should be 1-4 members.\n\n₹500 per person.",
+    a: "The team size should be 1-4 members.",
   },
   {
     q: "What format should the Round 1 submission be in?",
