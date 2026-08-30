@@ -45,7 +45,7 @@ const COMMITTEE = [
     phone: "+91 535 2704 723",
   },
   {
-    name: "Dr Amey N. Agharkar",
+    name: "Dr. Amey N. Agharkar",
     role: "Co - Convener - NIRMAAN",
     dept: "Department of Mechanical Engineering",
     email: "anagharkar@rgipt.ac.in",
