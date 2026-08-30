@@ -9,6 +9,7 @@ import { Registration } from "@/components/site/Registration";
 import { Rewards } from "@/components/site/Rewards";
 import { Sponsors } from "@/components/site/Sponsors";
 import { Team } from "@/components/site/Team";
+import { Explore } from "@/components/site/Explore";
 import { Footer } from "@/components/site/Footer";
 
 const TITLE = "SOCI-O-THON & NIRMAAN 2026 | RGIPT Souhardya";
@@ -71,6 +72,7 @@ function Index() {
         <Rewards />
         <Sponsors />
         <Team />
+        <Explore />
       </main>
       <Footer />
     </div>
