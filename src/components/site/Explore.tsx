@@ -9,6 +9,7 @@ import lucknow4 from "@/assets/explore/lucknow-4.jpg";
 import varanasi1 from "@/assets/explore/varanasi-1.jpg";
 import varanasi2 from "@/assets/explore/varanasi-2.jpg";
 import varanasi3 from "@/assets/explore/varanasi-3.jpg";
+import varanasi4 from "@/assets/explore/varanasi-4.jpg";
 
 const DESTINATIONS = [
   {
@@ -25,7 +26,7 @@ const DESTINATIONS = [
     distance: "~4-5 hours from campus",
     highlights: "Famous for Ganga Aarti at Dashashwamedh Ghat, ancient narrow lanes, and street side lassi.",
     mapUrl: "https://www.google.com/maps/search/Varanasi",
-    images: [varanasi1, varanasi2, varanasi3],
+    images: [varanasi1, varanasi2, varanasi3, varanasi4],
   },
   {
     name: "Prayagraj",
@@ -75,10 +76,7 @@ export function Explore() {
               <div className="glass-panel flex h-full flex-col overflow-hidden rounded-3xl">
                 <div className="grid grid-cols-2 gap-1 p-2">
                   {dest.images.map((img, i) => (
-                    <div 
-                      key={i} 
-                      className={`overflow-hidden rounded-xl bg-muted/20 ${dest.images.length === 3 && i === 2 ? 'col-span-2 aspect-[21/9]' : 'aspect-video'}`}
-                    >
+                    <div key={i} className="aspect-video overflow-hidden rounded-xl bg-muted/20">
                       <img
                         src={img}
                         alt={`${dest.name} ${i + 1}`}
