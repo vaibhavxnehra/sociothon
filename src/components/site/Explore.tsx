@@ -1,6 +1,11 @@
 import { MapPin, Navigation } from "lucide-react";
 import { Reveal, SectionHeading } from "./primitives";
 
+import lucknow1 from "@/assets/explore/lucknow-1.jpg";
+import lucknow2 from "@/assets/explore/lucknow-2.jpg";
+import lucknow3 from "@/assets/explore/lucknow-3.jpg";
+import lucknow4 from "@/assets/explore/lucknow-4.jpg";
+
 const DESTINATIONS = [
   {
     name: "Lucknow",
@@ -8,12 +13,7 @@ const DESTINATIONS = [
     distance: "~1-2 hours from campus",
     highlights: "Known for Bara Imambara, Rumi Darwaza, vibrant kebabs, and rich Awadhi culture.",
     mapUrl: "https://www.google.com/maps/search/Lucknow",
-    images: [
-      "https://placehold.co/600x400/2A2A35/E2E8F0?text=Lucknow+1",
-      "https://placehold.co/600x400/2A2A35/E2E8F0?text=Lucknow+2",
-      "https://placehold.co/600x400/2A2A35/E2E8F0?text=Lucknow+3",
-      "https://placehold.co/600x400/2A2A35/E2E8F0?text=Lucknow+4",
-    ],
+    images: [lucknow1, lucknow2, lucknow3, lucknow4],
   },
   {
     name: "Prayagraj",
