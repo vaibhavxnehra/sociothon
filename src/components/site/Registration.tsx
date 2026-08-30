@@ -12,8 +12,8 @@ import sociothonQr from "@/assets/sociothon-qr.png";
 import paymentQr from "@/assets/payment-qr.jpg";
 
 const FEES = [
-  { window: "Before 10th September", fee: "₹500", stay: "+ ₹450 per day (Accommodation + Food)*" },
-  { window: "10th – 30th September", fee: "₹750", stay: "+ ₹450 per day (Accommodation + Food)*" },
+  { window: "Before 20th September", fee: "₹500", stay: "+ ₹450 per day (Accommodation + Food)*" },
+  { window: "20th – 30th September", fee: "₹750", stay: "+ ₹450 per day (Accommodation + Food)*" },
   { window: "On-spot Registration", fee: "₹1,000", stay: "+ ₹450 per day (Accommodation + Food)*" },
 ];
 
