@@ -11,6 +11,11 @@ import varanasi2 from "@/assets/explore/varanasi-2.jpg";
 import varanasi3 from "@/assets/explore/varanasi-3.jpg";
 import varanasi4 from "@/assets/explore/varanasi-4.jpg";
 
+import ayodhya1 from "@/assets/explore/ayodhya-1.jpg";
+import ayodhya2 from "@/assets/explore/ayodhya-2.jpg";
+import ayodhya3 from "@/assets/explore/ayodhya-3.jpg";
+import ayodhya4 from "@/assets/explore/ayodhya-4.jpg";
+
 const DESTINATIONS = [
   {
     name: "Lucknow",
@@ -47,12 +52,7 @@ const DESTINATIONS = [
     distance: "~2-3 hours from campus",
     highlights: "Famous for Ram Mandir, Saryu River Ghats, Hanuman Garhi, and historic temples.",
     mapUrl: "https://www.google.com/maps/search/Ayodhya",
-    images: [
-      "https://placehold.co/600x400/2A2A35/E2E8F0?text=Ayodhya+1",
-      "https://placehold.co/600x400/2A2A35/E2E8F0?text=Ayodhya+2",
-      "https://placehold.co/600x400/2A2A35/E2E8F0?text=Ayodhya+3",
-      "https://placehold.co/600x400/2A2A35/E2E8F0?text=Ayodhya+4",
-    ],
+    images: [ayodhya1, ayodhya2, ayodhya3, ayodhya4],
   },
 ];
 
