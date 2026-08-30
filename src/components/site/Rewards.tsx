@@ -7,11 +7,13 @@ const REWARDS = [
     title: "SOCI-O-THON Prize Pool",
     body: "₹30,000 in prizes, plus Special and Additional Awards and Recognitions for standout teams.",
     highlight: true,
+    amount: 30000,
   },
   {
     icon: Gift,
-    title: "NIRMAAN Trophies & Goodies",
-    body: "Trophies and goodies awarded to theme-wise winners of the presentation competition.",
+    title: "NIRMAAN Prize Pool",
+    body: "₹10,000 in prizes, plus trophies and goodies awarded to theme-wise winners.",
+    amount: 10000,
   },
   {
     icon: Award,
@@ -42,9 +44,9 @@ export function Rewards() {
               >
                 <r.icon className="h-8 w-8 text-primary" />
                 <h3 className="mt-5 font-display text-xl font-bold">{r.title}</h3>
-                {r.highlight ? (
+                {r.amount ? (
                   <p className="mt-3 font-display text-4xl font-extrabold text-gradient-primary">
-                    <Counter to={30000} prefix="₹" />
+                    <Counter to={r.amount} prefix="₹" />
                   </p>
                 ) : null}
                 <p className="mt-3 text-sm text-muted-foreground">{r.body}</p>
