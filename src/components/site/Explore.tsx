@@ -16,19 +16,6 @@ const DESTINATIONS = [
     images: [lucknow1, lucknow2, lucknow3, lucknow4],
   },
   {
-    name: "Prayagraj",
-    badge: "Sacred Confluence",
-    distance: "~2-3 hours from campus",
-    highlights: "Home to Triveni Sangam (confluence of 3 rivers), Anand Bhawan, and historic ghats.",
-    mapUrl: "https://www.google.com/maps/search/Prayagraj",
-    images: [
-      "https://placehold.co/600x400/2A2A35/E2E8F0?text=Prayagraj+1",
-      "https://placehold.co/600x400/2A2A35/E2E8F0?text=Prayagraj+2",
-      "https://placehold.co/600x400/2A2A35/E2E8F0?text=Prayagraj+3",
-      "https://placehold.co/600x400/2A2A35/E2E8F0?text=Prayagraj+4",
-    ],
-  },
-  {
     name: "Varanasi (Benaras)",
     badge: "Cultural & Spiritual",
     distance: "~4-5 hours from campus",
@@ -39,6 +26,19 @@ const DESTINATIONS = [
       "https://placehold.co/600x400/2A2A35/E2E8F0?text=Varanasi+2",
       "https://placehold.co/600x400/2A2A35/E2E8F0?text=Varanasi+3",
       "https://placehold.co/600x400/2A2A35/E2E8F0?text=Varanasi+4",
+    ],
+  },
+  {
+    name: "Prayagraj",
+    badge: "Sacred Confluence",
+    distance: "~2-3 hours from campus",
+    highlights: "Home to Triveni Sangam (confluence of 3 rivers), Anand Bhawan, and historic ghats.",
+    mapUrl: "https://www.google.com/maps/search/Prayagraj",
+    images: [
+      "https://placehold.co/600x400/2A2A35/E2E8F0?text=Prayagraj+1",
+      "https://placehold.co/600x400/2A2A35/E2E8F0?text=Prayagraj+2",
+      "https://placehold.co/600x400/2A2A35/E2E8F0?text=Prayagraj+3",
+      "https://placehold.co/600x400/2A2A35/E2E8F0?text=Prayagraj+4",
     ],
   },
   {
