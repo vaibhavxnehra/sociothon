@@ -16,6 +16,11 @@ import ayodhya2 from "@/assets/explore/ayodhya-2.jpg";
 import ayodhya3 from "@/assets/explore/ayodhya-3.jpg";
 import ayodhya4 from "@/assets/explore/ayodhya-4.jpg";
 
+import prayagraj1 from "@/assets/explore/prayagraj-1.jpg";
+import prayagraj2 from "@/assets/explore/prayagraj-2.jpg";
+import prayagraj3 from "@/assets/explore/prayagraj-3.jpg";
+import prayagraj4 from "@/assets/explore/prayagraj-4.jpg";
+
 const DESTINATIONS = [
   {
     name: "Lucknow",
@@ -39,12 +44,7 @@ const DESTINATIONS = [
     distance: "~2-3 hours from campus",
     highlights: "Home to Triveni Sangam (confluence of 3 rivers), Anand Bhawan, and historic ghats.",
     mapUrl: "https://www.google.com/maps/search/Prayagraj",
-    images: [
-      "https://placehold.co/600x400/2A2A35/E2E8F0?text=Prayagraj+1",
-      "https://placehold.co/600x400/2A2A35/E2E8F0?text=Prayagraj+2",
-      "https://placehold.co/600x400/2A2A35/E2E8F0?text=Prayagraj+3",
-      "https://placehold.co/600x400/2A2A35/E2E8F0?text=Prayagraj+4",
-    ],
+    images: [prayagraj1, prayagraj2, prayagraj3, prayagraj4],
   },
   {
     name: "Ayodhya",
