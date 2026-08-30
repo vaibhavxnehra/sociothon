@@ -6,6 +6,11 @@ import lucknow2 from "@/assets/explore/lucknow-2.jpg";
 import lucknow3 from "@/assets/explore/lucknow-3.jpg";
 import lucknow4 from "@/assets/explore/lucknow-4.jpg";
 
+import varanasi1 from "@/assets/explore/varanasi-1.jpg";
+import varanasi2 from "@/assets/explore/varanasi-2.jpg";
+import varanasi3 from "@/assets/explore/varanasi-3.jpg";
+import varanasi4 from "@/assets/explore/varanasi-4.jpg";
+
 const DESTINATIONS = [
   {
     name: "Lucknow",
@@ -21,12 +26,7 @@ const DESTINATIONS = [
     distance: "~4-5 hours from campus",
     highlights: "Famous for Ganga Aarti at Dashashwamedh Ghat, ancient narrow lanes, and street side lassi.",
     mapUrl: "https://www.google.com/maps/search/Varanasi",
-    images: [
-      "https://placehold.co/600x400/2A2A35/E2E8F0?text=Varanasi+1",
-      "https://placehold.co/600x400/2A2A35/E2E8F0?text=Varanasi+2",
-      "https://placehold.co/600x400/2A2A35/E2E8F0?text=Varanasi+3",
-      "https://placehold.co/600x400/2A2A35/E2E8F0?text=Varanasi+4",
-    ],
+    images: [varanasi1, varanasi2, varanasi3, varanasi4],
   },
   {
     name: "Prayagraj",
