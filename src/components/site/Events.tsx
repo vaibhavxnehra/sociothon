@@ -243,7 +243,7 @@ export function Events() {
                         ))}
                       </ul>
                       <a
-                        href="https://drive.google.com/file/d/18igCeiCnjX5OYa968V9gLc1eYc_pTZYl/view"
+                        href="https://drive.google.com/file/d/16fMSR71It-slAXSyn9K87xirVmJtp88K/view?usp=sharing"
                         target="_blank"
                         rel="noreferrer"
                         className="mt-8 inline-flex w-full items-center justify-center rounded-xl bg-primary px-6 py-3 font-display text-sm font-semibold text-primary-foreground shadow-[var(--shadow-glow)] transition-transform hover:scale-105"
