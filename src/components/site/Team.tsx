@@ -3,39 +3,53 @@ import { Reveal, SectionHeading } from "./primitives";
 
 const COMMITTEE = [
   {
+    name: "Prof. Harish Hirani",
+    role: "Patron",
+    dept: "Director, RGIPT",
+    email: "",
+    phone: "",
+  },
+  {
+    name: "Dr. Koushik Guha Biswas",
+    role: "Convener",
+    dept: "Dean, Student Affairs",
+    email: "",
+    phone: "",
+  },
+  {
     name: "Dr. Arvind Singh",
     role: "Convener",
-    dept: "Dept. of Chemical Engineering",
-    email: "arvind.singh@rgipt.ac.in",
+    dept: "Department of Chemical and Biochemical Engineering",
+    email: "convener_socialservice@rgipt.ac.in",
     phone: "+91 75719 93333",
   },
   {
     name: "Dr. Vijay Kumar Singh",
-    role: "Co-Convener",
-    dept: "Dept. of Electrical and Electronics Engineering",
+    role: "Co - Convener & Organising Secretary",
+    dept: "Department of Electrical and Electronics Engineering",
     email: "vijayks@rgipt.ac.in",
     phone: "+91 97716 37514",
   },
   {
     name: "Dr. Malaya Kumar Sahoo",
-    role: "Co-Convener",
-    dept: "Dept. of Energy and Human Sciences",
+    role: "Co - Convener & Treasurer",
+    dept: "Department of Energy and Human Sciences",
     email: "malayaks@rgipt.ac.in",
     phone: "+91 94452 10634",
   },
   {
     name: "Dr. Sajal Agarwal",
-    role: "Co-Convener - NIRMAAN",
-    dept: "Dept. of Electrical and Electronics Engineering",
+    role: "Co - Convener - SOCI-O-THON",
+    dept: "Department of Electrical and Electronics Engineering",
     email: "sagarwal@rgipt.ac.in",
     phone: "+91 535 2704 723",
   },
   {
-    name: "Dr. Shailesh Kumar",
-    role: "Co-Convener - SOCI-O-THON",
-    dept: "Dept. of Petroleum Engineering",
-    email: "shaileshk@rgipt.ac.in",
-    phone: "+91 535 2704 725",
+    name: "Dr Amey N. Agharkar",
+    role: "Co - Convener - NIRMAAN",
+    dept: "Department of Mechanical Engineering",
+    email: "anagharkar@rgipt.ac.in",
+    phone: "+91 94082 34016",
   },
 ];
 
@@ -53,7 +67,7 @@ const COORDINATORS = [
 function initials(name: string) {
   return name
     .split(" ")
-    .filter((p) => !["dr.", "mr.", "ms."].includes(p.toLowerCase()))
+    .filter((p) => !["dr.", "dr", "mr.", "mr", "ms.", "ms", "prof.", "prof"].includes(p.toLowerCase()))
     .slice(0, 2)
     .map((p) => p[0])
     .join("");
@@ -83,22 +97,28 @@ export function Team() {
                 <h3 className="mt-5 font-display text-xl font-bold">{m.name}</h3>
                 <p className="text-sm font-semibold text-primary">{m.role}</p>
                 <p className="mt-1 text-sm text-muted-foreground">{m.dept}</p>
-                <div className="mt-5 space-y-2 text-sm">
-                  <a
-                    href={`mailto:${m.email}`}
-                    className="flex min-w-0 items-center gap-2 text-muted-foreground transition-colors hover:text-primary"
-                  >
-                    <Mail className="h-4 w-4 shrink-0" />
-                    <span className="truncate">{m.email}</span>
-                  </a>
-                  <a
-                    href={`tel:${m.phone.replace(/\s/g, "")}`}
-                    className="flex items-center gap-2 text-muted-foreground transition-colors hover:text-primary"
-                  >
-                    <Phone className="h-4 w-4 shrink-0" />
-                    {m.phone}
-                  </a>
-                </div>
+                {m.email || m.phone ? (
+                  <div className="mt-5 space-y-2 text-sm">
+                    {m.email && (
+                      <a
+                        href={`mailto:${m.email}`}
+                        className="flex min-w-0 items-center gap-2 text-muted-foreground transition-colors hover:text-primary"
+                      >
+                        <Mail className="h-4 w-4 shrink-0" />
+                        <span className="truncate">{m.email}</span>
+                      </a>
+                    )}
+                    {m.phone && (
+                      <a
+                        href={`tel:${m.phone.replace(/\s/g, "")}`}
+                        className="flex items-center gap-2 text-muted-foreground transition-colors hover:text-primary"
+                      >
+                        <Phone className="h-4 w-4 shrink-0" />
+                        {m.phone}
+                      </a>
+                    )}
+                  </div>
+                ) : null}
               </div>
             </Reveal>
           ))}
