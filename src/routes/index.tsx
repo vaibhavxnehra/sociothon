@@ -56,7 +56,7 @@ export const Route = createFileRoute("/")({
 
 function Index() {
   return (
-    <div className="min-h-screen bg-background relative z-0">
+    <div className="min-h-screen bg-background relative z-0 overflow-hidden">
       {/* Ambient Background Orbs */}
       <div className="ambient-orb ambient-orb-1"></div>
       <div className="ambient-orb ambient-orb-2"></div>
