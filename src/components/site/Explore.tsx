@@ -31,7 +31,7 @@ const DESTINATIONS = [
     images: [lucknow1, lucknow2, lucknow3, lucknow4],
   },
   {
-    name: "Varanasi (Benaras)",
+    name: "Varanasi",
     badge: "Cultural & Spiritual",
     distance: "~4-5 hours from campus",
     highlights: "Famous for Ganga Aarti at Dashashwamedh Ghat, ancient narrow lanes, and street side lassi.",
