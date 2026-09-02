@@ -53,6 +53,23 @@ const COMMITTEE = [
   },
 ];
 
+const ADVISORY = [
+  { name: "Dr. Pradeep Kumar Singh", role: "Former Director", dept: "CSIR-Central Institute of Mining and Fuel Research (CSIR-CIMFR)" },
+  { name: "Prof. A. S. K. Sinha", role: "Former Director, RGIPT", dept: "Ahmedabad University" },
+  { name: "Prof. Shailendra Kumar Singh", role: "Former Director, IIM Ranchi", dept: "Shiv Nadar University" },
+  { name: "Prof. P. K. Mishra", role: "Former Vice-Chancellor, JUT, Ranchi & AKTU, Lucknow", dept: "IIT (BHU), Varanasi" },
+  { name: "Prof. D. K. Singh", role: "Vice-Chancellor, JUT, Ranchi", dept: "Former Director, BIT Sindri" },
+  { name: "Prof. Ram Sharan Singh", role: "Head, Department of Chemical Engineering & Technology", dept: "IIT (BHU), Varanasi" },
+  { name: "Prof. R. K. Mishra", role: "Department of Electrical Engineering", dept: "IIT (BHU), Varanasi" },
+  { name: "Prof. Santosh Ansumali", role: "Jawaharlal Nehru Centre for Advanced Scientific Research", dept: "(JNCASR), Bengaluru" },
+  { name: "Dr. Preetam Singh", role: "Department of Ceramic Engineering", dept: "IIT (BHU), Varanasi" },
+  { name: "Dr. Harish Kumar", role: "Scientist G", dept: "DMSRDE, Kanpur" },
+  { name: "Dr. Atul Kumar", role: "Department of Electronics Engineering", dept: "IIT (BHU), Varanasi" },
+  { name: "Dr. Ashish Bhatnagar", role: "Department of Physics", dept: "Jaypee Institute of Information Technology (JIIT), Noida" },
+  { name: "Dr. Yogesh Kumar", role: "Department of Mechanical Engineering", dept: "NIT Patna" },
+  { name: "Manu Kamboj", role: "National Youth Awardee", dept: "Government of India" },
+];
+
 const COORDINATORS = [
   { name: "Mr. Gaurav Srivastava", role: "SECRETARY", email: "secysocialservice@rgipt.ac.in", phone: "+91 91207 74202" },
   { name: "Mr. Rudransh Mishra", role: "JOINT SECRETARY", email: "24cs3043@rgipt.ac.in", phone: "+91 6307606696" },
@@ -125,7 +142,30 @@ export function Team() {
           ))}
         </div>
 
+        
         <Reveal className="mt-20 text-center">
+          <h3 className="font-display text-2xl font-bold sm:text-3xl">
+            Advisory <span className="text-gradient-primary">Committee</span>
+          </h3>
+        </Reveal>
+
+        <div className="mt-8 grid gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+          {ADVISORY.map((m, i) => (
+            <Reveal key={m.name} delay={i * 0.05}>
+              <div className="glass-panel lift-card h-full rounded-3xl p-7 flex flex-col items-center text-center">
+                <div className="h-28 w-28 overflow-hidden rounded-full border-2 border-primary/20 bg-primary/10 grid place-items-center text-primary font-display font-bold text-3xl mb-5 shadow-inner">
+                  {/* Space for photo. Fallback to initials */}
+                  {m.name ? initials(m.name) : ""}
+                </div>
+                <h3 className="font-display text-lg font-bold">{m.name}</h3>
+                <p className="mt-2 text-sm font-semibold text-primary">{m.role}</p>
+                <p className="mt-1 text-sm text-muted-foreground">{m.dept}</p>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+
+<Reveal className="mt-20 text-center">
           <h3 className="font-display text-2xl font-bold sm:text-3xl">
             Student <span className="text-gradient-primary">Coordinators</span>
           </h3>
