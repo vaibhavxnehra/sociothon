@@ -81,7 +81,12 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         name: "description",
         content:
-          "SOUHARDYA 2026 presents SOCI-O-THON & NIRMAAN at RGIPT, Jais, Amethi- 30 & 31 October 2026.",
+          "Join NIRMAAN 2026 and SOCI-O-THON under SOUHARDYA 2026 at Rajiv Gandhi Institute of Petroleum Technology (RGIPT). A national-level event focusing on Rural Development, Energy and Sustainability, and Women and Child Empowerment.",
+      },
+      {
+        name: "keywords",
+        content:
+          "NIRMAAN 2026, SOUHARDYA 2026, Rajiv Gandhi Institute of Petroleum Technology, RGIPT, Conference, Registration, Rural Development, Energy and Sustainability, Women and Child Empowerment, SOCI-O-THON",
       },
       { name: "author", content: "RGIPT, Jais, Amethi" },
       { property: "og:site_name", content: "SOUHARDYA 2026 · RGIPT" },
