@@ -13,6 +13,7 @@ import harishKumar from "@/assets/harish-kumar.png";
 import atulKumar from "@/assets/atul-kumar.png";
 import ashishBhatnagar from "@/assets/ashish-bhatnagar.png";
 import yogeshKumar from "@/assets/yogesh-kumar.jpg";
+import manuKamboj from "@/assets/manu-kamboj.png";
 
 const COMMITTEE = [
   {
@@ -80,7 +81,7 @@ const ADVISORY = [
   { name: "Dr. Atul Kumar", role: "Department of Electronics Engineering", dept: "IIT (BHU), Varanasi", image: atulKumar },
   { name: "Dr. Ashish Bhatnagar", role: "Department of Physics", dept: "Jaypee Institute of Information Technology (JIIT), Noida", image: ashishBhatnagar },
   { name: "Dr. Yogesh Kumar", role: "Department of Mechanical Engineering", dept: "NIT Patna", image: yogeshKumar },
-  { name: "Manu Kamboj", role: "National Youth Awardee", dept: "Government of India" },
+  { name: "Manu Kamboj", role: "National Youth Awardee", dept: "Government of India", image: manuKamboj },
 ];
 
 const COORDINATORS = [
