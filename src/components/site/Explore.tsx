@@ -23,12 +23,12 @@ import prayagraj4 from "@/assets/explore/prayagraj-4.jpg";
 
 const DESTINATIONS = [
   {
-    name: "Lucknow",
-    badge: "Heritage & Food",
-    distance: "~1-2 hours from campus",
-    highlights: "Known for Bara Imambara, Rumi Darwaza, vibrant kebabs, and rich Awadhi culture.",
-    mapUrl: "https://www.google.com/maps/search/Lucknow",
-    images: [lucknow1, lucknow2, lucknow3, lucknow4],
+    name: "Ayodhya",
+    badge: "Spiritual Heritage",
+    distance: "~2-3 hours from campus",
+    highlights: "Famous for Ram Mandir, Saryu River Ghats, Hanuman Garhi, and historic temples.",
+    mapUrl: "https://www.google.com/maps/search/Ayodhya",
+    images: [ayodhya1, ayodhya2, ayodhya3, ayodhya4],
   },
   {
     name: "Varanasi",
@@ -47,12 +47,12 @@ const DESTINATIONS = [
     images: [prayagraj1, prayagraj2, prayagraj3, prayagraj4],
   },
   {
-    name: "Ayodhya",
-    badge: "Spiritual Heritage",
-    distance: "~2-3 hours from campus",
-    highlights: "Famous for Ram Mandir, Saryu River Ghats, Hanuman Garhi, and historic temples.",
-    mapUrl: "https://www.google.com/maps/search/Ayodhya",
-    images: [ayodhya1, ayodhya2, ayodhya3, ayodhya4],
+    name: "Lucknow",
+    badge: "Heritage & Food",
+    distance: "~1-2 hours from campus",
+    highlights: "Known for Bara Imambara, Rumi Darwaza, vibrant kebabs, and rich Awadhi culture.",
+    mapUrl: "https://www.google.com/maps/search/Lucknow",
+    images: [lucknow1, lucknow2, lucknow3, lucknow4],
   },
 ];
 
