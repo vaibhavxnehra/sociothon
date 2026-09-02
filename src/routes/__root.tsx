@@ -77,7 +77,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "SOCI-O-THON & NIRMAAN 2026 | RGIPT Souhardya" },
+      { title: "NIRMAAN 2026 | SOUHARDYA | RGIPT" },
       {
         name: "description",
         content:
