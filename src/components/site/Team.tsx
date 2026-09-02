@@ -10,6 +10,7 @@ import rkMishra from "@/assets/rk-mishra.png";
 import santoshAnsumali from "@/assets/santosh-ansumali.png";
 import preetamSingh from "@/assets/preetam-singh.png";
 import harishKumar from "@/assets/harish-kumar.png";
+import atulKumar from "@/assets/atul-kumar.png";
 
 const COMMITTEE = [
   {
@@ -74,7 +75,7 @@ const ADVISORY = [
   { name: "Prof. Santosh Ansumali", role: "Jawaharlal Nehru Centre for Advanced Scientific Research", dept: "(JNCASR), Bengaluru", image: santoshAnsumali },
   { name: "Dr. Preetam Singh", role: "Department of Ceramic Engineering", dept: "IIT (BHU), Varanasi", image: preetamSingh },
   { name: "Dr. Harish Kumar", role: "Scientist G", dept: "DMSRDE, Kanpur", image: harishKumar },
-  { name: "Dr. Atul Kumar", role: "Department of Electronics Engineering", dept: "IIT (BHU), Varanasi" },
+  { name: "Dr. Atul Kumar", role: "Department of Electronics Engineering", dept: "IIT (BHU), Varanasi", image: atulKumar },
   { name: "Dr. Ashish Bhatnagar", role: "Department of Physics", dept: "Jaypee Institute of Information Technology (JIIT), Noida" },
   { name: "Dr. Yogesh Kumar", role: "Department of Mechanical Engineering", dept: "NIT Patna" },
   { name: "Manu Kamboj", role: "National Youth Awardee", dept: "Government of India" },
