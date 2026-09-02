@@ -7,6 +7,7 @@ import pkMishra from "@/assets/pk-mishra.png";
 import dkSingh from "@/assets/dk-singh.png";
 import rsSingh from "@/assets/rs-singh.png";
 import rkMishra from "@/assets/rk-mishra.png";
+import santoshAnsumali from "@/assets/santosh-ansumali.png";
 
 const COMMITTEE = [
   {
@@ -68,7 +69,7 @@ const ADVISORY = [
   { name: "Prof. D. K. Singh", role: "Vice-Chancellor, JUT, Ranchi", dept: "Former Director, BIT Sindri", image: dkSingh },
   { name: "Prof. Ram Sharan Singh", role: "Head, Department of Chemical Engineering & Technology", dept: "IIT (BHU), Varanasi", image: rsSingh },
   { name: "Prof. R. K. Mishra", role: "Department of Electrical Engineering", dept: "IIT (BHU), Varanasi", image: rkMishra },
-  { name: "Prof. Santosh Ansumali", role: "Jawaharlal Nehru Centre for Advanced Scientific Research", dept: "(JNCASR), Bengaluru" },
+  { name: "Prof. Santosh Ansumali", role: "Jawaharlal Nehru Centre for Advanced Scientific Research", dept: "(JNCASR), Bengaluru", image: santoshAnsumali },
   { name: "Dr. Preetam Singh", role: "Department of Ceramic Engineering", dept: "IIT (BHU), Varanasi" },
   { name: "Dr. Harish Kumar", role: "Scientist G", dept: "DMSRDE, Kanpur" },
   { name: "Dr. Atul Kumar", role: "Department of Electronics Engineering", dept: "IIT (BHU), Varanasi" },
