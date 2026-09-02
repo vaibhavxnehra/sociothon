@@ -1,6 +1,7 @@
 import { Mail, Phone } from "lucide-react";
 import { Reveal, SectionHeading } from "./primitives";
 import pradeepKumarSingh from "@/assets/pradeep-kumar-singh.png";
+import askSinha from "@/assets/ask-sinha.png";
 
 const COMMITTEE = [
   {
@@ -56,7 +57,7 @@ const COMMITTEE = [
 
 const ADVISORY = [
   { name: "Dr. Pradeep Kumar Singh", role: "Former Director", dept: "CSIR-Central Institute of Mining and Fuel Research (CSIR-CIMFR)", image: pradeepKumarSingh },
-  { name: "Prof. A. S. K. Sinha", role: "Former Director, RGIPT", dept: "Ahmedabad University" },
+  { name: "Prof. A. S. K. Sinha", role: "Former Director, RGIPT", dept: "Ahmedabad University", image: askSinha },
   { name: "Prof. Shailendra Kumar Singh", role: "Former Director, IIM Ranchi", dept: "Shiv Nadar University" },
   { name: "Prof. P. K. Mishra", role: "Former Vice-Chancellor, JUT, Ranchi & AKTU, Lucknow", dept: "IIT (BHU), Varanasi" },
   { name: "Prof. D. K. Singh", role: "Vice-Chancellor, JUT, Ranchi", dept: "Former Director, BIT Sindri" },
