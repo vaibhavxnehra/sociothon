@@ -6,42 +6,16 @@ export function SplashOverlay() {
   const [isVisible, setIsVisible] = useState(true);
 
   useEffect(() => {
-    // Prevent scrolling while visible
-    if (isVisible) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "auto";
-    }
-
-    const handleScroll = () => {
-      if (window.scrollY > 50) {
+    // We don't lock body overflow so window scrolling still works,
+    // or we can just rely on the overlay's own wheel event to dismiss it.
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape" || e.key === "Enter" || e.key === " ") {
         setIsVisible(false);
       }
     };
-
-    const handleWheel = (e: WheelEvent) => {
-      if (isVisible && e.deltaY > 0) {
-        setIsVisible(false);
-      }
-    };
-
-    const handleTouch = (e: TouchEvent) => {
-      if (isVisible) {
-        setIsVisible(false);
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    window.addEventListener("wheel", handleWheel);
-    window.addEventListener("touchmove", handleTouch);
-    
-    return () => {
-      document.body.style.overflow = "auto";
-      window.removeEventListener("scroll", handleScroll);
-      window.removeEventListener("wheel", handleWheel);
-      window.removeEventListener("touchmove", handleTouch);
-    };
-  }, [isVisible]);
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, []);
 
   return (
     <AnimatePresence>
@@ -51,7 +25,9 @@ export function SplashOverlay() {
           exit={{ opacity: 0, y: "-100%" }}
           transition={{ duration: 0.8, ease: "easeInOut" }}
           onClick={() => setIsVisible(false)}
-          className="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-background/95 backdrop-blur-md cursor-pointer overflow-y-auto p-4 sm:p-8"
+          onWheel={() => setIsVisible(false)}
+          onTouchMove={() => setIsVisible(false)}
+          className="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-background/98 backdrop-blur-xl cursor-pointer overflow-hidden p-4 sm:p-8"
         >
           <div className="max-w-4xl text-center flex flex-col items-center gap-8 mt-12 sm:mt-0">
             <h1 className="text-3xl sm:text-5xl font-bold font-display text-gradient-primary leading-tight mt-12 sm:mt-0">
