@@ -11,6 +11,7 @@ import { Sponsors } from "@/components/site/Sponsors";
 import { Team } from "@/components/site/Team";
 import { Explore } from "@/components/site/Explore";
 import { Footer } from "@/components/site/Footer";
+import { SplashOverlay } from "@/components/site/SplashOverlay";
 
 const TITLE = "SOCI-O-THON & NIRMAAN 2026 | RGIPT Souhardya";
 const DESCRIPTION =
@@ -57,6 +58,7 @@ export const Route = createFileRoute("/")({
 function Index() {
   return (
     <div className="min-h-screen bg-background relative z-0 overflow-hidden">
+      <SplashOverlay />
       {/* Ambient Background Orbs */}
       <div className="ambient-orb ambient-orb-1"></div>
       <div className="ambient-orb ambient-orb-2"></div>

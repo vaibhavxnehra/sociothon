@@ -1,0 +1,81 @@
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import inaugurationMain from "@/assets/inauguration-main.jpg";
+
+export function SplashOverlay() {
+  const [isVisible, setIsVisible] = useState(true);
+
+  useEffect(() => {
+    // Prevent scrolling while visible
+    if (isVisible) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        setIsVisible(false);
+      }
+    };
+
+    const handleWheel = (e: WheelEvent) => {
+      if (isVisible && e.deltaY > 0) {
+        setIsVisible(false);
+      }
+    };
+
+    const handleTouch = (e: TouchEvent) => {
+      if (isVisible) {
+        setIsVisible(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("wheel", handleWheel);
+    window.addEventListener("touchmove", handleTouch);
+    
+    return () => {
+      document.body.style.overflow = "auto";
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("wheel", handleWheel);
+      window.removeEventListener("touchmove", handleTouch);
+    };
+  }, [isVisible]);
+
+  return (
+    <AnimatePresence>
+      {isVisible && (
+        <motion.div
+          initial={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: "-100%" }}
+          transition={{ duration: 0.8, ease: "easeInOut" }}
+          onClick={() => setIsVisible(false)}
+          className="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-background/95 backdrop-blur-md cursor-pointer overflow-y-auto p-4 sm:p-8"
+        >
+          <div className="max-w-4xl text-center flex flex-col items-center gap-8 mt-12 sm:mt-0">
+            <h1 className="text-3xl sm:text-5xl font-bold font-display text-gradient-primary leading-tight mt-12 sm:mt-0">
+              Inauguration of Soci-O-Thon & Nirmaan 2026
+            </h1>
+            <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl">
+              We are deeply honored to have our program inaugurated by the esteemed <strong className="text-foreground">Padma Shri Prof. H.C. Verma</strong>. His presence inspires us all to work towards social innovation and rural development.
+            </p>
+
+            <div className="w-full max-w-3xl overflow-hidden rounded-2xl shadow-xl border border-border/50">
+              <img src={inaugurationMain} alt="Inauguration by Padma Shri Prof. H.C. Verma" className="w-full h-auto object-contain hover:scale-105 transition-transform duration-500" />
+            </div>
+
+            <motion.div 
+              animate={{ y: [0, 10, 0] }} 
+              transition={{ repeat: Infinity, duration: 2 }}
+              className="mt-4 pb-12 text-primary font-medium flex flex-col items-center gap-2"
+            >
+              <span>Click anywhere or scroll to enter website</span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-chevron-down"><path d="m6 9 6 6 6-6"/></svg>
+            </motion.div>
+          </div>
+        </motion.div>
+      )}
+    </AnimatePresence>
+  );
+}
