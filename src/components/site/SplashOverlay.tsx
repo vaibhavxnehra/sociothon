@@ -55,7 +55,7 @@ export function SplashOverlay() {
         >
           <div className="max-w-4xl text-center flex flex-col items-center gap-8 mt-12 sm:mt-0">
             <h1 className="text-3xl sm:text-5xl font-bold font-display text-gradient-primary leading-tight mt-12 sm:mt-0">
-              Inauguration of Soci-O-Thon & Nirmaan 2026
+              Inauguration of Soci-O-Thon and Nirmaan
             </h1>
             <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl">
               We are deeply honored to have our program inaugurated by the esteemed <strong className="text-foreground">Padma Shri Prof. H.C. Verma</strong>. His presence inspires us all to work towards social innovation and rural development.
