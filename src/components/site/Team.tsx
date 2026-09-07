@@ -9,7 +9,7 @@ import rsSingh from "@/assets/rs-singh.png";
 import rkMishra from "@/assets/rk-mishra.png";
 import santoshAnsumali from "@/assets/santosh-ansumali.png";
 import preetamSingh from "@/assets/preetam-singh.png";
-import harishKumar from "@/assets/harish-kumar.png";
+import harishKumar from "@/assets/harish-kumar.jpg";
 import atulKumar from "@/assets/atul-kumar.png";
 import ashishBhatnagar from "@/assets/ashish-bhatnagar.png";
 import yogeshKumar from "@/assets/yogesh-kumar.jpg";
