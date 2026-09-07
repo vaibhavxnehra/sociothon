@@ -1,7 +1,7 @@
 import { Reveal, SectionHeading } from "./primitives";
 
 const MILESTONES = [
-  { date: "18 August 2026", text: "Registration Live for\nSOCI-O-THON & NIRMAAN" },
+  { date: "18 August 2026", text: "Registration Live for\nSOCI-O-THON & Abstract Submission Live for NIRMAAN" },
   { date: "20 September 2026", text: "Early Bird Registration - Rs. 500*\nSOCI-O-THON Problem Statements Released" },
   { date: "30 September 2026", text: "SOCI-O-THON Round 1\nNIRMAAN: Result of Abstract Submission" },
   { date: "02 October 2026", text: "SOCI-O-THON Round 1 Results announced" },
