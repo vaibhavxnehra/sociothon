@@ -7,7 +7,6 @@ import { Events } from "@/components/site/Events";
 import { Timeline } from "@/components/site/Timeline";
 import { Registration } from "@/components/site/Registration";
 import { Rewards } from "@/components/site/Rewards";
-import { Sponsors } from "@/components/site/Sponsors";
 import { Team } from "@/components/site/Team";
 import { Explore } from "@/components/site/Explore";
 import { Footer } from "@/components/site/Footer";
@@ -72,7 +71,6 @@ function Index() {
         <Timeline />
         <Registration registerUrl={REGISTER_URL} />
         <Rewards />
-        <Sponsors />
         <Team />
         <Explore />
       </main>

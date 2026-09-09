@@ -8,7 +8,6 @@ const LINKS = [
   { id: "events", label: "Events" },
   { id: "timeline", label: "Timeline" },
   { id: "register", label: "Register" },
-  { id: "sponsors", label: "Sponsors" },
   { id: "contact", label: "Contact" },
 ];
 
