@@ -8,7 +8,7 @@ const MILESTONES = [
   { date: "02-28 October 2026", text: "SOCI-O-THON Solution Development Phase" },
   { date: "30 October 2026", text: "SOCI-O-THON Final Round\nNIRMAAN Conference (Day 1)" },
   { date: "30 October 2026 (Night)", text: "Cultural Night (KAVIRAAG)" },
-  { date: "31 October 2026", text: "NIRMAAN Conference (Day 2)\nand Valedictory Function" },
+  { date: "31 October 2026", text: "NIRMAAN Conference (Day 2)\nand Valedictory Function and SOCI-O-THON Panel Discussion" },
 ];
 
 export function Timeline() {
