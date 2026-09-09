@@ -36,8 +36,10 @@ export function Timeline() {
                   }`}
                 >
                   <span
-                    className={`absolute top-5 left-[9px] h-3 w-3 rounded-full bg-primary shadow-[0_0_0_5px_color-mix(in_oklab,var(--gold)_18%,transparent)] sm:left-auto ${
-                      i % 2 === 0 ? "sm:-right-[6px]" : "sm:-left-[6px]"
+                    className={`absolute top-5 h-3 w-3 rounded-full bg-primary shadow-[0_0_0_5px_color-mix(in_oklab,var(--gold)_18%,transparent)] ${
+                      i % 2 === 0 
+                        ? "left-[9px] sm:left-auto sm:-right-[6px]" 
+                        : "left-[9px] sm:-left-[6px]"
                     }`}
                   />
                   <div className="glass-panel lift-card rounded-2xl p-5">
