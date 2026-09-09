@@ -27,9 +27,10 @@ export function SplashOverlay() {
           onClick={() => setIsVisible(false)}
           onWheel={() => setIsVisible(false)}
           onTouchMove={() => setIsVisible(false)}
-          className="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-background/98 backdrop-blur-xl cursor-pointer overflow-hidden p-4 sm:p-8"
+          className="fixed inset-0 z-[9999] bg-background/98 backdrop-blur-xl cursor-pointer overflow-y-auto"
         >
-          <div className="max-w-4xl text-center flex flex-col items-center gap-8 mt-12 sm:mt-0">
+          <div className="min-h-full w-full flex flex-col items-center justify-center p-4 sm:p-8">
+            <div className="max-w-4xl w-full text-center flex flex-col items-center gap-6 sm:gap-8 py-8">
             <h1 className="text-3xl sm:text-5xl font-bold font-display text-gradient-primary leading-tight mt-12 sm:mt-0">
               Inauguration of Soci-O-Thon and Nirmaan
             </h1>
@@ -50,6 +51,7 @@ export function SplashOverlay() {
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-chevron-down"><path d="m6 9 6 6 6-6"/></svg>
             </motion.div>
           </div>
+        </div>
         </motion.div>
       )}
     </AnimatePresence>
