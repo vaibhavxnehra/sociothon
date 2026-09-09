@@ -11,9 +11,16 @@ export function Hero({ registerUrl }: { registerUrl: string }) {
   const scrollTo = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
     e.preventDefault();
     const target = id.startsWith('#') ? id.substring(1) : id;
+    
+    if (target === "top") {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      return;
+    }
+
     const el = document.getElementById(target);
     if (el) {
-      el.scrollIntoView({ behavior: "smooth" });
+      const y = el.getBoundingClientRect().top + window.scrollY - 80;
+      window.scrollTo({ top: y, behavior: "smooth" });
     }
   };
 
