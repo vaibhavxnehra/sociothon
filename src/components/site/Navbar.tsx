@@ -39,6 +39,15 @@ export function Navbar({ registerUrl }: { registerUrl: string }) {
     return () => observer.disconnect();
   }, []);
 
+  const scrollTo = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
+    e.preventDefault();
+    const target = id.startsWith('#') ? id.substring(1) : id;
+    const el = document.getElementById(target);
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${
@@ -46,7 +55,7 @@ export function Navbar({ registerUrl }: { registerUrl: string }) {
       }`}
     >
       <nav className="mx-auto flex max-w-7xl items-center gap-4 px-4 sm:px-6">
-        <a href="#top" className="flex min-w-0 items-center gap-3">
+        <a href="#top" onClick={(e) => scrollTo(e, "top")} className="flex min-w-0 items-center gap-3">
           <img
             src={rgiptLogo}
             alt="RGIPT logo"
@@ -69,6 +78,7 @@ export function Navbar({ registerUrl }: { registerUrl: string }) {
             <a
               key={l.id}
               href={`#${l.id}`}
+              onClick={(e) => scrollTo(e, l.id)}
               data-active={active === l.id}
               className="nav-link text-sm font-medium text-muted-foreground transition-colors hover:text-foreground data-[active=true]:text-foreground"
             >
@@ -77,6 +87,7 @@ export function Navbar({ registerUrl }: { registerUrl: string }) {
           ))}
           <a
             href={registerUrl}
+            onClick={(e) => scrollTo(e, registerUrl)}
             className="rounded-full bg-primary px-5 py-2 text-sm font-semibold text-primary-foreground shadow-[var(--shadow-glow)] transition-transform hover:scale-105"
           >
             Register Now
@@ -106,7 +117,7 @@ export function Navbar({ registerUrl }: { registerUrl: string }) {
                 <a
                   key={l.id}
                   href={`#${l.id}`}
-                  onClick={() => setOpen(false)}
+                  onClick={(e) => { setOpen(false); scrollTo(e, l.id); }}
                   className="rounded-xl px-3 py-3 text-sm font-medium transition-colors hover:bg-secondary"
                 >
                   {l.label}
@@ -114,7 +125,7 @@ export function Navbar({ registerUrl }: { registerUrl: string }) {
               ))}
               <a
                 href={registerUrl}
-                onClick={() => setOpen(false)}
+                onClick={(e) => { setOpen(false); scrollTo(e, registerUrl); }}
                 className="mt-6 flex w-full items-center justify-center rounded-xl bg-primary px-5 py-3 font-semibold text-primary-foreground"
               >
                 Register Now

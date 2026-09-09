@@ -8,6 +8,15 @@ import { Countdown } from "./Countdown";
 const words = ["SOCI-O-THON & NIRMAAN"];
 
 export function Hero({ registerUrl }: { registerUrl: string }) {
+  const scrollTo = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
+    e.preventDefault();
+    const target = id.startsWith('#') ? id.substring(1) : id;
+    const el = document.getElementById(target);
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <section id="top" className="relative isolate overflow-hidden pt-32 pb-20 sm:pt-40 sm:pb-28">
       <img
@@ -120,6 +129,7 @@ export function Hero({ registerUrl }: { registerUrl: string }) {
         >
           <a
             href={registerUrl}
+            onClick={(e) => scrollTo(e, registerUrl)}
             className="group inline-flex w-full items-center justify-center gap-2 rounded-full bg-primary px-8 py-3.5 font-display font-semibold text-primary-foreground shadow-[var(--shadow-glow)] transition-transform hover:scale-105 sm:w-auto"
           >
             Register Now
@@ -127,6 +137,7 @@ export function Hero({ registerUrl }: { registerUrl: string }) {
           </a>
           <a
             href="#events"
+            onClick={(e) => scrollTo(e, "events")}
             className="inline-flex w-full items-center justify-center rounded-full border border-primary/50 px-8 py-3.5 font-display font-semibold text-foreground transition-colors hover:bg-primary/10 sm:w-auto"
           >
             Explore Events

@@ -19,6 +19,15 @@ export function AboutSouhardya() {
     },
   ];
 
+  const scrollTo = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
+    e.preventDefault();
+    const target = id.startsWith('#') ? id.substring(1) : id;
+    const el = document.getElementById(target);
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <section className="relative py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
@@ -37,6 +46,7 @@ export function AboutSouhardya() {
             <Reveal key={c.name} delay={i * 0.12}>
               <a
                 href={c.href}
+                onClick={(e) => scrollTo(e, c.href)}
                 className="glass-panel lift-card group relative block h-full overflow-hidden rounded-3xl p-8 sm:p-10"
               >
                 <div className="absolute -top-16 -right-16 h-48 w-48 rounded-full bg-primary/10 blur-3xl transition-opacity group-hover:opacity-90" />

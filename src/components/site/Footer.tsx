@@ -11,18 +11,27 @@ const QUICK_LINKS = [
 ];
 
 export function Footer() {
+  const scrollTo = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
+    e.preventDefault();
+    const target = id.startsWith('#') ? id.substring(1) : id;
+    const el = document.getElementById(target);
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <footer className="relative border-t border-border bg-navy-deep py-16">
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <div className="grid gap-10 md:grid-cols-[1.4fr_1fr_1fr]">
           <div>
-            <div className="flex min-w-0 items-center gap-3">
+            <a href="#top" onClick={(e) => scrollTo(e, "top")} className="flex min-w-0 items-center gap-3 hover:opacity-80 transition-opacity">
               <img src={rgiptLogo} alt="RGIPT logo" loading="lazy" width={48} height={48} className="h-11 w-auto shrink-0" />
               <div className="min-w-0">
-                <p className="font-display font-bold">SOUHARDYA 2026</p>
+                <p className="font-display font-bold text-foreground">SOUHARDYA 2026</p>
                 <p className="text-xs tracking-[0.18em] text-muted-foreground uppercase">The Social Fest</p>
               </div>
-            </div>
+            </a>
             <p className="mt-5 flex items-start gap-2 text-sm text-muted-foreground">
               <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
               Rajiv Gandhi Institute of Petroleum Technology, Jais, Amethi, Uttar Pradesh- 229304
@@ -37,7 +46,7 @@ export function Footer() {
             <ul className="mt-4 space-y-2 text-sm">
               {QUICK_LINKS.map((l) => (
                 <li key={l.id}>
-                  <a href={`#${l.id}`} className="nav-link text-muted-foreground hover:text-foreground">
+                  <a href={`#${l.id}`} onClick={(e) => scrollTo(e, l.id)} className="nav-link text-muted-foreground hover:text-foreground">
                     {l.label}
                   </a>
                 </li>
