@@ -4,6 +4,7 @@ import { Hero } from "@/components/site/Hero";
 import { AboutRGIPT } from "@/components/site/AboutRGIPT";
 import { AboutSouhardya } from "@/components/site/AboutSouhardya";
 import { Events } from "@/components/site/Events";
+import { OtherEvents } from "@/components/site/OtherEvents";
 import { Timeline } from "@/components/site/Timeline";
 import { Registration } from "@/components/site/Registration";
 import { Rewards } from "@/components/site/Rewards";
@@ -68,6 +69,7 @@ function Index() {
         <AboutRGIPT />
         <AboutSouhardya />
         <Events />
+        <OtherEvents />
         <Timeline />
         <Registration registerUrl={REGISTER_URL} />
         <Rewards />
