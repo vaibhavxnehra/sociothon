@@ -76,7 +76,7 @@ const ADVISORY = [
   { name: "Prof. D. K. Singh", role: "Vice-Chancellor, JUT, Ranchi", dept: "Former Director, BIT Sindri", image: dkSingh },
   { name: "Prof. Ram Sharan Singh", role: "Head, Department of Chemical Engineering & Technology", dept: "IIT (BHU), Varanasi", image: rsSingh },
   { name: "Prof. G. Ranga Rao", role: "Professor", dept: "IIT Madras" },
-  { name: "Dr. Bineesha Payattati", role: "Executive Director", dept: "IIWM", image: bineeshaPayattati },
+  { name: "Prof. Bineesha Payattati", role: "Environmental Scientist and Advisor", dept: "Material Recycling Association of India", image: bineeshaPayattati },
   { name: "Prof. R. K. Mishra", role: "Department of Electrical Engineering", dept: "IIT (BHU), Varanasi", image: rkMishra },
   { name: "Prof. Santosh Ansumali", role: "Jawaharlal Nehru Centre for Advanced Scientific Research", dept: "(JNCASR), Bengaluru", image: santoshAnsumali },
   { name: "Dr. Preetam Singh", role: "Department of Ceramic Engineering", dept: "IIT (BHU), Varanasi", image: preetamSingh },
