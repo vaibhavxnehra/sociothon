@@ -57,7 +57,7 @@ export const Route = createFileRoute("/")({
 
 function Index() {
   return (
-    <div className="min-h-screen bg-background relative z-0 overflow-hidden">
+    <div className="min-h-screen bg-background relative z-0 overflow-x-hidden">
       <SplashOverlay />
       {/* Ambient Background Orbs */}
       <div className="ambient-orb ambient-orb-1"></div>
