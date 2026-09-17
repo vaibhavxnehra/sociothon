@@ -14,16 +14,9 @@ export function Footer() {
   const scrollTo = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
     e.preventDefault();
     const target = id.startsWith('#') ? id.substring(1) : id;
-    
-    if (target === "top") {
-      window.scrollTo({ top: 0, behavior: "smooth" });
-      return;
-    }
-
     const el = document.getElementById(target);
     if (el) {
-      const y = el.getBoundingClientRect().top + window.scrollY - 80;
-      window.scrollTo({ top: y, behavior: "smooth" });
+      el.scrollIntoView({ behavior: "smooth" });
     }
   };
 
