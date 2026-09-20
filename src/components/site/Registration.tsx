@@ -12,9 +12,9 @@ import sociothonQr from "@/assets/sociothon-qr.png";
 import paymentQr from "@/assets/payment-qr.jpg";
 
 const FEES = [
-  { window: "Before 20th September", fee: "₹500", stay: "+ ₹450 per day (Accommodation + Food)*" },
-  { window: "20th – 30th September", fee: "₹750", stay: "+ ₹450 per day (Accommodation + Food)*" },
-  { window: "On-spot Registration", fee: "₹1,000", stay: "+ ₹450 per day (Accommodation + Food)*" },
+  { window: "Before 30th September", fee: "₹500/-", stay: "" },
+  { window: "1st October - 15th October", fee: "₹750/-", stay: "" },
+  { window: "15th October - On Spot Registration", fee: "₹1,000/-", stay: "" },
 ];
 
 const BANK = [
@@ -118,11 +118,19 @@ export function Registration({ registerUrl }: { registerUrl: string }) {
                     >
                       <div className="min-w-0">
                         <p className="font-semibold">{f.window}</p>
-                        <p className="text-xs text-muted-foreground">{f.stay}</p>
+                        {f.stay && <p className="text-xs text-muted-foreground">{f.stay}</p>}
                       </div>
                       <p className="font-display text-2xl font-extrabold text-primary">{f.fee}</p>
                     </div>
                   ))}
+                </div>
+                <div className="mt-5 space-y-2 text-sm text-muted-foreground text-center sm:text-left">
+                  <p className="font-medium text-foreground">For Participants (Other college / University / Industries)</p>
+                  <p className="text-red-400">Registration is per team (one presenting author).</p>
+                  <p className="text-red-400">Each accompanying co-author must pay the registration fee separately.</p>
+                  <p className="inline-block mt-2 rounded-lg bg-navy-light px-3 py-1 text-primary">
+                    <span className="text-red-400 font-bold">*</span> ₹450/- (for Accommodation & Food) / Day
+                  </p>
                 </div>
               </div>
               <div className="border-t border-border p-7 sm:p-9">
