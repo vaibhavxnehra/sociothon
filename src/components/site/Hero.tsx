@@ -10,11 +10,7 @@ const words = ["SOCI-O-THON & NIRMAAN"];
 export function Hero({ registerUrl }: { registerUrl: string }) {
   const scrollTo = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
     e.preventDefault();
-    const target = id.startsWith('#') ? id.substring(1) : id;
-    const el = document.getElementById(target);
-    if (el) {
-      el.scrollIntoView({ behavior: "smooth" });
-    }
+    import("@/lib/utils").then(({ smoothScrollTo }) => smoothScrollTo(id));
   };
 
   return (
