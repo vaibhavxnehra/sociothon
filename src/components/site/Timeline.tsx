@@ -2,13 +2,13 @@ import { Reveal, SectionHeading } from "./primitives";
 
 const MILESTONES = [
   { date: "18 August 2026", text: "Abstract submission live for\nSOCI-O-THON & NIRMAAN" },
-  { date: "25 September 2026", text: "Early Bird Registration - Rs. 500*\nSOCI-O-THON Problem Statements Released" },
+  { date: "30 September 2026", text: "Early Bird Registration - Rs. 500*\nSOCI-O-THON Problem Statements Released" },
   { date: "05 October 2026", text: "SOCI-O-THON Round 1\nNIRMAAN: Result of Abstract Submission" },
   { date: "07 October 2026", text: "SOCI-O-THON Round 1 Results announced" },
   { date: "08-28 October 2026", text: "SOCI-O-THON Solution Development Phase" },
   { date: "30 October 2026", text: "SOCI-O-THON Final Round\nNIRMAAN Conference (Day 1)" },
   { date: "30 October 2026 (Night)", text: "Cultural Night (KAVIRAAG)" },
-  { date: "31 October 2026", text: "NIRMAAN Conference (Day 2)\nand Valedictory Function and SOCI-O-THON Panel Discussion" },
+  { date: "31 October 2026", text: "NIRMAAN Conference (Day 2)\nand Valedictory Function" },
 ];
 
 export function Timeline() {
