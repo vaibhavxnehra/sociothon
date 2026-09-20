@@ -57,7 +57,7 @@ const NIRMAAN_THEMES = [
 
 const ABSTRACT_RULES = [
   "Each submitted paper must include the title of the paper, name(s) of author(s), affiliation(s), phone number and email ID of the corresponding author.",
-  "The first author and presenting author(s) must be undergraduate students (BE/B.Tech / Dual Degree).",
+  "The first author / presenting author(s) may be undergraduate / Post graduate / Industry person.",
   "Other co-authors may include undergraduate, postgraduate or PhD students, as well as faculty members.",
   "There is no restriction on the number of authors or the number of abstract submissions per participant.",
   "Each submission requires a separate registration, completed before the submission deadline.",
