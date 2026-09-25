@@ -129,7 +129,7 @@ export function Registration({ registerUrl }: { registerUrl: string }) {
                   <p className="text-red-400">Registration is per team (one presenting author).</p>
                   <p className="text-red-400">Each accompanying co-author must pay the registration fee separately.</p>
                   <div className="mt-3 rounded-xl border border-primary/30 bg-primary/10 p-3 text-left">
-                    <p className="font-semibold text-primary">✨ Special Offer</p>
+                    <p className="font-semibold text-primary">All-Access Registration</p>
                     <p className="mt-1 text-primary/90">Pay the registration fee for either SOCI-O-THON or NIRMAAN, and get <strong className="font-bold">free access</strong> to participate in BOTH flagship events, as well as ALL other cultural events (PRATIBIMB, DRISHTIKON, etc.)!</p>
                   </div>
                   <div className="pt-2">
