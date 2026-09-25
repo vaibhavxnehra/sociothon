@@ -89,7 +89,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           "NIRMAAN 2026, SOUHARDYA 2026, Rajiv Gandhi Institute of Petroleum Technology, RGIPT, Conference, Registration, Rural Development, Energy and Sustainability, Women and Child Empowerment, SOCI-O-THON",
       },
       { name: "author", content: "RGIPT, Jais, Amethi" },
-      { property: "og:site_name", content: "SOUHARDYA 2026 · RGIPT" },
+      { property: "og:site_name", content: "Sociothon and Nirmaan Official Website" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
@@ -106,6 +106,17 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       },
       { rel: "icon", type: "image/png", href: "/favicon.png" },
     ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          name: "Sociothon and Nirmaan Official Website",
+          url: "https://sociothon-nirmaan.vercel.app/"
+        })
+      }
+    ]
   }),
 
   shellComponent: RootShell,
