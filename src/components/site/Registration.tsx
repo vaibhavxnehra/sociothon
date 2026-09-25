@@ -99,7 +99,7 @@ export function Registration({ registerUrl }: { registerUrl: string }) {
                 href="https://unstop.com/p/soci-o-thon-rajiv-gandhi-institute-of-petroleum-technology-rgipt-jais-uttar-pradesh-1739363?utm_medium=Share&utm_source=maitttri8346&utm_campaign=Online_coding_challenge"
                 target="_blank"
                 rel="noreferrer"
-                className="mt-6 inline-flex w-full items-center justify-center rounded-full bg-primary px-6 py-2.5 font-display text-sm font-semibold text-primary-foreground shadow-[var(--shadow-glow)] transition-transform hover:scale-105"
+                className="mt-6 inline-flex w-full items-center justify-center rounded-full bg-primary px-6 py-2.5 font-display text-sm font-semibold text-primary-foreground shadow-[var(--shadow-glow)] transition-transform hover:scale-105 animate-pulse-scale"
               >
                 Register Now
               </a>
@@ -161,7 +161,7 @@ export function Registration({ registerUrl }: { registerUrl: string }) {
                 href="https://unstop.com/p/nirmaan-rajiv-gandhi-institute-of-petroleum-technology-rgipt-jais-uttar-pradesh-1739415?lb=vXVoVKWb&utm_medium=Share&utm_source=maitttri8346&utm_campaign=Conferences"
                 target="_blank"
                 rel="noreferrer"
-                className="mt-6 inline-flex w-full items-center justify-center rounded-full bg-primary px-6 py-2.5 font-display text-sm font-semibold text-primary-foreground shadow-[var(--shadow-glow)] transition-transform hover:scale-105"
+                className="mt-6 inline-flex w-full items-center justify-center rounded-full bg-primary px-6 py-2.5 font-display text-sm font-semibold text-primary-foreground shadow-[var(--shadow-glow)] transition-transform hover:scale-105 animate-pulse-scale"
               >
                 Register Now
               </a>

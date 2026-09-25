@@ -126,7 +126,7 @@ export function Hero({ registerUrl }: { registerUrl: string }) {
           <a
             href={registerUrl}
             onClick={(e) => scrollTo(e, registerUrl)}
-            className="group inline-flex w-full items-center justify-center gap-2 rounded-full bg-primary px-8 py-3.5 font-display font-semibold text-primary-foreground shadow-[var(--shadow-glow)] transition-transform hover:scale-105 sm:w-auto"
+            className="group inline-flex w-full items-center justify-center gap-2 rounded-full bg-primary px-8 py-3.5 font-display font-semibold text-primary-foreground shadow-[var(--shadow-glow)] transition-transform hover:scale-105 sm:w-auto animate-pulse-scale"
           >
             Register Now
             <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />

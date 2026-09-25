@@ -84,7 +84,7 @@ export function Navbar({ registerUrl }: { registerUrl: string }) {
           <a
             href={registerUrl}
             onClick={(e) => scrollTo(e, registerUrl)}
-            className="rounded-full bg-primary px-5 py-2 text-sm font-semibold text-primary-foreground shadow-[var(--shadow-glow)] transition-transform hover:scale-105"
+            className="rounded-full bg-primary px-5 py-2 text-sm font-semibold text-primary-foreground shadow-[var(--shadow-glow)] transition-transform hover:scale-105 animate-pulse-scale"
           >
             Register Now
           </a>
@@ -122,7 +122,7 @@ export function Navbar({ registerUrl }: { registerUrl: string }) {
               <a
                 href={registerUrl}
                 onClick={(e) => { setOpen(false); scrollTo(e, registerUrl); }}
-                className="mt-6 flex w-full items-center justify-center rounded-xl bg-primary px-5 py-3 font-semibold text-primary-foreground"
+                className="mt-6 flex w-full items-center justify-center rounded-xl bg-primary px-5 py-3 font-semibold text-primary-foreground animate-pulse-scale"
               >
                 Register Now
               </a>

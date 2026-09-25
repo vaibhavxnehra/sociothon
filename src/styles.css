@@ -204,3 +204,18 @@
   50% { transform: translate(5%, 10%) scale(1.1); }
   100% { transform: translate(-5%, -5%) scale(0.9); }
 }
+
+@keyframes pulse-scale {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0px 40px -10px color-mix(in oklab, var(--primary-accent) 40%, transparent);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 0px 60px 0px color-mix(in oklab, var(--primary-accent) 80%, transparent);
+  }
+}
+
+@utility animate-pulse-scale {
+  animation: pulse-scale 2.5s infinite ease-in-out;
+}
