@@ -48,7 +48,7 @@ export function OtherEvents() {
           <div className="mx-auto max-w-3xl mt-10 rounded-2xl border border-primary/30 bg-primary/10 p-5 text-center flex flex-col items-center justify-center">
             <p className="font-display font-bold text-primary">✨ Free Entry</p>
             <p className="mt-2 text-primary/90 text-sm sm:text-base">
-              If you have already paid the registration fee for SOCI-O-THON or NIRMAAN, you can register and participate in all these events for <strong className="font-bold">free</strong>!
+              If you have already paid the registration fee for SOCI-O-THON or NIRMAAN, you can participate in BOTH flagship events and ALL these cultural events for <strong className="font-bold">free</strong>!
             </p>
           </div>
         </Reveal>
