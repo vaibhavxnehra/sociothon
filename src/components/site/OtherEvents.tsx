@@ -7,7 +7,7 @@ const OTHER_EVENTS = [
     tag: "PARCHHAI SOCH KI, DARPAN SAMAJ KA",
     icon: Film,
     description: "PRATIBIMB is a short-film competition that encourages students to reflect on societal issues through powerful storytelling. Participants may explore drama, documentary, and experimental cinema, using film to inspire awareness, dialogue, and positive change.",
-    registerUrl: "#"
+    registerUrl: "https://unstop.com/p/pratibimb-rajiv-gandhi-institute-of-petroleum-technology-rgipt-jais-uttar-pradesh-1750124?lb=WHOaY4dM&utm_medium=Share&utm_source=events&utm_campaign=Utkarkum62556"
   },
   {
     name: "DRISHTIKON",
