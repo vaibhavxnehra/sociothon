@@ -14,7 +14,7 @@ const OTHER_EVENTS = [
     tag: "THE PHOTOGRAPHY CHALLENGE",
     icon: Camera,
     description: "DRISHTIKON is a photography competition that invites participants to capture stories, emotions, and social realities through their lenses. It celebrates creativity and distinctive perspectives, encouraging viewers to look beyond what meets the eye.",
-    registerUrl: "#"
+    registerUrl: "https://unstop.com/p/drishtikon-2026-rajiv-gandhi-institute-of-petroleum-technology-rgipt-jais-uttar-pradesh-1750037?lb=WHOaY4dM&utm_medium=Share&utm_source=events&utm_campaign=Utkarkum62556"
   },
   {
     name: "RIWAAZ",
