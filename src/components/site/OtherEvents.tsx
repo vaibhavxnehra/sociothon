@@ -6,13 +6,15 @@ const OTHER_EVENTS = [
     name: "PRATIBIMB",
     tag: "PARCHHAI SOCH KI, DARPAN SAMAJ KA",
     icon: Film,
-    description: "PRATIBIMB is a short-film competition that encourages students to reflect on societal issues through powerful storytelling. Participants may explore drama, documentary, and experimental cinema, using film to inspire awareness, dialogue, and positive change."
+    description: "PRATIBIMB is a short-film competition that encourages students to reflect on societal issues through powerful storytelling. Participants may explore drama, documentary, and experimental cinema, using film to inspire awareness, dialogue, and positive change.",
+    registerUrl: "#"
   },
   {
     name: "DRISHTIKON",
     tag: "THE PHOTOGRAPHY CHALLENGE",
     icon: Camera,
-    description: "DRISHTIKON is a photography competition that invites participants to capture stories, emotions, and social realities through their lenses. It celebrates creativity and distinctive perspectives, encouraging viewers to look beyond what meets the eye."
+    description: "DRISHTIKON is a photography competition that invites participants to capture stories, emotions, and social realities through their lenses. It celebrates creativity and distinctive perspectives, encouraging viewers to look beyond what meets the eye.",
+    registerUrl: "#"
   },
   {
     name: "RIWAAZ",
@@ -45,12 +47,24 @@ export function OtherEvents() {
         <div className="mt-14 grid gap-6 md:grid-cols-2">
           {OTHER_EVENTS.map((event, i) => (
             <Reveal key={event.name} delay={i * 0.1}>
-              <div className="glass-panel lift-card h-full relative overflow-hidden rounded-3xl p-8 sm:p-10">
+              <div className="glass-panel lift-card h-full relative overflow-hidden flex flex-col rounded-3xl p-8 sm:p-10">
                 <div className="absolute -top-16 -right-16 h-48 w-48 rounded-full bg-primary/10 blur-3xl transition-opacity group-hover:opacity-90" />
-                <event.icon className="h-10 w-10 text-primary" />
+                <event.icon className="h-10 w-10 text-primary shrink-0" />
                 <h3 className="mt-6 font-display text-3xl font-extrabold sm:text-4xl">{event.name}</h3>
                 <p className="mt-2 text-sm font-semibold tracking-[0.1em] text-primary uppercase">{event.tag}</p>
-                <p className="mt-5 text-muted-foreground leading-relaxed">{event.description}</p>
+                <p className="mt-5 text-muted-foreground leading-relaxed flex-1">{event.description}</p>
+                {event.registerUrl && (
+                  <div className="mt-8">
+                    <a
+                      href={event.registerUrl}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="inline-flex items-center justify-center rounded-full bg-primary px-6 py-2.5 font-display text-sm font-semibold text-primary-foreground shadow-[var(--shadow-glow)] transition-transform hover:scale-105 animate-pulse-scale"
+                    >
+                      Register Now
+                    </a>
+                  </div>
+                )}
               </div>
             </Reveal>
           ))}
