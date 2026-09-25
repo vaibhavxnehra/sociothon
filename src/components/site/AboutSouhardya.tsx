@@ -58,6 +58,15 @@ export function AboutSouhardya() {
             </Reveal>
           ))}
         </div>
+        
+        <Reveal delay={0.24}>
+          <div className="mx-auto max-w-3xl mt-8 rounded-2xl border border-primary/30 bg-primary/10 p-5 text-center flex flex-col items-center justify-center">
+            <p className="font-display font-bold text-primary">✨ Special Festival Offer</p>
+            <p className="mt-2 text-primary/90 text-sm sm:text-base">
+              Pay the registration fee for either SOCI-O-THON or NIRMAAN, and get <strong className="font-bold">free access</strong> to participate in all other cultural events!
+            </p>
+          </div>
+        </Reveal>
       </div>
     </section>
   );

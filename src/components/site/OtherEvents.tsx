@@ -44,7 +44,16 @@ export function OtherEvents() {
           subtitle="Beyond the hackathon and conference, immerse yourself in our artistic and cultural expressions."
         />
 
-        <div className="mt-14 grid gap-6 md:grid-cols-2">
+        <Reveal delay={0.1}>
+          <div className="mx-auto max-w-3xl mt-10 rounded-2xl border border-primary/30 bg-primary/10 p-5 text-center flex flex-col items-center justify-center">
+            <p className="font-display font-bold text-primary">✨ Free Entry</p>
+            <p className="mt-2 text-primary/90 text-sm sm:text-base">
+              If you have already paid the registration fee for SOCI-O-THON or NIRMAAN, you can register and participate in all these events for <strong className="font-bold">free</strong>!
+            </p>
+          </div>
+        </Reveal>
+
+        <div className="mt-10 grid gap-6 md:grid-cols-2">
           {OTHER_EVENTS.map((event, i) => (
             <Reveal key={event.name} delay={i * 0.1}>
               <div className="glass-panel lift-card h-full relative overflow-hidden flex flex-col rounded-3xl p-8 sm:p-10">
