@@ -108,6 +108,9 @@ function initials(name: string) {
 }
 
 export function Team() {
+  const patronList = COMMITTEE.filter(c => c.role === "Patron");
+  const facultyList = COMMITTEE.filter(c => c.role !== "Patron");
+
   return (
     <section id="contact" className="relative py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
@@ -115,14 +118,60 @@ export function Team() {
           eyebrow="Reach Out"
           title={
             <>
-              Organizing <span className="text-gradient-primary">Committee</span>
+              <span className="text-gradient-primary">Patron</span>
             </>
           }
-          subtitle="The faculty team steering SOUHARDYA 2026."
+          subtitle="The guiding force behind SOUHARDYA 2026."
         />
 
-        <div className="mt-14 grid gap-6 md:grid-cols-3">
-          {COMMITTEE.map((m, i) => (
+        <div className="mt-14 grid gap-6 md:grid-cols-1 max-w-sm mx-auto">
+          {patronList.map((m, i) => (
+            <Reveal key={m.name} delay={i * 0.1}>
+              <div className="glass-panel lift-card h-full rounded-3xl p-7 flex flex-col items-center text-center">
+                <div className="grid h-14 w-14 place-items-center rounded-2xl bg-primary/15 font-display text-lg font-bold text-primary mb-5">
+                  {initials(m.name)}
+                </div>
+                <h3 className="font-display text-xl font-bold">{m.name}</h3>
+                <p className="text-sm font-semibold text-primary">{m.role}</p>
+                <p className="mt-1 text-sm text-muted-foreground">{m.dept}</p>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+
+        <Reveal className="mt-24 text-center">
+          <h3 className="font-display text-2xl font-bold sm:text-3xl">
+            Advisory <span className="text-gradient-primary">Committee</span>
+          </h3>
+        </Reveal>
+
+        <div className="mt-10 grid gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+          {ADVISORY.map((m, i) => (
+            <Reveal key={m.name} delay={i * 0.05}>
+              <div className="glass-panel lift-card h-full rounded-3xl p-7 flex flex-col items-center text-center">
+                <div className="h-40 w-40 overflow-hidden rounded-2xl border-2 border-primary/20 bg-primary/10 grid place-items-center text-primary font-display font-bold text-4xl mb-5 shadow-inner">
+                  {m.image ? (
+                    <img src={m.image} alt={m.name} className="h-full w-full object-cover" />
+                  ) : (
+                    m.name ? initials(m.name) : ""
+                  )}
+                </div>
+                <h3 className="font-display text-lg font-bold">{m.name}</h3>
+                <p className="mt-2 text-sm font-semibold text-primary">{m.role}</p>
+                <p className="mt-1 text-sm text-muted-foreground">{m.dept}</p>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+
+        <Reveal className="mt-24 text-center">
+          <h3 className="font-display text-2xl font-bold sm:text-3xl">
+            Faculty And <span className="text-gradient-primary">Students</span>
+          </h3>
+        </Reveal>
+
+        <div className="mt-10 grid gap-6 md:grid-cols-3">
+          {facultyList.map((m, i) => (
             <Reveal key={m.name} delay={i * 0.1}>
               <div className="glass-panel lift-card h-full rounded-3xl p-7">
                 <div className="grid h-14 w-14 place-items-center rounded-2xl bg-primary/15 font-display text-lg font-bold text-primary">
@@ -158,40 +207,7 @@ export function Team() {
           ))}
         </div>
 
-        
-        <Reveal className="mt-20 text-center">
-          <h3 className="font-display text-2xl font-bold sm:text-3xl">
-            Advisory <span className="text-gradient-primary">Committee</span>
-          </h3>
-        </Reveal>
-
-        <div className="mt-8 grid gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-          {ADVISORY.map((m, i) => (
-            <Reveal key={m.name} delay={i * 0.05}>
-              <div className="glass-panel lift-card h-full rounded-3xl p-7 flex flex-col items-center text-center">
-                <div className="h-40 w-40 overflow-hidden rounded-2xl border-2 border-primary/20 bg-primary/10 grid place-items-center text-primary font-display font-bold text-4xl mb-5 shadow-inner">
-                  {/* Space for photo. Fallback to initials */}
-                  {m.image ? (
-                    <img src={m.image} alt={m.name} className="h-full w-full object-cover" />
-                  ) : (
-                    m.name ? initials(m.name) : ""
-                  )}
-                </div>
-                <h3 className="font-display text-lg font-bold">{m.name}</h3>
-                <p className="mt-2 text-sm font-semibold text-primary">{m.role}</p>
-                <p className="mt-1 text-sm text-muted-foreground">{m.dept}</p>
-              </div>
-            </Reveal>
-          ))}
-        </div>
-
-<Reveal className="mt-20 text-center">
-          <h3 className="font-display text-2xl font-bold sm:text-3xl">
-            Student <span className="text-gradient-primary">Coordinators</span>
-          </h3>
-        </Reveal>
-
-        <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {COORDINATORS.map((c, i) => (
             <Reveal key={c.email} delay={i * 0.05}>
               <div className="glass-panel lift-card h-full rounded-2xl p-5">
