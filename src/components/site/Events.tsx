@@ -13,6 +13,7 @@ import {
   Trophy,
   Users,
   Wrench,
+  MonitorPlay,
 } from "lucide-react";
 import { Reveal, SectionHeading, Counter } from "./primitives";
 
@@ -20,22 +21,27 @@ const STEPS = [
   {
     icon: FileText,
     title: "Idea Proposal",
-    body: "Form a team of 3–4 members, submit a well structured PPT presentation covering the problem statement, proposed solution, innovation, feasibility, and expected social impact.",
+    body: "Form a team of 1–4 members. Interdisciplinary teams are encouraged. Submit a well-structured PPT covering the problem statement, proposed solution, innovation, feasibility, and expected social impact.",
   },
   {
     icon: ClipboardList,
     title: "Shortlisting",
-    body: "Proposals will be evaluated on social relevance, innovation, feasibility, sustainability, scalability, and potential impact.",
+    body: "Proposals will be shortlisted based on social relevance, innovation, feasibility, sustainability, scalability, and potential impact.",
+  },
+  {
+    icon: MonitorPlay,
+    title: "Initial Online Presentation",
+    body: "Shortlisted teams will present their proposed solutions online before an evaluation panel. The presentation should highlight the problem, proposed approach, innovation, feasibility, and expected social impact.",
   },
   {
     icon: Wrench,
     title: "Solution Development",
-    body: "Shortlisted teams will further develop and refine their solutions. A prototype/model is encouraged.",
+    body: "Selected teams will further develop and refine their solutions. Depending on the nature of the problem, teams should submit a proof-of-concept, digital solution, process, or implementation framework. A prototype/model is encouraged but not mandatory.",
   },
   {
     icon: FileCheck2,
     title: "Final Presentation & Evaluation",
-    body: "Teams will present their solutions before an expert jury, followed by a Q&A session. Evaluation will consider innovation, applicability, feasibility, sustainability, scalability, and potential social impact.",
+    body: "Finalist teams will physically (at RGIPT Jais Campus Amethi UP) present their developed solutions (POC) before an expert jury, followed by a Q&A session. Evaluation will consider innovation, applicability, feasibility, sustainability, scalability, and potential social impact.",
   },
 ];
 
