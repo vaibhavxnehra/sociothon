@@ -98,7 +98,7 @@ export function Hero({ registerUrl }: { registerUrl: string }) {
           transition={{ duration: 0.8, delay: 0.6 }}
           className="mt-5 text-center font-display text-xl font-semibold text-gradient-primary sm:text-2xl"
         >
-          Together for Social Good.
+          Together for Social Good
         </motion.p>
 
         <motion.div
