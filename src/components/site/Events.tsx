@@ -218,6 +218,12 @@ export function Events() {
                   <p>
                     The conference invites research papers and poster presentations focusing on innovative, practical, sustainable, and scalable approaches for creating meaningful social impact.
                   </p>
+                  <div className="pt-2">
+                    <p className="font-semibold text-foreground mb-1 text-base">Open to All Disciplines</p>
+                    <p>
+                      Students and professionals from Engineering, Management, Medical & Health Sciences, Commerce, Computer Applications, Sciences, Humanities and allied disciplines are welcome to participate — including B.Tech, M.Tech, MBA, MBBS, M.Sc, Nursing, M.Com, MCA, PhD, Research Scholars and Industry Professionals.
+                    </p>
+                  </div>
                 </div>
 
                 <div className="mt-10 grid gap-6 lg:grid-cols-[1fr_1.1fr]">
