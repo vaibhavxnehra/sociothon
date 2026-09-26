@@ -131,19 +131,19 @@ export function Registration({ registerUrl }: { registerUrl: string }) {
                       <p className="font-display text-2xl font-extrabold text-primary">{f.fee}</p>
                     </div>
                   ))}
+                  <div className="pt-2 text-right sm:text-left">
+                    <p className="inline-block rounded-lg bg-primary/10 px-3 py-1.5 text-sm font-medium text-primary border border-primary/20">
+                      <span className="text-red-400 font-bold">*</span> ₹450/- (for Accommodation & Food) / Day
+                    </p>
+                  </div>
                 </div>
-                <div className="mt-5 space-y-2 text-sm text-muted-foreground text-center sm:text-left">
+                <div className="mt-6 space-y-2 text-sm text-muted-foreground text-center sm:text-left">
                   <p className="font-medium text-foreground">For Participants (Other college / University / Industries)</p>
                   <p className="text-red-400">Registration is per team (one presenting author).</p>
                   <p className="text-red-400">Each accompanying co-author must pay the registration fee separately.</p>
                   <div className="mt-3 rounded-xl border border-primary/30 bg-primary/10 p-3 text-left">
                     <p className="font-semibold text-primary">All-Access Registration</p>
                     <p className="mt-1 text-primary/90">Pay the registration fee for either SOCI-O-THON or NIRMAAN, and get <strong className="font-bold">free access</strong> to participate in BOTH flagship events, as well as ALL other cultural events (PRATIBIMB, DRISHTIKON, etc.)!</p>
-                  </div>
-                  <div className="pt-2">
-                    <p className="inline-block rounded-lg bg-navy-light px-3 py-1 text-primary">
-                      <span className="text-red-400 font-bold">*</span> ₹450/- (for Accommodation & Food) / Day
-                    </p>
                   </div>
                 </div>
               </div>
