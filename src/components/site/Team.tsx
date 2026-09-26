@@ -112,7 +112,7 @@ export function Team() {
   const facultyList = COMMITTEE.filter(c => c.role !== "Patron");
 
   return (
-    <section id="contact" className="relative py-24 sm:py-32">
+    <section id="team" className="relative py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <SectionHeading
           eyebrow="Reach Out"
