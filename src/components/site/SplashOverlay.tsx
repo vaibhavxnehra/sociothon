@@ -29,16 +29,24 @@ export function SplashOverlay() {
           onTouchMove={() => setIsVisible(false)}
           className="fixed inset-0 z-[9999] bg-background/98 backdrop-blur-xl cursor-pointer overflow-y-auto"
         >
-          <div className="min-h-full w-full flex flex-col items-center justify-center p-4 sm:p-8">
-            <div className="max-w-4xl w-full text-center flex flex-col items-center gap-6 sm:gap-8 py-8">
-            <h1 className="text-3xl sm:text-5xl font-bold font-display text-gradient-primary leading-tight mt-12 sm:mt-0">
-              Inauguration of Soci-O-Thon and Nirmaan
+          <div className="min-h-full w-full flex flex-col items-center justify-center p-4 sm:p-6">
+            <div className="max-w-4xl w-full text-center flex flex-col items-center gap-4 sm:gap-5 py-4">
+            <h1 className="text-2xl sm:text-4xl lg:text-[2.75rem] font-bold font-display text-gradient-primary leading-tight mt-8 sm:mt-0">
+              A Proud Beginning for SOUHARDYA 2026: Soci-O-thon and Nirmaan
             </h1>
-            <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl">
-              We are deeply honored to have our program inaugurated by the esteemed <strong className="text-foreground">Padma Shri Prof. H.C. Verma</strong>. His presence inspires us all to work towards social innovation and rural development.
-            </p>
+            <div className="text-sm sm:text-base lg:text-lg text-muted-foreground max-w-3xl space-y-1.5 sm:space-y-2">
+              <p>
+                We are honored to have the Soci-O-Thon & NIRMAAN poster unveiled and the abstract submission process officially launched by <strong className="text-foreground whitespace-nowrap">Padma Shri Prof. H. C. Verma</strong>.
+              </p>
+              <p>
+                His inspiring presence marks the beginning of a journey dedicated to social innovation, rural development, and impactful solutions for society.
+              </p>
+              <p className="font-semibold text-primary pt-1 sm:pt-2">
+                Together for Social Good. Together for Change.
+              </p>
+            </div>
 
-            <div className="w-full max-w-3xl overflow-hidden rounded-2xl shadow-xl border border-border/50">
+            <div className="w-full max-w-2xl overflow-hidden rounded-2xl shadow-xl border border-border/50">
               <img src={inaugurationMain} alt="Inauguration by Padma Shri Prof. H.C. Verma" className="w-full h-auto object-contain hover:scale-105 transition-transform duration-500" />
             </div>
 
