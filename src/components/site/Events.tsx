@@ -52,7 +52,7 @@ const THEMES = [
   { icon: Leaf, label: "Energy & Sustainability" },
   { icon: Users, label: "Women & Child Empowerment" },
   { icon: BrainCircuit, label: "Mental Wellbeing & Community Care" },
-  { icon: Globe, label: "Open Theme: UN SDG-Aligned Solutions for Social Impact" },
+  { icon: Globe, label: "Open Theme: Aligned with UN SDGs & Social Impact" },
 ];
 
 const NIRMAAN_THEMES = [
@@ -61,7 +61,7 @@ const NIRMAAN_THEMES = [
   "Energy and Sustainability",
   "Mental Wellbeing and Community Care",
   "Health and Hygiene",
-  "Open Theme: UN SDG-Aligned Solutions for Social Impact",
+  "Open Theme: Aligned with UN SDGs & Social Impact",
 ];
 
 const ABSTRACT_RULES = [
@@ -209,11 +209,16 @@ export function Events() {
             >
               <div className="glass-panel rounded-3xl p-7 sm:p-10">
                 <h3 className="font-display text-3xl font-extrabold sm:text-4xl">
-                  NIRMAAN <span className="text-gradient-primary">- National Social Conference</span>
+                  NIRMAAN <span className="text-gradient-primary">- National Social-Technical Conference</span>
                 </h3>
-                <p className="mt-4 max-w-3xl text-muted-foreground">
-                  The conference, held under the flagship of SOUHARDYA 2026, invites paper and poster presentations that bring together IAS/IPS officers, academicians, industry professionals, NGO innovators, and students on a common platform.
-                </p>
+                <div className="mt-4 space-y-4 max-w-3xl text-muted-foreground">
+                  <p>
+                    NIRMAAN, a flagship event of SOUHARDYA 2026, brings together civil servants, academicians, researchers, industry professionals, NGO representatives, innovators, and students on a common platform to exchange ideas and address contemporary societal challenges.
+                  </p>
+                  <p>
+                    The conference invites research papers and poster presentations focusing on innovative, practical, sustainable, and scalable approaches for creating meaningful social impact.
+                  </p>
+                </div>
 
                 <div className="mt-10 grid gap-6 lg:grid-cols-[1fr_1.1fr]">
                   <div className="space-y-4">
