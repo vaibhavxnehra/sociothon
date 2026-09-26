@@ -25,28 +25,36 @@ const BANK = [
 
 const FAQS = [
   {
-    q: "Who can participate?",
-    a: "SOCI-O-THON is open to every discipline of undergraduate students (BE/B.Tech/Dual Degree).\n\nParticipation in NIRMAAN is open to students across undergraduate (UG), postgraduate (PG), and doctoral (PhD) levels, as well as industry personnel.\n\nTo be eligible, the first or presenting author must fall into one of these categories (UG, PG, PhD student, or industry personnel).",
+    q: "Who can participate in SOCI-O-THON and NIRMAAN?",
+    a: "Both events are open to UG, PG and PhD students, research scholars, and industry professionals from diverse disciplines, including Engineering, Management, Medical & Health Sciences, Commerce, Computer Applications, Sciences, Humanities, and allied fields. For NIRMAAN, the presenting author should belong to one of the eligible participant categories.",
   },
   {
     q: "Is accommodation available?",
-    a: "Yes. Accommodation and food are available at an additional ₹450 per day over the registration fee, and can be opted for at the time of registration.",
+    a: "Yes. Hostel accommodation is available on a paid basis. Participants wishing to avail themselves of this facility are required to fill out a separate accommodation form.",
   },
   {
-    q: "What is the team size for NIRMAAN?",
-    a: "The team size should be 1-4 members.",
+    q: "What is the team size for SOCI-O-THON?",
+    a: "A SOCI-O-THON team may consist of 1–4 members. Interdisciplinary teams are encouraged.",
   },
   {
-    q: "What format should the Round 1 submission be in?",
-    a: "A short write-up submitted online as a PPT or PDF, covering problem understanding, proposed solution, impact potential and feasibility.",
+    q: "How many co-authors are allowed for NIRMAAN?",
+    a: "A paper may have multiple authors; however, one author must be designated as the presenting author. Accompanying co-authors are required to register separately, as applicable.",
+  },
+  {
+    q: "What should the initial submission for SOCI-O-THON include?",
+    a: "Teams should submit a well-structured PPT covering the problem statement, proposed solution, innovation, feasibility, and expected social impact.",
   },
   {
     q: "Can I submit more than one abstract to NIRMAAN?",
-    a: "Only one abstract per team is allowed.",
+    a: "Yes. More than one abstract may be submitted; however, a separate registration fee is required for each accepted paper/presentation.",
   },
   {
-    q: "Will I get a certificate?",
-    a: "Yes. A Certificate of Participation is awarded to every participant across both events, and NIRMAAN certificates go to all registered participants who attend the conference.",
+    q: "Will I receive a certificate?",
+    a: "Yes. Certificates of Participation/Presentation will be provided to eligible registered participants as per the event guidelines.",
+  },
+  {
+    q: "Will the papers be published?",
+    a: "Yes. Accepted and presented papers will be published in the SOUHARDYA 2026 Conference Proceedings with an ISBN.",
   },
 ];
 
