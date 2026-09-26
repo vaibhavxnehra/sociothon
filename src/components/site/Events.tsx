@@ -14,6 +14,7 @@ import {
   Users,
   Wrench,
   MonitorPlay,
+  Globe,
 } from "lucide-react";
 import { Reveal, SectionHeading, Counter } from "./primitives";
 
@@ -51,6 +52,7 @@ const THEMES = [
   { icon: Leaf, label: "Energy & Sustainability" },
   { icon: Users, label: "Women & Child Empowerment" },
   { icon: BrainCircuit, label: "Mental Wellbeing & Community Care" },
+  { icon: Globe, label: "Open Theme: UN SDG-Aligned Solutions for Social Impact" },
 ];
 
 const NIRMAAN_THEMES = [
@@ -59,6 +61,7 @@ const NIRMAAN_THEMES = [
   "Energy and Sustainability",
   "Mental Wellbeing and Community Care",
   "Health and Hygiene",
+  "Open Theme: UN SDG-Aligned Solutions for Social Impact",
 ];
 
 const ABSTRACT_RULES = [
@@ -183,12 +186,12 @@ export function Events() {
                 </div>
 
                 <h4 className="mt-12 font-display text-xl font-bold">Themes</h4>
-                <div className="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+                <div className="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
                   {THEMES.map((t, i) => (
                     <Reveal key={t.label} delay={i * 0.06}>
-                      <div className="glass-panel lift-card h-full rounded-2xl p-5 text-center">
-                        <t.icon className="mx-auto h-7 w-7 text-primary" />
-                        <p className="mt-3 text-sm font-semibold">{t.label}</p>
+                      <div className="glass-panel lift-card flex flex-col items-center justify-center h-full rounded-2xl p-5 text-center">
+                        <t.icon className="h-7 w-7 text-primary mb-3 shrink-0" />
+                        <p className="text-sm font-semibold">{t.label}</p>
                       </div>
                     </Reveal>
                   ))}
