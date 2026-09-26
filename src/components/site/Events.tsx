@@ -129,6 +129,12 @@ export function Events() {
                   <p>
                     Participants are encouraged to move beyond ideas and develop solutions with strong potential for practical implementation and social impact. Depending on the nature of the challenge, solutions may be presented as a prototype, model, proof-of-concept, digital solution, process, or implementation framework.
                   </p>
+                  <div className="pt-2">
+                    <p className="font-semibold text-foreground mb-1 text-base">Open to All Disciplines</p>
+                    <p>
+                      Students and professionals from Engineering, Management, Medical & Health Sciences, Commerce, Computer Applications, Sciences, Humanities and allied disciplines are welcome to participate — including B.Tech, M.Tech, MBA, MBBS, M.Sc, Nursing, M.Com, MCA, PhD, Research Scholars and Industry Professionals.
+                    </p>
+                  </div>
                 </div>
 
                 <div className="mt-10 grid gap-8 lg:grid-cols-[1.1fr_1fr]">
