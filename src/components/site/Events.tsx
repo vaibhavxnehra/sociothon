@@ -251,6 +251,12 @@ export function Events() {
                         <p className="mt-2 text-sm text-muted-foreground">
                           ₹10,000 as prize pool, trophies, goodies and other exciting prizes! + Certificate of Participation
                         </p>
+                        <div className="mt-4 pt-4 border-t border-primary/20">
+                          <h4 className="font-display text-base font-bold text-primary">Publication Opportunity</h4>
+                          <p className="mt-1 text-sm text-muted-foreground">
+                            Accepted papers will be published in the SOUHARDYA 2026 Conference Proceedings with an ISBN.
+                          </p>
+                        </div>
                       </div>
                     </Reveal>
                   </div>
