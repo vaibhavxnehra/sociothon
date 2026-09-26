@@ -34,7 +34,18 @@ export function AboutSouhardya() {
               SOUHARDYA 2026- <span className="text-gradient-primary">The Social Fest</span>
             </>
           }
-          subtitle="One umbrella. Two flagship experiences. SOUHARDYA turns empathy into action by pairing an innovation sprint with a national conversation on social change."
+          subtitle={
+            <div className="flex flex-col gap-3">
+              <p className="font-semibold text-foreground">One Platform - Two Flagship Experiences</p>
+              <p>
+                SOUHARDYA 2026 brings together SOCI-O-THON (Social-Technical Hackathon) and NIRMAAN (National Social-Technical Conference)—combining innovation, ideas, and collaboration to address real-world social challenges and create meaningful impact.
+              </p>
+              <p className="mt-2 text-sm text-primary">
+                <strong className="font-bold">Additional Attractions:</strong><br/>
+                PRATIBIMB – Reel Competition | DRISHTIKON – Photography Challenge
+              </p>
+            </div>
+          }
         />
 
         <div className="mt-14 grid gap-6 md:grid-cols-2">

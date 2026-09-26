@@ -30,7 +30,7 @@ export function SectionHeading({
 }: {
   eyebrow: string;
   title: ReactNode;
-  subtitle?: string;
+  subtitle?: ReactNode;
 }) {
   return (
     <Reveal className="mx-auto max-w-3xl text-center">
@@ -39,7 +39,7 @@ export function SectionHeading({
       </span>
       <h2 className="mt-5 text-3xl font-bold text-balance sm:text-4xl md:text-5xl">{title}</h2>
       {subtitle ? (
-        <p className="mt-4 text-base text-muted-foreground text-pretty sm:text-lg">{subtitle}</p>
+        <div className="mt-4 text-base text-muted-foreground text-pretty sm:text-lg">{subtitle}</div>
       ) : null}
     </Reveal>
   );
