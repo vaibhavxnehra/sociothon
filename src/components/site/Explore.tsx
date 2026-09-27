@@ -25,7 +25,7 @@ const DESTINATIONS = [
   {
     name: "Ayodhya",
     badge: "Spiritual Heritage",
-    distance: "~2-3 hours from campus",
+    distance: "~100 kilometres from campus",
     highlights: "Famous for Ram Mandir, Saryu River Ghats, Hanuman Garhi, and historic temples.",
     mapUrl: "https://www.google.com/maps/search/Ayodhya",
     images: [ayodhya1, ayodhya2, ayodhya3, ayodhya4],
@@ -33,7 +33,7 @@ const DESTINATIONS = [
   {
     name: "Varanasi",
     badge: "Cultural & Spiritual",
-    distance: "~4-5 hours from campus",
+    distance: "~190 kilometres from campus",
     highlights: "Famous for Ganga Aarti at Dashashwamedh Ghat, ancient narrow lanes, and street side lassi.",
     mapUrl: "https://www.google.com/maps/search/Varanasi",
     images: [varanasi1, varanasi2, varanasi3, varanasi4],
@@ -41,7 +41,7 @@ const DESTINATIONS = [
   {
     name: "Prayagraj",
     badge: "Sacred Confluence",
-    distance: "~2-3 hours from campus",
+    distance: "~100 kilometres from campus",
     highlights: "Home to Triveni Sangam (confluence of 3 rivers), Anand Bhawan, and historic ghats.",
     mapUrl: "https://www.google.com/maps/search/Prayagraj",
     images: [prayagraj1, prayagraj2, prayagraj3, prayagraj4],
@@ -49,7 +49,7 @@ const DESTINATIONS = [
   {
     name: "Lucknow",
     badge: "Heritage & Food",
-    distance: "~1-2 hours from campus",
+    distance: "~110 kilometres from campus",
     highlights: "Known for Bara Imambara, Rumi Darwaza, vibrant kebabs, and rich Awadhi culture.",
     mapUrl: "https://www.google.com/maps/search/Lucknow",
     images: [lucknow1, lucknow2, lucknow3, lucknow4],
