@@ -1,7 +1,7 @@
 import { Reveal, SectionHeading } from "./primitives";
 import { Film, Camera, Palette, Mic, FlaskConical, Sparkles } from "lucide-react";
 
-const COMPETITION_EVENTS = [
+const OTHER_EVENTS = [
   {
     name: "PRATIBIMB",
     tag: "PARCHHAI SOCH KI, DARPAN SAMAJ KA",
@@ -15,10 +15,7 @@ const COMPETITION_EVENTS = [
     icon: Camera,
     description: "DRISHTIKON is a photography competition that invites participants to capture stories, emotions, and social realities through their lenses. It celebrates creativity and distinctive perspectives, encouraging viewers to look beyond what meets the eye.",
     registerUrl: "https://unstop.com/p/drishtikon-2026-rajiv-gandhi-institute-of-petroleum-technology-rgipt-jais-uttar-pradesh-1750037?lb=WHOaY4dM&utm_medium=Share&utm_source=events&utm_campaign=Utkarkum62556"
-  }
-];
-
-const ATTRACTIONS = [
+  },
   {
     name: "Kaviraag",
     tag: "An Evening of Kavi Sammelan",
@@ -30,12 +27,6 @@ const ATTRACTIONS = [
     tag: "The Heritage of India: Craft & Caricature",
     icon: Palette,
     description: "Rivaaz is a cultural exhibition showcasing the artistry of local craftspeople through handmade jewellery, textiles, handicrafts, and traditional creations. It celebrates craftsmanship, preserves cultural heritage, and highlights the creativity, values, and traditions of local communities."
-  },
-  {
-    name: "Science & Social Innovation Exhibition",
-    tag: "Showcasing Young Minds & Ideas from Schools",
-    icon: FlaskConical,
-    description: "A dedicated exhibition platform where bright young minds from schools across the region present their innovative scientific and social projects, demonstrating creative solutions to real-world problems."
   }
 ];
 
@@ -62,35 +53,7 @@ export function OtherEvents() {
           </div>
         </Reveal>
 
-        <div className="mt-8 grid gap-4 md:grid-cols-2">
-          {COMPETITION_EVENTS.map((event, i) => (
-            <Reveal key={event.name} delay={i * 0.1}>
-              <div className="glass-panel lift-card h-full relative overflow-hidden flex flex-col rounded-2xl p-6">
-                <div className="absolute -top-12 -right-12 h-32 w-32 rounded-full bg-primary/10 blur-2xl transition-opacity group-hover:opacity-90" />
-                <div className="flex items-center gap-3">
-                  <event.icon className="h-6 w-6 text-primary shrink-0" />
-                  <h3 className="font-display text-xl font-bold">{event.name}</h3>
-                </div>
-                <p className="mt-2 text-xs font-semibold tracking-wider text-primary uppercase">{event.tag}</p>
-                <p className="mt-3 text-sm text-muted-foreground leading-relaxed flex-1">{event.description}</p>
-                {event.registerUrl && (
-                  <div className="mt-5">
-                    <a
-                      href={event.registerUrl}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="inline-flex items-center justify-center rounded-full bg-primary/20 border border-primary/40 px-4 py-1.5 font-display text-xs font-semibold text-primary transition-colors hover:bg-primary hover:text-primary-foreground animate-pulse-scale"
-                    >
-                      Register Now
-                    </a>
-                  </div>
-                )}
-              </div>
-            </Reveal>
-          ))}
-        </div>
-
-        <div className="mt-24">
+        <div className="mt-12">
           <SectionHeading
             eyebrow="Attractions"
             title={
@@ -101,17 +64,29 @@ export function OtherEvents() {
             subtitle="Beyond the Competition — Experience the Cultural Spirit of India"
           />
           
-          <div className="mt-10 grid gap-6 md:grid-cols-3">
-            {ATTRACTIONS.map((event, i) => (
+          <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {OTHER_EVENTS.map((event, i) => (
               <Reveal key={event.name} delay={i * 0.1}>
-                <div className="glass-panel lift-card h-full relative overflow-hidden flex flex-col rounded-3xl p-8 text-center items-center border-t-2 border-t-primary/40">
+                <div className="glass-panel lift-card h-full relative overflow-hidden flex flex-col rounded-3xl p-6 text-center items-center border-t-2 border-t-primary/40">
                   <div className="absolute inset-0 bg-gradient-to-b from-primary/5 to-transparent opacity-50" />
-                  <div className="relative grid h-16 w-16 place-items-center rounded-2xl bg-primary/15 text-primary mb-6 shadow-inner">
-                    <event.icon className="h-8 w-8" />
+                  <div className="relative grid h-14 w-14 place-items-center rounded-2xl bg-primary/15 text-primary mb-4 shadow-inner shrink-0">
+                    <event.icon className="h-7 w-7" />
                   </div>
-                  <h3 className="relative font-display text-2xl font-extrabold text-foreground">{event.name}</h3>
-                  <p className="relative mt-2 text-xs font-bold tracking-wider text-primary uppercase">{event.tag}</p>
-                  <p className="relative mt-4 text-sm text-muted-foreground leading-relaxed flex-1">{event.description}</p>
+                  <h3 className="relative font-display text-xl font-extrabold text-foreground">{event.name}</h3>
+                  <p className="relative mt-2 text-[10px] font-bold tracking-wider text-primary uppercase">{event.tag}</p>
+                  <p className="relative mt-3 text-xs text-muted-foreground leading-relaxed flex-1">{event.description}</p>
+                  {'registerUrl' in event && event.registerUrl && (
+                    <div className="mt-4 relative w-full">
+                      <a
+                        href={event.registerUrl}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="inline-flex w-full items-center justify-center rounded-full bg-primary/20 border border-primary/40 px-4 py-2 font-display text-xs font-semibold text-primary transition-colors hover:bg-primary hover:text-primary-foreground animate-pulse-scale"
+                      >
+                        Register Now
+                      </a>
+                    </div>
+                  )}
                 </div>
               </Reveal>
             ))}
