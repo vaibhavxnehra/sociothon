@@ -15,6 +15,7 @@ import ashishBhatnagar from "@/assets/ashish-bhatnagar.png";
 import yogeshKumar from "@/assets/yogesh-kumar.jpg";
 import manuKamboj from "@/assets/manu-kamboj.png";
 import bineeshaPayattati from "@/assets/bineesha-payattati.png";
+import harishHirani from "@/assets/harish-hirani.png";
 
 type CommitteeMember = {
   name: string;
@@ -32,6 +33,7 @@ const COMMITTEE: CommitteeMember[] = [
     dept: "Director, RGIPT",
     email: "",
     phone: "",
+    image: harishHirani,
   },
   {
     name: "Dr. Koushik Guha Biswas",
