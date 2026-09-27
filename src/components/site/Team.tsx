@@ -19,6 +19,7 @@ import harishHirani from "@/assets/harish-hirani.png";
 import koushikGuha from "@/assets/koushik-guha.jpg";
 import arvindSingh from "@/assets/arvind-singh.png";
 import vijayKumarSingh from "@/assets/vijay-kumar-singh.jpg";
+import malayaKumarSahoo from "@/assets/malaya-kumar-sahoo.png";
 
 type CommitteeMember = {
   name: string;
@@ -68,6 +69,7 @@ const COMMITTEE: CommitteeMember[] = [
     dept: "Department of Energy and Human Sciences",
     email: "malayaks@rgipt.ac.in",
     phone: "+91 94452 10634",
+    image: malayaKumarSahoo,
   },
   {
     name: "Dr. Sajal Agarwal",
