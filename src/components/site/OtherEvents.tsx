@@ -64,7 +64,7 @@ export function OtherEvents() {
             subtitle="Beyond the Competition — Experience the Cultural Spirit of India"
           />
           
-          <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-10 grid gap-6 sm:grid-cols-2 max-w-4xl mx-auto">
             {OTHER_EVENTS.map((event, i) => (
               <Reveal key={event.name} delay={i * 0.1}>
                 <div className="glass-panel lift-card h-full relative overflow-hidden flex flex-col rounded-3xl p-6 text-center items-center border-t-2 border-t-primary/40">
