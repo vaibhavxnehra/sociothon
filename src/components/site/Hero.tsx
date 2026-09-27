@@ -104,7 +104,7 @@ export function Hero({ registerUrl }: { registerUrl: string }) {
             Hosted By
           </p>
           <p className="text-base sm:text-xl font-medium text-foreground">
-            Social Services Council, RGIPT
+            Social Services Council
           </p>
           <p className="text-sm sm:text-lg text-muted-foreground mt-1 max-w-2xl text-balance">
             Rajiv Gandhi Institute of Petroleum Technology
