@@ -15,6 +15,7 @@ import {
   Wrench,
   MonitorPlay,
   Globe,
+  ChevronDown,
 } from "lucide-react";
 import { Reveal, SectionHeading, Counter } from "./primitives";
 
@@ -56,12 +57,78 @@ const THEMES = [
 ];
 
 const NIRMAAN_THEMES = [
-  "Women and Child Empowerment",
-  "Rural Development",
-  "Energy and Sustainability",
-  "Mental Wellbeing and Community Care",
-  "Health and Hygiene",
-  "Open Theme: Aligned with UN SDGs & Social Impact",
+  {
+    title: "Women & Child Empowerment",
+    subthemes: [
+      "Women Entrepreneurship and Livelihood",
+      "Women’s Safety and Digital Inclusion",
+      "Education and Skill Development",
+      "Child Health, Nutrition and Protection",
+      "Technology for Women and Child Development",
+      "Any other topic relevant to Women & Child Empowerment",
+    ],
+  },
+  {
+    title: "Rural Development",
+    subthemes: [
+      "Sustainable Agriculture and Smart Farming",
+      "Rural Infrastructure and Connectivity",
+      "Water Resource Management",
+      "Rural Livelihood and Entrepreneurship",
+      "Appropriate Technology for Villages",
+      "Digital Inclusion and Rural Services",
+      "Rural–Urban Linkages",
+      "Rural Health & Sanitation",
+      "Any other topic relevant to Rural Development",
+    ],
+  },
+  {
+    title: "Energy & Sustainability",
+    subthemes: [
+      "Renewable and Clean Energy",
+      "Energy Efficiency and Conservation",
+      "Waste-to-Energy and Circular Economy",
+      "Sustainable Water and Wastewater Management",
+      "Climate Change and Environmental Protection",
+      "Green Technologies and Sustainable Materials",
+      "Biomass & Bioenergy",
+      "Clean Cooking Solutions",
+      "Household Energy Efficiency",
+      "Plastic Pollution & Waste Reduction",
+      "Any other topic relevant to Energy & Sustainability",
+    ],
+  },
+  {
+    title: "Mental Wellbeing & Community Care",
+    subthemes: [
+      "Mental Health Awareness and Support",
+      "Student and Youth Wellbeing",
+      "Stress Management and Emotional Health",
+      "Elderly Care and Assisted Living",
+      "Disability Inclusion and Accessibility",
+      "Community Engagement and Social Support Systems",
+      "Any other topic relevant to Mental Wellbeing & Community Care",
+    ],
+  },
+  {
+    title: "Health & Hygiene",
+    subthemes: [
+      "Public Health and Preventive Healthcare",
+      "Water, Sanitation and Hygiene (WASH)",
+      "Nutrition and Food Security",
+      "Affordable Healthcare Technologies",
+      "Rural and Community Healthcare",
+      "Biomedical Waste and Health Safety",
+      "Solid & Liquid Waste Management",
+      "Child Nutrition & Immunization",
+      "Health Literacy & Awareness",
+      "Any other topic relevant to Health & Hygiene",
+    ],
+  },
+  {
+    title: "Open Theme: Aligned with UN SDGs & Social Impact",
+    subthemes: [],
+  },
 ];
 
 const ABSTRACT_RULES = [
@@ -75,6 +142,7 @@ const ABSTRACT_RULES = [
 
 export function Events() {
   const [tab, setTab] = useState<"socio" | "nirmaan">("socio");
+  const [activeTheme, setActiveTheme] = useState<string | null>(null);
 
   return (
     <section id="events" className="relative py-24 sm:py-32">
@@ -232,14 +300,38 @@ export function Events() {
                       <div className="glass-panel lift-card rounded-2xl p-6">
                         <Presentation className="h-5 w-5 text-primary" />
                         <h4 className="mt-3 font-display text-lg font-bold">Themes</h4>
-                        <div className="mt-4 flex flex-wrap gap-2">
+                        <div className="mt-4 flex flex-col gap-2">
                           {NIRMAAN_THEMES.map((t) => (
-                            <span
-                              key={t}
-                              className="rounded-full border border-primary/30 bg-primary/5 px-4 py-1.5 text-sm text-muted-foreground"
-                            >
-                              {t}
-                            </span>
+                            <div key={t.title} className="rounded-xl border border-primary/20 bg-primary/5 overflow-hidden transition-colors hover:bg-primary/10">
+                              <button
+                                onClick={() => setActiveTheme(activeTheme === t.title ? null : t.title)}
+                                className="flex w-full items-center justify-between px-4 py-3 text-left transition-colors"
+                              >
+                                <span className="text-sm font-semibold text-foreground">{t.title}</span>
+                                {t.subthemes.length > 0 && (
+                                  <ChevronDown className={`h-4 w-4 text-muted-foreground transition-transform duration-300 ${activeTheme === t.title ? "rotate-180" : ""}`} />
+                                )}
+                              </button>
+                              <AnimatePresence>
+                                {activeTheme === t.title && t.subthemes.length > 0 && (
+                                  <motion.div
+                                    initial={{ height: 0, opacity: 0 }}
+                                    animate={{ height: "auto", opacity: 1 }}
+                                    exit={{ height: 0, opacity: 0 }}
+                                    transition={{ duration: 0.3 }}
+                                  >
+                                    <ul className="px-4 pb-4 pt-1 space-y-2 text-sm text-muted-foreground border-t border-primary/10 mt-1">
+                                      {t.subthemes.map((sub) => (
+                                        <li key={sub} className="flex items-start gap-2">
+                                          <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-primary/60" />
+                                          <span>{sub}</span>
+                                        </li>
+                                      ))}
+                                    </ul>
+                                  </motion.div>
+                                )}
+                              </AnimatePresence>
+                            </div>
                           ))}
                         </div>
                       </div>
