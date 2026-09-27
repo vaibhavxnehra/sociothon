@@ -20,16 +20,16 @@ const COMPETITION_EVENTS = [
 
 const ATTRACTIONS = [
   {
-    name: "KaviRaag",
+    name: "Kaviraag",
     tag: "An Evening of Kavi Sammelan",
     icon: Mic,
     description: "A national poetry and literature event celebrating Indian culture and creative expression. Previous editions featured renowned poets and performers, including Sarvesh Asthana, Charag Sharma, Aayushi Rakhecha, and Durgesh Dubey, before an audience of over 1,500."
   },
   {
-    name: "RIWAAJ",
+    name: "Rivaaz",
     tag: "The Heritage of India: Craft & Caricature",
     icon: Palette,
-    description: "RIWAAJ is a cultural exhibition showcasing the artistry of local craftspeople through handmade jewellery, textiles, handicrafts, and traditional creations. It celebrates craftsmanship, preserves cultural heritage, and highlights the creativity, values, and traditions of local communities."
+    description: "Rivaaz is a cultural exhibition showcasing the artistry of local craftspeople through handmade jewellery, textiles, handicrafts, and traditional creations. It celebrates craftsmanship, preserves cultural heritage, and highlights the creativity, values, and traditions of local communities."
   },
   {
     name: "Science & Social Innovation Exhibition",
