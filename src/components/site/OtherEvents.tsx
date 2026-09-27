@@ -53,22 +53,24 @@ export function OtherEvents() {
           </div>
         </Reveal>
 
-        <div className="mt-10 grid gap-6 md:grid-cols-2">
+        <div className="mt-8 grid gap-4 md:grid-cols-2">
           {OTHER_EVENTS.map((event, i) => (
             <Reveal key={event.name} delay={i * 0.1}>
-              <div className="glass-panel lift-card h-full relative overflow-hidden flex flex-col rounded-3xl p-8 sm:p-10">
-                <div className="absolute -top-16 -right-16 h-48 w-48 rounded-full bg-primary/10 blur-3xl transition-opacity group-hover:opacity-90" />
-                <event.icon className="h-10 w-10 text-primary shrink-0" />
-                <h3 className="mt-6 font-display text-3xl font-extrabold sm:text-4xl">{event.name}</h3>
-                <p className="mt-2 text-sm font-semibold tracking-[0.1em] text-primary uppercase">{event.tag}</p>
-                <p className="mt-5 text-muted-foreground leading-relaxed flex-1">{event.description}</p>
+              <div className="glass-panel lift-card h-full relative overflow-hidden flex flex-col rounded-2xl p-6">
+                <div className="absolute -top-12 -right-12 h-32 w-32 rounded-full bg-primary/10 blur-2xl transition-opacity group-hover:opacity-90" />
+                <div className="flex items-center gap-3">
+                  <event.icon className="h-6 w-6 text-primary shrink-0" />
+                  <h3 className="font-display text-xl font-bold">{event.name}</h3>
+                </div>
+                <p className="mt-2 text-xs font-semibold tracking-wider text-primary uppercase">{event.tag}</p>
+                <p className="mt-3 text-sm text-muted-foreground leading-relaxed flex-1">{event.description}</p>
                 {event.registerUrl && (
-                  <div className="mt-8">
+                  <div className="mt-5">
                     <a
                       href={event.registerUrl}
                       target="_blank"
                       rel="noreferrer"
-                      className="inline-flex items-center justify-center rounded-full bg-primary px-6 py-2.5 font-display text-sm font-semibold text-primary-foreground shadow-[var(--shadow-glow)] transition-transform hover:scale-105 animate-pulse-scale"
+                      className="inline-flex items-center justify-center rounded-full bg-primary/20 border border-primary/40 px-4 py-1.5 font-display text-xs font-semibold text-primary transition-colors hover:bg-primary hover:text-primary-foreground animate-pulse-scale"
                     >
                       Register Now
                     </a>
