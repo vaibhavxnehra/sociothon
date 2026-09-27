@@ -18,6 +18,7 @@ import bineeshaPayattati from "@/assets/bineesha-payattati.png";
 import harishHirani from "@/assets/harish-hirani.png";
 import koushikGuha from "@/assets/koushik-guha.jpg";
 import arvindSingh from "@/assets/arvind-singh.png";
+import vijayKumarSingh from "@/assets/vijay-kumar-singh.jpg";
 
 type CommitteeMember = {
   name: string;
@@ -59,6 +60,7 @@ const COMMITTEE: CommitteeMember[] = [
     dept: "Department of Electrical and Electronics Engineering",
     email: "vijayks@rgipt.ac.in",
     phone: "+91 97716 37514",
+    image: vijayKumarSingh,
   },
   {
     name: "Dr. Malaya Kumar Sahoo",
