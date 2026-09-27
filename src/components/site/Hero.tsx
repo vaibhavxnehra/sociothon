@@ -40,17 +40,7 @@ export function Hero({ registerUrl }: { registerUrl: string }) {
       />
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="mx-auto flex w-fit items-center gap-2 rounded-full border border-primary/40 bg-primary/10 px-4 py-1.5 text-xs font-semibold tracking-[0.18em] text-primary uppercase"
-        >
-          <Sparkles className="h-3.5 w-3.5" />
-          Souhardya 2026 Presents
-        </motion.div>
-
-        <h1 className="mt-6 flex items-center justify-center gap-8 sm:gap-16 lg:gap-24 text-center font-display text-4xl leading-[1.05] font-extrabold text-balance sm:text-6xl lg:text-7xl w-full text-transparent bg-clip-text bg-gradient-to-b from-white to-white/40 drop-shadow-sm">
+        <h1 className="mt-4 flex items-center justify-center gap-6 sm:gap-10 lg:gap-16 text-center font-display text-4xl leading-[1.05] font-extrabold text-balance sm:text-6xl lg:text-[5rem] w-full text-transparent bg-clip-text bg-gradient-to-b from-white to-white/40 drop-shadow-sm flex-wrap">
           <motion.img 
             src={rgiptLogo} 
             alt="RGIPT Logo" 
@@ -63,7 +53,7 @@ export function Hero({ registerUrl }: { registerUrl: string }) {
               y: { duration: 5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }
             }}
             whileHover={{ scale: 1.12, rotate: -6, filter: "drop-shadow(0 0 25px rgba(255,215,0,0.6))" }}
-            className="h-24 w-auto sm:h-32 lg:h-40 object-contain drop-shadow-2xl transition-all cursor-pointer" 
+            className="h-20 w-auto sm:h-28 lg:h-32 object-contain drop-shadow-2xl transition-all cursor-pointer" 
           />
           {words.map((w, i) => (
             <motion.span
@@ -71,9 +61,10 @@ export function Hero({ registerUrl }: { registerUrl: string }) {
               initial={{ opacity: 0, y: 30, filter: "blur(8px)" }}
               animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
               transition={{ duration: 0.8, delay: 0.15 + i * 0.15, ease: [0.22, 1, 0.36, 1] }}
-              className="inline-block"
+              className="inline-block pb-2"
             >
-              {w}
+              <span className="block text-4xl sm:text-6xl lg:text-[5rem] text-transparent bg-clip-text bg-gradient-to-b from-white to-white/60">SOCI-O-THON</span>
+              <span className="block text-3xl sm:text-5xl lg:text-[4rem] text-transparent bg-clip-text bg-gradient-to-b from-white to-white/60">&amp; NIRMAAN</span>
             </motion.span>
           ))}
           <motion.img 
@@ -88,18 +79,37 @@ export function Hero({ registerUrl }: { registerUrl: string }) {
               y: { duration: 4.5, repeat: Infinity, ease: "easeInOut", delay: 0.7 }
             }}
             whileHover={{ scale: 1.12, rotate: 6, filter: "drop-shadow(0 0 25px rgba(255,215,0,0.6))" }}
-            className="h-24 w-auto sm:h-32 lg:h-40 object-contain drop-shadow-2xl transition-all cursor-pointer" 
+            className="h-20 w-auto sm:h-28 lg:h-32 object-contain drop-shadow-2xl transition-all cursor-pointer" 
           />
         </h1>
 
-        <motion.p
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
-          className="mt-5 text-center font-display text-xl font-semibold text-gradient-primary sm:text-2xl"
+          transition={{ duration: 0.8, delay: 0.4 }}
+          className="mt-6 text-center"
         >
-          Together for Social Good
-        </motion.p>
+          <p className="font-display text-xl font-semibold text-gradient-primary sm:text-3xl tracking-wide">
+            SOUHARDYA 2026 &middot; RGIPT
+          </p>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.5 }}
+          className="mt-10 flex flex-col items-center justify-center text-center"
+        >
+          <p className="text-xs font-semibold tracking-[0.2em] text-muted-foreground uppercase mb-3">
+            Hosted By
+          </p>
+          <p className="text-base sm:text-xl font-medium text-foreground">
+            Social Services Council, RGIPT
+          </p>
+          <p className="text-sm sm:text-lg text-muted-foreground mt-1 max-w-2xl text-balance">
+            Rajiv Gandhi Institute of Petroleum Technology
+          </p>
+        </motion.div>
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}
