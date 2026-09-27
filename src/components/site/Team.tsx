@@ -20,6 +20,7 @@ import koushikGuha from "@/assets/koushik-guha.jpg";
 import arvindSingh from "@/assets/arvind-singh.png";
 import vijayKumarSingh from "@/assets/vijay-kumar-singh.jpg";
 import malayaKumarSahoo from "@/assets/malaya-kumar-sahoo.png";
+import sajalAgarwal from "@/assets/sajal-agarwal.png";
 
 type CommitteeMember = {
   name: string;
@@ -77,6 +78,7 @@ const COMMITTEE: CommitteeMember[] = [
     dept: "Department of Electrical and Electronics Engineering",
     email: "sagarwal@rgipt.ac.in",
     phone: "+91 535 2704 723",
+    image: sajalAgarwal,
   },
   {
     name: "Dr. Amey N. Agharkar",
