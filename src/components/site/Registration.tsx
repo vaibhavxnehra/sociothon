@@ -100,7 +100,7 @@ export function Registration({ registerUrl }: { registerUrl: string }) {
             <div className="glass-panel flex flex-col items-center justify-center rounded-3xl p-6 text-center">
               <h4 className="font-display text-lg font-bold">SOCI-O-THON</h4>
               <p className="mt-1 text-[10px] font-semibold tracking-[0.2em] text-primary uppercase">Scan to register</p>
-              <div className="mt-5 grid aspect-square w-full max-w-[180px] place-items-center rounded-2xl bg-white p-3">
+              <div className="mt-5 grid aspect-square w-full max-w-[220px] place-items-center rounded-2xl bg-white p-3">
                 <img src={sociothonQr} alt="SOCI-O-THON Registration QR" className="h-full w-full object-contain" />
               </div>
               <a
@@ -168,7 +168,7 @@ export function Registration({ registerUrl }: { registerUrl: string }) {
             <div className="glass-panel flex flex-col items-center justify-center rounded-3xl p-6 text-center">
               <h4 className="font-display text-lg font-bold">NIRMAAN</h4>
               <p className="mt-1 text-[10px] font-semibold tracking-[0.2em] text-primary uppercase">Scan to register</p>
-              <div className="mt-5 grid aspect-square w-full max-w-[180px] place-items-center rounded-2xl bg-white p-3">
+              <div className="mt-5 grid aspect-square w-full max-w-[220px] place-items-center rounded-2xl bg-white p-3">
                 <img src={nirmaanQr} alt="NIRMAAN Registration QR" className="h-full w-full object-contain" />
               </div>
               <a
@@ -183,7 +183,7 @@ export function Registration({ registerUrl }: { registerUrl: string }) {
           </Reveal>
         </div>
 
-        <div className="mt-6 grid gap-6 sm:grid-cols-2 max-w-3xl mx-auto">
+        <div className="mt-16 pt-12 border-t border-primary/20 grid gap-6 sm:grid-cols-2 max-w-3xl mx-auto">
           <Reveal delay={0.2}>
             <div className="glass-panel flex flex-col items-center justify-center rounded-3xl p-6 text-center">
               <h4 className="font-display text-lg font-bold">PRATIBIMB</h4>
