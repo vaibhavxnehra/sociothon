@@ -21,6 +21,7 @@ import arvindSingh from "@/assets/arvind-singh.png";
 import vijayKumarSingh from "@/assets/vijay-kumar-singh.jpg";
 import malayaKumarSahoo from "@/assets/malaya-kumar-sahoo.png";
 import sajalAgarwal from "@/assets/sajal-agarwal.png";
+import ameyAgharkar from "@/assets/amey-agharkar.png";
 
 type CommitteeMember = {
   name: string;
@@ -86,6 +87,7 @@ const COMMITTEE: CommitteeMember[] = [
     dept: "Department of Mechanical Engineering",
     email: "anagharkar@rgipt.ac.in",
     phone: "+91 94082 34016",
+    image: ameyAgharkar,
   },
 ];
 
