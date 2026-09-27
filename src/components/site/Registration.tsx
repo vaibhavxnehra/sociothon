@@ -183,6 +183,44 @@ export function Registration({ registerUrl }: { registerUrl: string }) {
           </Reveal>
         </div>
 
+        <div className="mt-6 grid gap-6 sm:grid-cols-2 max-w-3xl mx-auto">
+          <Reveal delay={0.2}>
+            <div className="glass-panel flex flex-col items-center justify-center rounded-3xl p-6 text-center">
+              <h4 className="font-display text-lg font-bold">PRATIBIMB</h4>
+              <p className="mt-1 text-[10px] font-semibold tracking-[0.2em] text-primary uppercase">Scan to register</p>
+              <div className="mt-5 grid aspect-square w-full max-w-[150px] place-items-center rounded-2xl bg-white p-3">
+                <img src={`https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=${encodeURIComponent("https://unstop.com/p/pratibimb-rajiv-gandhi-institute-of-petroleum-technology-rgipt-jais-uttar-pradesh-1750124?lb=WHOaY4dM&utm_medium=Share&utm_source=events&utm_campaign=Utkarkum62556")}`} alt="PRATIBIMB Registration QR" className="h-full w-full object-contain" />
+              </div>
+              <a
+                href="https://unstop.com/p/pratibimb-rajiv-gandhi-institute-of-petroleum-technology-rgipt-jais-uttar-pradesh-1750124?lb=WHOaY4dM&utm_medium=Share&utm_source=events&utm_campaign=Utkarkum62556"
+                target="_blank"
+                rel="noreferrer"
+                className="mt-6 inline-flex w-full max-w-[200px] items-center justify-center rounded-full bg-primary/20 border border-primary/40 px-6 py-2 font-display text-sm font-semibold text-primary transition-colors hover:bg-primary hover:text-primary-foreground animate-pulse-scale"
+              >
+                Register Now
+              </a>
+            </div>
+          </Reveal>
+
+          <Reveal delay={0.3}>
+            <div className="glass-panel flex flex-col items-center justify-center rounded-3xl p-6 text-center">
+              <h4 className="font-display text-lg font-bold">DRISHTIKON</h4>
+              <p className="mt-1 text-[10px] font-semibold tracking-[0.2em] text-primary uppercase">Scan to register</p>
+              <div className="mt-5 grid aspect-square w-full max-w-[150px] place-items-center rounded-2xl bg-white p-3">
+                <img src={`https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=${encodeURIComponent("https://unstop.com/p/drishtikon-2026-rajiv-gandhi-institute-of-petroleum-technology-rgipt-jais-uttar-pradesh-1750037?lb=WHOaY4dM&utm_medium=Share&utm_source=events&utm_campaign=Utkarkum62556")}`} alt="DRISHTIKON Registration QR" className="h-full w-full object-contain" />
+              </div>
+              <a
+                href="https://unstop.com/p/drishtikon-2026-rajiv-gandhi-institute-of-petroleum-technology-rgipt-jais-uttar-pradesh-1750037?lb=WHOaY4dM&utm_medium=Share&utm_source=events&utm_campaign=Utkarkum62556"
+                target="_blank"
+                rel="noreferrer"
+                className="mt-6 inline-flex w-full max-w-[200px] items-center justify-center rounded-full bg-primary/20 border border-primary/40 px-6 py-2 font-display text-sm font-semibold text-primary transition-colors hover:bg-primary hover:text-primary-foreground animate-pulse-scale"
+              >
+                Register Now
+              </a>
+            </div>
+          </Reveal>
+        </div>
+
         <Reveal delay={0.12} className="mx-auto mt-14 max-w-3xl">
           <h3 className="text-center font-display text-2xl font-bold">Frequently asked questions</h3>
           <Accordion type="single" collapsible className="glass-panel mt-6 rounded-2xl px-5 sm:px-7">
