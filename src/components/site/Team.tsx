@@ -17,6 +17,7 @@ import manuKamboj from "@/assets/manu-kamboj.png";
 import bineeshaPayattati from "@/assets/bineesha-payattati.png";
 import harishHirani from "@/assets/harish-hirani.png";
 import koushikGuha from "@/assets/koushik-guha.jpg";
+import arvindSingh from "@/assets/arvind-singh.png";
 
 type CommitteeMember = {
   name: string;
@@ -50,6 +51,7 @@ const COMMITTEE: CommitteeMember[] = [
     dept: "Department of Chemical and Biochemical Engineering",
     email: "convener_socialservice@rgipt.ac.in",
     phone: "+91 75719 93333",
+    image: arvindSingh,
   },
   {
     name: "Dr. Vijay Kumar Singh",
