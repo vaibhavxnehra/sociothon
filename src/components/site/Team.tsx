@@ -244,14 +244,9 @@ export function Team() {
           {COORDINATORS.map((c, i) => (
             <Reveal key={c.email} delay={i * 0.05}>
               <div className="glass-panel lift-card h-full rounded-2xl p-5">
-                <div className="flex min-w-0 items-center gap-3">
-                  <span className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-primary/15 text-sm font-bold text-primary">
-                    {initials(c.name)}
-                  </span>
-                  <div className="min-w-0">
-                    <p className="truncate font-display font-semibold">{c.name}</p>
-                    <p className="truncate text-xs font-semibold text-primary mt-0.5 uppercase tracking-wider">{c.role}</p>
-                  </div>
+                <div className="min-w-0">
+                  <p className="truncate font-display font-semibold text-lg">{c.name}</p>
+                  <p className="truncate text-[10px] font-semibold text-primary mt-0.5 uppercase tracking-wider">{c.role}</p>
                 </div>
                 <div className="mt-4 space-y-1.5 text-xs">
                   <a
