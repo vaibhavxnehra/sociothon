@@ -16,7 +16,16 @@ import yogeshKumar from "@/assets/yogesh-kumar.jpg";
 import manuKamboj from "@/assets/manu-kamboj.png";
 import bineeshaPayattati from "@/assets/bineesha-payattati.png";
 
-const COMMITTEE = [
+type CommitteeMember = {
+  name: string;
+  role: string;
+  dept: string;
+  email: string;
+  phone: string;
+  image?: string;
+};
+
+const COMMITTEE: CommitteeMember[] = [
   {
     name: "Prof. Harish Hirani",
     role: "Patron",
@@ -128,8 +137,12 @@ export function Team() {
           {patronList.map((m, i) => (
             <Reveal key={m.name} delay={i * 0.1}>
               <div className="glass-panel lift-card h-full rounded-3xl p-7 flex flex-col items-center text-center">
-                <div className="grid h-14 w-14 place-items-center rounded-2xl bg-primary/15 font-display text-lg font-bold text-primary mb-5">
-                  {initials(m.name)}
+                <div className="h-40 w-40 overflow-hidden rounded-2xl border-2 border-primary/20 bg-primary/10 grid place-items-center text-primary font-display font-bold text-4xl mb-5 shadow-inner">
+                  {m.image ? (
+                    <img src={m.image} alt={m.name} className="h-full w-full object-cover" />
+                  ) : (
+                    m.name ? initials(m.name) : ""
+                  )}
                 </div>
                 <h3 className="font-display text-xl font-bold">{m.name}</h3>
                 <p className="text-sm font-semibold text-primary">{m.role}</p>
@@ -166,18 +179,22 @@ export function Team() {
 
         <Reveal className="mt-24 text-center">
           <h3 className="font-display text-2xl font-bold sm:text-3xl">
-            Faculty And <span className="text-gradient-primary">Students</span>
+            Organising <span className="text-gradient-primary">Committee</span>
           </h3>
         </Reveal>
 
-        <div className="mt-10 grid gap-6 md:grid-cols-3">
+        <div className="mt-10 grid gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
           {facultyList.map((m, i) => (
             <Reveal key={m.name} delay={i * 0.1}>
-              <div className="glass-panel lift-card h-full rounded-3xl p-7">
-                <div className="grid h-14 w-14 place-items-center rounded-2xl bg-primary/15 font-display text-lg font-bold text-primary">
-                  {initials(m.name)}
+              <div className="glass-panel lift-card h-full rounded-3xl p-7 flex flex-col items-center text-center">
+                <div className="h-40 w-40 overflow-hidden rounded-2xl border-2 border-primary/20 bg-primary/10 grid place-items-center text-primary font-display font-bold text-4xl mb-5 shadow-inner">
+                  {m.image ? (
+                    <img src={m.image} alt={m.name} className="h-full w-full object-cover" />
+                  ) : (
+                    m.name ? initials(m.name) : ""
+                  )}
                 </div>
-                <h3 className="mt-5 font-display text-xl font-bold">{m.name}</h3>
+                <h3 className="font-display text-lg font-bold">{m.name}</h3>
                 <p className="text-sm font-semibold text-primary">{m.role}</p>
                 <p className="mt-1 text-sm text-muted-foreground">{m.dept}</p>
                 {m.email || m.phone ? (
