@@ -50,7 +50,7 @@ export function OtherEvents() {
               Explore Other <span className="text-gradient-primary">Events</span>
             </>
           }
-          subtitle="Beyond the hackathon and conference, immerse yourself in our artistic and cultural expressions."
+          subtitle="Beyond the hackathon and conference, participate in our other engaging competitions."
         />
 
         <Reveal delay={0.1}>
@@ -63,15 +63,6 @@ export function OtherEvents() {
         </Reveal>
 
         <div className="mt-12">
-          <SectionHeading
-            eyebrow="Attractions"
-            title={
-              <>
-                SPECIAL CELEBRATION FOR <span className="text-gradient-primary">PARTICIPANTS</span>
-              </>
-            }
-            subtitle="Beyond the Competition — Experience the Cultural Spirit of India"
-          />
           
           <div className="mt-10 grid gap-6 sm:grid-cols-2 max-w-4xl mx-auto">
             {COMPETITION_EVENTS.map((event, i) => (
@@ -100,8 +91,20 @@ export function OtherEvents() {
               </Reveal>
             ))}
           </div>
+        </div>
           
-          <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto">
+        <div className="mt-24">
+          <SectionHeading
+            eyebrow="Attractions"
+            title={
+              <>
+                SPECIAL CELEBRATION FOR <span className="text-gradient-primary">PARTICIPANTS</span>
+              </>
+            }
+            subtitle="Beyond the Competition — Experience the Cultural Spirit of India"
+          />
+
+          <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto">
             {ATTRACTIONS.map((event, i) => (
               <Reveal key={event.name} delay={i * 0.1}>
                 <div className="glass-panel lift-card h-full relative overflow-hidden flex flex-col rounded-3xl p-6 text-center items-center border-t-2 border-t-primary/40">
