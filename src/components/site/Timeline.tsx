@@ -7,6 +7,8 @@ const MILESTONES = [
   { date: "07 October 2026", text: "SOCI-O-THON Round 1 Results announced" },
   { date: "08-28 October 2026", text: "SOCI-O-THON Solution Development Phase" },
   { date: "30 October 2026", text: "SOCI-O-THON Final Round\nNIRMAAN Conference (Day 1)" },
+  { date: "30-31 October 2026", text: "Science & Social Innovation Exhibition" },
+  { date: "30 October–2 November 2026", text: "RIWAAZ" },
   { date: "30 October 2026 (Night)", text: "Classical Night (KAVIRAAG)" },
   { date: "31 October 2026", text: "NIRMAAN Conference (Day 2)\nand Valedictory Function" },
 ];
