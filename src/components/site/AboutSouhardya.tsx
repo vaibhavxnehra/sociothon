@@ -13,8 +13,8 @@ export function AboutSouhardya() {
     {
       icon: HeartHandshake,
       name: "NIRMAAN",
-      tag: "National Social Conference",
-      copy: "A conference and presentation competition placing students face-to-face with IAS/IPS officers, senior officials and NGOs driving change on the ground.",
+      tag: "National Social-Technical Conference",
+      copy: "A national-level platform bringing together social activists, administrators, academicians, industry professionals, NGOs, innovators, and students to discuss and explore solutions to pressing social challenges.",
       href: "#events",
     },
   ];
