@@ -119,26 +119,26 @@ export function OtherEvents() {
         </div>
 
         <Reveal className="mt-24" delay={0.1}>
-          <div className="relative overflow-hidden rounded-3xl border border-primary/40 bg-navy-light shadow-2xl max-w-4xl mx-auto">
+          <div className="relative overflow-hidden rounded-3xl border border-primary/40 bg-navy-light shadow-2xl max-w-3xl mx-auto">
             <div className="absolute -top-40 -right-40 h-96 w-96 rounded-full bg-primary/20 blur-[100px]" />
             <div className="absolute -bottom-40 -left-40 h-96 w-96 rounded-full bg-secondary/20 blur-[100px]" />
             
-            <div className="relative flex flex-col md:flex-row items-center gap-8 p-6 sm:p-10">
-              <div className="grid h-16 w-16 shrink-0 place-items-center rounded-full bg-primary/20 text-primary border border-primary/30 shadow-[0_0_30px_rgba(var(--primary),0.3)]">
-                <FlaskConical className="h-8 w-8" />
+            <div className="relative flex flex-col md:flex-row items-center gap-6 p-5 sm:p-8">
+              <div className="grid h-12 w-12 shrink-0 place-items-center rounded-full bg-primary/20 text-primary border border-primary/30 shadow-[0_0_30px_rgba(var(--primary),0.3)]">
+                <FlaskConical className="h-6 w-6" />
               </div>
               <div className="flex-1 text-center md:text-left">
-                <div className="inline-flex items-center gap-2 rounded-full border border-primary/40 bg-primary/15 px-3 py-1.5 text-[10px] font-semibold tracking-wider text-primary uppercase mb-3 shadow-sm">
-                  <Sparkles className="h-3 w-3" />
+                <div className="inline-flex items-center gap-2 rounded-full border border-primary/40 bg-primary/15 px-3 py-1 text-[9px] font-semibold tracking-wider text-primary uppercase mb-2 shadow-sm">
+                  <Sparkles className="h-2.5 w-2.5" />
                   Exclusively for School Students
                 </div>
-                <h3 className="font-display text-2xl font-extrabold sm:text-3xl lg:text-4xl text-transparent bg-clip-text bg-gradient-to-r from-white to-white/70">
+                <h3 className="font-display text-xl font-extrabold sm:text-2xl lg:text-3xl text-transparent bg-clip-text bg-gradient-to-r from-white to-white/70">
                   SCIENCE & SOCIAL INNOVATION EXHIBITION
                 </h3>
-                <p className="mt-2 font-display text-base sm:text-lg font-medium text-gradient-primary">
+                <p className="mt-1 font-display text-sm sm:text-base font-medium text-gradient-primary">
                   Igniting Young Minds — From Ideas to Impact
                 </p>
-                <p className="mt-4 max-w-2xl text-sm sm:text-base text-muted-foreground leading-relaxed">
+                <p className="mt-3 max-w-2xl text-xs sm:text-sm text-muted-foreground leading-relaxed">
                   A special platform dedicated to school students across the region to exhibit their bright ideas, science models, and social innovation projects. This exhibition fosters scientific temper and encourages the next generation of thinkers to build solutions for a better tomorrow.
                 </p>
               </div>
