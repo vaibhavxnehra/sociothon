@@ -40,7 +40,7 @@ export function Hero({ registerUrl }: { registerUrl: string }) {
       />
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
-        <h1 className="mt-4 flex items-center justify-center gap-6 sm:gap-10 lg:gap-16 text-center font-display text-4xl leading-[1.05] font-extrabold text-balance sm:text-6xl lg:text-[5rem] w-full text-transparent bg-clip-text bg-gradient-to-b from-white to-white/40 drop-shadow-sm flex-wrap">
+        <h1 className="mt-4 flex flex-col md:flex-row items-center justify-center gap-6 sm:gap-10 lg:gap-16 text-center font-display text-4xl leading-[1.05] font-extrabold text-balance sm:text-6xl lg:text-[5rem] w-full text-transparent bg-clip-text bg-gradient-to-b from-white to-white/40 drop-shadow-sm">
           <motion.img 
             src={rgiptLogo} 
             alt="RGIPT Logo" 
