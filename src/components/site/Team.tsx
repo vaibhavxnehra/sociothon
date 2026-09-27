@@ -16,6 +16,7 @@ import yogeshKumar from "@/assets/yogesh-kumar.jpg";
 import manuKamboj from "@/assets/manu-kamboj.png";
 import bineeshaPayattati from "@/assets/bineesha-payattati.png";
 import harishHirani from "@/assets/harish-hirani.png";
+import koushikGuha from "@/assets/koushik-guha.jpg";
 
 type CommitteeMember = {
   name: string;
@@ -41,6 +42,7 @@ const COMMITTEE: CommitteeMember[] = [
     dept: "Dean, Student Affairs",
     email: "",
     phone: "",
+    image: koushikGuha,
   },
   {
     name: "Dr. Arvind Singh",
