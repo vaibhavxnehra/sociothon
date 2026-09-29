@@ -111,6 +111,19 @@ export function Registration({ registerUrl }: { registerUrl: string }) {
               >
                 Register Now
               </a>
+              <div className="relative flex items-center py-4 w-full">
+                <div className="flex-grow border-t border-primary/20"></div>
+                <span className="flex-shrink-0 mx-3 text-[10px] text-muted-foreground font-semibold uppercase tracking-wider">or</span>
+                <div className="flex-grow border-t border-primary/20"></div>
+              </div>
+              <a
+                href="#"
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex w-full items-center justify-center rounded-full bg-primary/20 border border-primary/40 px-6 py-2.5 font-display text-sm font-semibold text-primary transition-colors hover:bg-primary hover:text-primary-foreground animate-pulse-scale"
+              >
+                Google Form Link
+              </a>
             </div>
           </Reveal>
 
@@ -178,6 +191,19 @@ export function Registration({ registerUrl }: { registerUrl: string }) {
                 className="mt-6 inline-flex w-full items-center justify-center rounded-full bg-primary px-6 py-2.5 font-display text-sm font-semibold text-primary-foreground shadow-[var(--shadow-glow)] transition-transform hover:scale-105 animate-pulse-scale"
               >
                 Register Now
+              </a>
+              <div className="relative flex items-center py-4 w-full">
+                <div className="flex-grow border-t border-primary/20"></div>
+                <span className="flex-shrink-0 mx-3 text-[10px] text-muted-foreground font-semibold uppercase tracking-wider">or</span>
+                <div className="flex-grow border-t border-primary/20"></div>
+              </div>
+              <a
+                href="#"
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex w-full items-center justify-center rounded-full bg-primary/20 border border-primary/40 px-6 py-2.5 font-display text-sm font-semibold text-primary transition-colors hover:bg-primary hover:text-primary-foreground animate-pulse-scale"
+              >
+                Google Form Link
               </a>
             </div>
           </Reveal>
