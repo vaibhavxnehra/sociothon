@@ -119,6 +119,7 @@ const COORDINATORS = [
   { name: "Ms. Khushi Jatolia", role: "Coordinator (Nirmaan)", email: "24it3028@rgipt.ac.in", phone: "+91 63800 94014" },
   { name: "Ms. Omika Singh", role: "Coordinator (Nirmaan)", email: "24pp3005@rgipt.ac.in", phone: "+91 89500 84550" },
   { name: "Mr. Ojas Pandey", role: "Coordinator (Nirmaan)", email: "24re3009@rgipt.ac.in", phone: "+91 63925 84586" },
+  { name: "Mr. Shubhendra Singh", role: "Coordinator (Nirmaan)", email: "24re3011@rgipt.ac.in", phone: "+91 93897 90113" },
 ];
 
 function initials(name: string) {
