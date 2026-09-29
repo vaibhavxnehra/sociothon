@@ -117,7 +117,7 @@ export function Registration({ registerUrl }: { registerUrl: string }) {
                 <div className="flex-grow border-t border-primary/20"></div>
               </div>
               <a
-                href="#"
+                href="https://forms.gle/5caBmSJASzsav4fd7"
                 target="_blank"
                 rel="noreferrer"
                 className="inline-flex w-full items-center justify-center rounded-full bg-primary/20 border border-primary/40 px-6 py-2.5 font-display text-sm font-semibold text-primary transition-colors hover:bg-primary hover:text-primary-foreground animate-pulse-scale"
