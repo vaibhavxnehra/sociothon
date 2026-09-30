@@ -239,7 +239,7 @@ export function Team() {
           ))}
         </div>
 
-        <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <div id="contact" className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {COORDINATORS.map((c, i) => (
             <Reveal key={c.email} delay={i * 0.05}>
               <div className="glass-panel lift-card h-full rounded-2xl p-5">
