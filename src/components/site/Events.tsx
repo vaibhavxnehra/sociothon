@@ -266,7 +266,7 @@ export function Events() {
                 </div>
                 <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
                   <Reveal delay={0.1}>
-                    <a href="#" target="_blank" rel="noreferrer" className="inline-flex w-full items-center justify-center rounded-xl bg-primary/20 border border-primary/40 px-4 py-3.5 font-display text-sm font-semibold text-primary transition-colors hover:bg-primary hover:text-primary-foreground animate-pulse-scale">
+                    <a href="https://drive.google.com/file/d/1KSDBHPDKraSHnlLbeIUyg3QZ_bVLKjoY/view" target="_blank" rel="noreferrer" className="inline-flex w-full items-center justify-center rounded-xl bg-primary/20 border border-primary/40 px-4 py-3.5 font-display text-sm font-semibold text-primary transition-colors hover:bg-primary hover:text-primary-foreground animate-pulse-scale">
                       Rule Book
                     </a>
                   </Reveal>
