@@ -281,7 +281,7 @@ export function Events() {
                     </a>
                   </Reveal>
                   <Reveal delay={0.4}>
-                    <a href="#" target="_blank" rel="noreferrer" className="inline-flex w-full items-center justify-center rounded-xl bg-primary/20 border border-primary/40 px-4 py-3.5 font-display text-sm font-semibold text-primary transition-colors hover:bg-primary hover:text-primary-foreground animate-pulse-scale">
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSfZBFpYRk1ggdG-xEbY05A0Hcxk5IbisYlSv1ajLkCsr9Ruzg/viewform" target="_blank" rel="noreferrer" className="inline-flex w-full items-center justify-center rounded-xl bg-primary/20 border border-primary/40 px-4 py-3.5 font-display text-sm font-semibold text-primary transition-colors hover:bg-primary hover:text-primary-foreground animate-pulse-scale">
                       PPT Submission Link
                     </a>
                   </Reveal>
