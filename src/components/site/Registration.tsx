@@ -12,8 +12,8 @@ import sociothonQr from "@/assets/sociothon-qr.png";
 import paymentQr from "@/assets/payment-qr.jpg";
 
 const FEES = [
-  { window: "Before 30th September", fee: "₹500/-", stay: "" },
-  { window: "1st October - 15th October", fee: "₹750/-", stay: "" },
+  { window: "Before 5th October", fee: "₹500/-", stay: "" },
+  { window: "5th October - 15th October", fee: "₹750/-", stay: "" },
   { window: "15th October - On Spot Registration", fee: "₹1,000/-", stay: "" },
 ];
 
