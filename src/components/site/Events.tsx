@@ -264,6 +264,28 @@ export function Events() {
                     </Reveal>
                   ))}
                 </div>
+                <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+                  <Reveal delay={0.1}>
+                    <a href="#" target="_blank" rel="noreferrer" className="inline-flex w-full items-center justify-center rounded-xl bg-primary/20 border border-primary/40 px-4 py-3.5 font-display text-sm font-semibold text-primary transition-colors hover:bg-primary hover:text-primary-foreground animate-pulse-scale">
+                      Rule Book
+                    </a>
+                  </Reveal>
+                  <Reveal delay={0.2}>
+                    <a href="#" target="_blank" rel="noreferrer" className="inline-flex w-full items-center justify-center rounded-xl bg-primary/20 border border-primary/40 px-4 py-3.5 font-display text-sm font-semibold text-primary transition-colors hover:bg-primary hover:text-primary-foreground animate-pulse-scale">
+                      Problem Statements
+                    </a>
+                  </Reveal>
+                  <Reveal delay={0.3}>
+                    <a href="#" target="_blank" rel="noreferrer" className="inline-flex w-full items-center justify-center rounded-xl bg-primary/20 border border-primary/40 px-4 py-3.5 font-display text-sm font-semibold text-primary transition-colors hover:bg-primary hover:text-primary-foreground animate-pulse-scale">
+                      PPT Template
+                    </a>
+                  </Reveal>
+                  <Reveal delay={0.4}>
+                    <a href="#" target="_blank" rel="noreferrer" className="inline-flex w-full items-center justify-center rounded-xl bg-primary/20 border border-primary/40 px-4 py-3.5 font-display text-sm font-semibold text-primary transition-colors hover:bg-primary hover:text-primary-foreground animate-pulse-scale">
+                      PPT Submission Link
+                    </a>
+                  </Reveal>
+                </div>
               </div>
             </motion.div>
           ) : (
