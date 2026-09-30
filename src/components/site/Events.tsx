@@ -276,7 +276,7 @@ export function Events() {
                     </a>
                   </Reveal>
                   <Reveal delay={0.3}>
-                    <a href="#" target="_blank" rel="noreferrer" className="inline-flex w-full items-center justify-center rounded-xl bg-primary/20 border border-primary/40 px-4 py-3.5 font-display text-sm font-semibold text-primary transition-colors hover:bg-primary hover:text-primary-foreground animate-pulse-scale">
+                    <a href="https://docs.google.com/presentation/d/1iOo46IXInvtOIc2zesd0lBZrGuXRBix3/edit?slide=id.p1#slide=id.p1" target="_blank" rel="noreferrer" className="inline-flex w-full items-center justify-center rounded-xl bg-primary/20 border border-primary/40 px-4 py-3.5 font-display text-sm font-semibold text-primary transition-colors hover:bg-primary hover:text-primary-foreground animate-pulse-scale">
                       PPT Template
                     </a>
                   </Reveal>
