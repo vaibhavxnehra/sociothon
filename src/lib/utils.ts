@@ -10,6 +10,7 @@ export function smoothScrollTo(targetId: string) {
   
   if (target === "top") {
     smoothScrollToY(0);
+    window.history.pushState(null, "", window.location.pathname + window.location.search);
     return;
   }
 
@@ -17,6 +18,7 @@ export function smoothScrollTo(targetId: string) {
   if (el) {
     const y = el.getBoundingClientRect().top + window.scrollY - 80;
     smoothScrollToY(y);
+    window.history.pushState(null, "", "#" + target);
   }
 }
 
