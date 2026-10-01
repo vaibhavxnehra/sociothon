@@ -29,7 +29,7 @@ function smoothScrollToY(targetY: number) {
   // Constant-feeling duration based on distance, capped for sanity
   const duration = Math.min(1000, Math.max(400, Math.abs(distance) * 0.2));
   
-  let start = performance.now();
+  const start = performance.now();
   
   function step(now: number) {
     const elapsed = now - start;

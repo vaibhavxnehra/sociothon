@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "@tanstack/react-router";
 import { motion, AnimatePresence } from "motion/react";
 import { Menu, X } from "lucide-react";
 import rgiptLogo from "@/assets/rgipt-logo.png";
@@ -6,6 +7,7 @@ import rgiptLogo from "@/assets/rgipt-logo.png";
 const LINKS = [
   { id: "about", label: "About" },
   { id: "events", label: "Events" },
+  { id: "quiz", label: "Quiz", href: "/nirmaan" },
   { id: "timeline", label: "Timeline" },
   { id: "register", label: "Register" },
   { id: "team", label: "Organizing Committee" },
@@ -71,17 +73,31 @@ export function Navbar({ registerUrl }: { registerUrl: string }) {
         </a>
 
         <div className="ml-auto hidden items-center gap-7 lg:flex">
-          {LINKS.map((l) => (
-            <a
-              key={l.id}
-              href={`#${l.id}`}
-              onClick={(e) => scrollTo(e, l.id)}
-              data-active={active === l.id}
-              className="nav-link text-sm font-medium text-muted-foreground transition-colors hover:text-foreground data-[active=true]:text-foreground"
-            >
-              {l.label}
-            </a>
-          ))}
+          {LINKS.map((l) =>
+            l.href ? (
+              <Link
+                key={l.id}
+                to={l.href}
+                className="nav-link text-sm font-medium text-muted-foreground transition-colors hover:text-foreground flex items-center gap-1.5"
+              >
+                {l.label}
+                <span className="relative flex h-1.5 w-1.5">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-amber-500"></span>
+                </span>
+              </Link>
+            ) : (
+              <a
+                key={l.id}
+                href={`#${l.id}`}
+                onClick={(e) => scrollTo(e, l.id)}
+                data-active={active === l.id}
+                className="nav-link text-sm font-medium text-muted-foreground transition-colors hover:text-foreground data-[active=true]:text-foreground"
+              >
+                {l.label}
+              </a>
+            ),
+          )}
           <a
             href={registerUrl}
             onClick={(e) => scrollTo(e, registerUrl)}
@@ -110,16 +126,33 @@ export function Navbar({ registerUrl }: { registerUrl: string }) {
             className="glass-panel mx-4 mt-3 rounded-2xl p-4 lg:hidden"
           >
             <div className="flex flex-col gap-1">
-              {LINKS.map((l) => (
-                <a
-                  key={l.id}
-                  href={`#${l.id}`}
-                  onClick={(e) => { setOpen(false); scrollTo(e, l.id); }}
-                  className="rounded-xl px-3 py-3 text-sm font-medium transition-colors hover:bg-secondary"
-                >
-                  {l.label}
-                </a>
-              ))}
+              {LINKS.map((l) =>
+                l.href ? (
+                  <Link
+                    key={l.id}
+                    to={l.href}
+                    onClick={() => setOpen(false)}
+                    className="rounded-xl px-3 py-3 text-sm font-medium transition-colors hover:bg-secondary flex items-center justify-between"
+                  >
+                    <span>{l.label}</span>
+                    <span className="rounded-full bg-amber-500/20 text-amber-300 text-[10px] font-semibold px-2 py-0.5 border border-amber-500/30">
+                      DAILY QUIZ
+                    </span>
+                  </Link>
+                ) : (
+                  <a
+                    key={l.id}
+                    href={`#${l.id}`}
+                    onClick={(e) => {
+                      setOpen(false);
+                      scrollTo(e, l.id);
+                    }}
+                    className="rounded-xl px-3 py-3 text-sm font-medium transition-colors hover:bg-secondary"
+                  >
+                    {l.label}
+                  </a>
+                ),
+              )}
               <a
                 href={registerUrl}
                 onClick={(e) => { setOpen(false); scrollTo(e, registerUrl); }}
