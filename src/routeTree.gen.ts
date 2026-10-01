@@ -10,33 +10,128 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as NirmaanIndexRouteImport } from './routes/nirmaan/index'
+import { Route as NirmaanAdminRouteImport } from './routes/nirmaan/admin'
+import { Route as NirmaanHistoryRouteImport } from './routes/nirmaan/history'
+import { Route as NirmaanLeaderboardRouteImport } from './routes/nirmaan/leaderboard'
+import { Route as NirmaanLoginRouteImport } from './routes/nirmaan/login'
+import { Route as NirmaanQuizRouteImport } from './routes/nirmaan/quiz'
+import { Route as NirmaanResultRouteImport } from './routes/nirmaan/result'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const NirmaanIndexRoute = NirmaanIndexRouteImport.update({
+  id: '/nirmaan/',
+  path: '/nirmaan/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NirmaanAdminRoute = NirmaanAdminRouteImport.update({
+  id: '/nirmaan/admin',
+  path: '/nirmaan/admin',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NirmaanHistoryRoute = NirmaanHistoryRouteImport.update({
+  id: '/nirmaan/history',
+  path: '/nirmaan/history',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NirmaanLeaderboardRoute = NirmaanLeaderboardRouteImport.update({
+  id: '/nirmaan/leaderboard',
+  path: '/nirmaan/leaderboard',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NirmaanLoginRoute = NirmaanLoginRouteImport.update({
+  id: '/nirmaan/login',
+  path: '/nirmaan/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NirmaanQuizRoute = NirmaanQuizRouteImport.update({
+  id: '/nirmaan/quiz',
+  path: '/nirmaan/quiz',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NirmaanResultRoute = NirmaanResultRouteImport.update({
+  id: '/nirmaan/result',
+  path: '/nirmaan/result',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/nirmaan/admin': typeof NirmaanAdminRoute
+  '/nirmaan/history': typeof NirmaanHistoryRoute
+  '/nirmaan/leaderboard': typeof NirmaanLeaderboardRoute
+  '/nirmaan/login': typeof NirmaanLoginRoute
+  '/nirmaan/quiz': typeof NirmaanQuizRoute
+  '/nirmaan/result': typeof NirmaanResultRoute
+  '/nirmaan/': typeof NirmaanIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/nirmaan/admin': typeof NirmaanAdminRoute
+  '/nirmaan/history': typeof NirmaanHistoryRoute
+  '/nirmaan/leaderboard': typeof NirmaanLeaderboardRoute
+  '/nirmaan/login': typeof NirmaanLoginRoute
+  '/nirmaan/quiz': typeof NirmaanQuizRoute
+  '/nirmaan/result': typeof NirmaanResultRoute
+  '/nirmaan': typeof NirmaanIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/nirmaan/admin': typeof NirmaanAdminRoute
+  '/nirmaan/history': typeof NirmaanHistoryRoute
+  '/nirmaan/leaderboard': typeof NirmaanLeaderboardRoute
+  '/nirmaan/login': typeof NirmaanLoginRoute
+  '/nirmaan/quiz': typeof NirmaanQuizRoute
+  '/nirmaan/result': typeof NirmaanResultRoute
+  '/nirmaan/': typeof NirmaanIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/nirmaan/admin'
+    | '/nirmaan/history'
+    | '/nirmaan/leaderboard'
+    | '/nirmaan/login'
+    | '/nirmaan/quiz'
+    | '/nirmaan/result'
+    | '/nirmaan/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/nirmaan/admin'
+    | '/nirmaan/history'
+    | '/nirmaan/leaderboard'
+    | '/nirmaan/login'
+    | '/nirmaan/quiz'
+    | '/nirmaan/result'
+    | '/nirmaan'
+  id:
+    | '__root__'
+    | '/'
+    | '/nirmaan/admin'
+    | '/nirmaan/history'
+    | '/nirmaan/leaderboard'
+    | '/nirmaan/login'
+    | '/nirmaan/quiz'
+    | '/nirmaan/result'
+    | '/nirmaan/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  NirmaanAdminRoute: typeof NirmaanAdminRoute
+  NirmaanHistoryRoute: typeof NirmaanHistoryRoute
+  NirmaanLeaderboardRoute: typeof NirmaanLeaderboardRoute
+  NirmaanLoginRoute: typeof NirmaanLoginRoute
+  NirmaanQuizRoute: typeof NirmaanQuizRoute
+  NirmaanResultRoute: typeof NirmaanResultRoute
+  NirmaanIndexRoute: typeof NirmaanIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +143,67 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/nirmaan/': {
+      id: '/nirmaan/'
+      path: '/nirmaan'
+      fullPath: '/nirmaan/'
+      preLoaderRoute: typeof NirmaanIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/nirmaan/admin': {
+      id: '/nirmaan/admin'
+      path: '/nirmaan/admin'
+      fullPath: '/nirmaan/admin'
+      preLoaderRoute: typeof NirmaanAdminRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/nirmaan/history': {
+      id: '/nirmaan/history'
+      path: '/nirmaan/history'
+      fullPath: '/nirmaan/history'
+      preLoaderRoute: typeof NirmaanHistoryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/nirmaan/leaderboard': {
+      id: '/nirmaan/leaderboard'
+      path: '/nirmaan/leaderboard'
+      fullPath: '/nirmaan/leaderboard'
+      preLoaderRoute: typeof NirmaanLeaderboardRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/nirmaan/login': {
+      id: '/nirmaan/login'
+      path: '/nirmaan/login'
+      fullPath: '/nirmaan/login'
+      preLoaderRoute: typeof NirmaanLoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/nirmaan/quiz': {
+      id: '/nirmaan/quiz'
+      path: '/nirmaan/quiz'
+      fullPath: '/nirmaan/quiz'
+      preLoaderRoute: typeof NirmaanQuizRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/nirmaan/result': {
+      id: '/nirmaan/result'
+      path: '/nirmaan/result'
+      fullPath: '/nirmaan/result'
+      preLoaderRoute: typeof NirmaanResultRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  NirmaanAdminRoute: NirmaanAdminRoute,
+  NirmaanHistoryRoute: NirmaanHistoryRoute,
+  NirmaanLeaderboardRoute: NirmaanLeaderboardRoute,
+  NirmaanLoginRoute: NirmaanLoginRoute,
+  NirmaanQuizRoute: NirmaanQuizRoute,
+  NirmaanResultRoute: NirmaanResultRoute,
+  NirmaanIndexRoute: NirmaanIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
