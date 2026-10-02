@@ -3,6 +3,16 @@ import type { User, Session } from '@supabase/supabase-js';
 import { supabase } from './supabase';
 import type { Profile } from './types';
 
+export function getAuthRedirectUrl(): string {
+  if (typeof window !== 'undefined' && window.location?.origin) {
+    return `${window.location.origin}/nirmaan`;
+  }
+  const siteUrl =
+    (typeof import.meta !== 'undefined' && import.meta.env?.VITE_SITE_URL) ||
+    'https://sociothon-nirmaan.vercel.app';
+  return `${siteUrl.replace(/\/$/, '')}/nirmaan`;
+}
+
 export function useAuth() {
   const [user, setUser] = useState<User | null>(null);
   const [session, setSession] = useState<Session | null>(null);
@@ -76,11 +86,13 @@ export function useAuth() {
     password: string,
     metadata?: { full_name?: string; college?: string; roll_number?: string; phone?: string }
   ) => {
+    const emailRedirectTo = getAuthRedirectUrl();
     const { data, error } = await supabase.auth.signUp({
       email,
       password,
       options: {
         data: metadata,
+        emailRedirectTo,
       },
     });
     if (error) throw error;
@@ -88,9 +100,13 @@ export function useAuth() {
   };
 
   const signInWithOtp = async (email: string) => {
+    const emailRedirectTo = getAuthRedirectUrl();
     const { data, error } = await supabase.auth.signInWithOtp({
       email,
-      options: { shouldCreateUser: true },
+      options: {
+        shouldCreateUser: true,
+        emailRedirectTo,
+      },
     });
     if (error) throw error;
     return data;

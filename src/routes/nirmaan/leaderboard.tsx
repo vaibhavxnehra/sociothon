@@ -23,9 +23,15 @@ export const Route = createFileRoute('/nirmaan/leaderboard')({
 });
 
 function formatSeconds(sec: number): string {
+  if (typeof sec !== 'number' || isNaN(sec)) return '0s';
   const m = Math.floor(sec / 60);
   const s = sec % 60;
-  return `${m}:${String(s).padStart(2, '0')}`;
+  const isDecimal = Math.round(s * 10) !== Math.round(s) * 10;
+  const sFormatted = isDecimal ? s.toFixed(1) : String(Math.floor(s)).padStart(2, '0');
+  if (m === 0) {
+    return `${isDecimal ? s.toFixed(1) : s}s`;
+  }
+  return `${m}:${s < 10 ? '0' : ''}${sFormatted}`;
 }
 
 function NirmaanLeaderboardPage() {
@@ -173,6 +179,7 @@ function NirmaanLeaderboardPage() {
                       <tr>
                         <th className="py-3.5 px-4 sm:px-6">Rank</th>
                         <th className="py-3.5 px-4">Participant</th>
+                        <th className="py-3.5 px-4 text-emerald-400 font-bold">Score</th>
                         <th className="py-3.5 px-4 hidden sm:table-cell">Actual Time</th>
                         <th className="py-3.5 px-4 hidden sm:table-cell">Penalty</th>
                         <th className="py-3.5 px-4 font-bold text-amber-300">Final Time</th>
@@ -212,10 +219,18 @@ function NirmaanLeaderboardPage() {
                               <span className="font-medium text-white">{entry.full_name || 'Participant'}</span>
                             </div>
                           </td>
+                          <td className="py-4 px-4 font-mono font-bold text-emerald-400">
+                            {entry.correct_count ?? 0} Correct
+                            {entry.skipped_count ? (
+                              <span className="text-neutral-500 text-xs font-normal block sm:inline sm:ml-1.5">
+                                ({entry.skipped_count} skipped)
+                              </span>
+                            ) : null}
+                          </td>
                           <td className="py-4 px-4 font-mono text-neutral-300 hidden sm:table-cell">
                             {formatSeconds(entry.actual_time_seconds || 0)}
                           </td>
-                          <td className="py-4 px-4 font-mono text-amber-400 hidden sm:table-cell">
+                          <td className="py-4 px-4 font-mono text-amber-400 hidden sm:table-cell text-xs">
                             +{entry.penalty_seconds || 0}s ({entry.wrong_count || 0} wrong)
                           </td>
                           <td className="py-4 px-4 font-mono font-bold text-base text-amber-300">

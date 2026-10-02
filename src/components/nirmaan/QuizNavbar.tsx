@@ -6,6 +6,8 @@ interface QuizNavbarProps {
   title?: string;
   currentQuestionIndex: number;
   totalQuestions: number;
+  answeredQuestionIndices?: number[];
+  onSelectQuestion?: (index: number) => void;
   onExit?: () => void;
 }
 
@@ -13,11 +15,13 @@ export const QuizNavbar: React.FC<QuizNavbarProps> = ({
   title = 'DAILY SPEED QUIZ',
   currentQuestionIndex,
   totalQuestions,
+  answeredQuestionIndices = [],
+  onSelectQuestion,
   onExit,
 }) => {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 px-4 py-4 md:px-8 flex justify-center pointer-events-none">
-      <div className="w-full max-w-4xl bg-[#13110F]/85 border border-white/10 rounded-full px-6 py-3 flex items-center justify-between pointer-events-auto backdrop-blur-xl shadow-2xl">
+      <div className="w-full max-w-4xl bg-[#13110F]/85 border border-white/10 rounded-full px-4 sm:px-6 py-2.5 flex items-center justify-between pointer-events-auto backdrop-blur-xl shadow-2xl">
         {/* Left Branding */}
         <div className="flex items-center gap-3">
           <div className="w-8 h-8 rounded-full bg-white/5 border border-white/15 flex items-center justify-center text-[#E0D5C3]">
@@ -33,23 +37,33 @@ export const QuizNavbar: React.FC<QuizNavbarProps> = ({
           </div>
         </div>
 
-        {/* Center Progress Dots */}
-        <div className="flex items-center gap-2">
-          {Array.from({ length: totalQuestions }).map((_, idx) => (
-            <div
-              key={idx}
-              className={`h-1.5 rounded-full transition-all duration-300 ${
-                idx === currentQuestionIndex
-                  ? 'w-7 bg-[#E5DBCF] shadow-sm shadow-[#E5DBCF]/50'
-                  : idx < currentQuestionIndex
-                  ? 'w-2.5 bg-[#E5DBCF]/60'
-                  : 'w-2.5 bg-white/20'
-              }`}
-            />
-          ))}
-          <span className="text-xs text-[#9E907E] ml-2 font-mono hidden sm:inline">
-            {currentQuestionIndex + 1}/{totalQuestions}
-          </span>
+        {/* Center Free Question Navigation Pills */}
+        <div className="flex items-center gap-1.5 sm:gap-2">
+          {Array.from({ length: totalQuestions }).map((_, idx) => {
+            const isActive = idx === currentQuestionIndex;
+            const isAnswered = answeredQuestionIndices.includes(idx);
+
+            return (
+              <button
+                key={idx}
+                type="button"
+                onClick={() => onSelectQuestion?.(idx)}
+                className={`flex items-center gap-1 px-2.5 sm:px-3 py-1 rounded-full text-xs font-mono font-medium transition-all duration-200 cursor-pointer ${
+                  isActive
+                    ? 'bg-[#E5DBCF] text-[#1E1B18] shadow-md shadow-[#E5DBCF]/30 scale-105 font-bold'
+                    : isAnswered
+                    ? 'bg-white/15 text-[#E5DBCF] border border-white/20 hover:bg-white/25'
+                    : 'bg-white/5 text-[#A89E8F] border border-white/10 hover:bg-white/15 hover:text-white'
+                }`}
+                title={`Jump to Question ${idx + 1}${isAnswered ? ' (Answered)' : ' (Unanswered)'}`}
+              >
+                <span>Q{idx + 1}</span>
+                {isAnswered && (
+                  <span className={`w-1.5 h-1.5 rounded-full ${isActive ? 'bg-[#1E1B18]' : 'bg-emerald-400'}`} />
+                )}
+              </button>
+            );
+          })}
         </div>
 
         {/* Right Actions */}

@@ -10,7 +10,7 @@ import {
   User,
 } from 'lucide-react';
 import { useAuth } from '../../lib/nirmaan/auth';
-import { getTodayQuiz } from '../../lib/nirmaan/quiz-client';
+import { getTodayQuiz, getUserAttemptForQuiz } from '../../lib/nirmaan/quiz-client';
 import type { Quiz } from '../../lib/nirmaan/types';
 import { StudyRoomStage } from '../../components/nirmaan/StudyRoomStage';
 import '../../styles/quiz.css';
@@ -19,47 +19,82 @@ export const Route = createFileRoute('/nirmaan/')({
   component: NirmaanHub,
 });
 
+function formatTimeIST(isoString?: string | null): string {
+  if (!isoString) return '—';
+  try {
+    const d = new Date(isoString);
+    return d.toLocaleTimeString('en-US', {
+      timeZone: 'Asia/Kolkata',
+      hour: 'numeric',
+      minute: '2-digit',
+      hour12: true,
+    });
+  } catch {
+    return '—';
+  }
+}
+
 function NirmaanHub() {
   const navigate = useNavigate();
   const { user, profile, isAdmin, signOut } = useAuth();
   const [todayQuiz, setTodayQuiz] = useState<Quiz | null>(null);
   const [timeState, setTimeState] = useState<'upcoming' | 'live' | 'closed'>('upcoming');
   const [countdownText, setCountdownText] = useState<string>('');
+  const [hasActiveAttempt, setHasActiveAttempt] = useState(false);
+
+  // Clean up auth hash or redirect auth errors to login
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    const searchParams = new URLSearchParams(window.location.search);
+    const hashParams = new URLSearchParams(
+      window.location.hash.startsWith('#') ? window.location.hash.slice(1) : window.location.hash
+    );
+
+    const error = searchParams.get('error') || hashParams.get('error');
+    if (error) {
+      // Forward search/hash to login page for display
+      navigate({ to: '/nirmaan/login' });
+      return;
+    }
+
+    if (window.location.hash.includes('access_token')) {
+      try {
+        window.history.replaceState({}, document.title, window.location.pathname);
+      } catch {
+        // ignore
+      }
+    }
+  }, [navigate]);
 
   useEffect(() => {
     getTodayQuiz().then(setTodayQuiz).catch(console.error);
   }, []);
 
-  // IST Time Status Calculation
+  // Check if current user has an active attempt for today's quiz
+  useEffect(() => {
+    if (user && todayQuiz) {
+      getUserAttemptForQuiz(todayQuiz.id).then((attempt) => {
+        if (attempt && attempt.status === 'active') {
+          setHasActiveAttempt(true);
+        }
+      });
+    }
+  }, [user, todayQuiz]);
+
+  // Dynamic IST Schedule Calculation
   useEffect(() => {
     const updateStatus = () => {
       const now = new Date();
 
       if (!todayQuiz) {
-        // Default window: 7:00 PM to 10:00 PM IST
-        const istNow = new Date(now.toLocaleString('en-US', { timeZone: 'Asia/Kolkata' }));
-        const currentHour = istNow.getHours();
+        setTimeState('closed');
+        setCountdownText('No quiz scheduled');
+        return;
+      }
 
-        if (currentHour < 19) {
-          setTimeState('upcoming');
-          const target = new Date(istNow);
-          target.setHours(19, 0, 0, 0);
-          const diff = Math.max(0, target.getTime() - istNow.getTime());
-          const h = Math.floor(diff / (1000 * 60 * 60));
-          const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-          setCountdownText(`Starts in ${h}h ${m}m`);
-        } else if (currentHour >= 19 && currentHour < 22) {
-          setTimeState('live');
-          const target = new Date(istNow);
-          target.setHours(22, 0, 0, 0);
-          const diff = Math.max(0, target.getTime() - istNow.getTime());
-          const h = Math.floor(diff / (1000 * 60 * 60));
-          const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-          setCountdownText(`Ends in ${h}h ${m}m`);
-        } else {
-          setTimeState('closed');
-          setCountdownText('Closed for today');
-        }
+      if (todayQuiz.status === 'closed') {
+        setTimeState('closed');
+        setCountdownText('Quiz closed');
         return;
       }
 
@@ -202,7 +237,7 @@ function NirmaanHub() {
               onClick={handleStartQuizClick}
               className="inline-flex items-center gap-2 px-7 py-3 rounded-full bg-[#E5DBCF] hover:bg-[#F2ECE3] text-[#1E1B18] font-semibold text-sm transition-all duration-200 shadow-lg shadow-black/40 hover:scale-[1.02] active:scale-[0.98] cursor-pointer"
             >
-              <span>Start Quiz</span>
+              <span>{hasActiveAttempt ? 'Resume Quiz' : timeState === 'live' ? 'Start Quiz Challenge' : 'View Quiz'}</span>
               <ArrowRight className="w-4 h-4" />
             </button>
 
@@ -218,7 +253,12 @@ function NirmaanHub() {
           {/* Daily Challenge Window tag */}
           <div className="flex items-center gap-2 text-xs text-[#9E907E] mt-5">
             <Calendar className="w-4 h-4 text-[#C5B8A5]" />
-            <span>Daily Challenge Window: 7:00 PM – 10:00 PM IST</span>
+            <span>
+              Daily Challenge Window:{' '}
+              {todayQuiz
+                ? `${formatTimeIST(todayQuiz.start_time)} – ${formatTimeIST(todayQuiz.end_time)} IST`
+                : 'Scheduled by Admin'}
+            </span>
             {countdownText && (
               <span className="ml-2 px-2.5 py-0.5 rounded-full bg-white/5 border border-white/10 text-[#D8CEBF] text-[11px] font-mono">
                 {countdownText}
@@ -241,7 +281,7 @@ function NirmaanHub() {
                 3 Questions Daily
               </h3>
               <p className="text-xs text-[#9E907E] leading-relaxed mt-1.5">
-                Exactly 3 multiple choice questions with 4 options each. Questions and options are randomized for everyone.
+                Exactly 3 multiple choice questions with 4 options each. Switch freely, skip anytime, and answers save automatically.
               </p>
             </div>
           </div>
@@ -256,7 +296,7 @@ function NirmaanHub() {
                 10-Minute Challenge
               </h3>
               <p className="text-xs text-[#9E907E] leading-relaxed mt-1.5">
-                You have 600 seconds from the moment you begin. Start after 9:50 PM and your timer ends at 10:00 PM IST.
+                You have 600 seconds from the moment you begin. Your attempt ends when your timer expires or the quiz closes, whichever is earlier.
               </p>
             </div>
           </div>
@@ -268,10 +308,10 @@ function NirmaanHub() {
             </div>
             <div>
               <h3 className="font-nirmaan-title text-[#F2ECE1] font-semibold text-base">
-                5-Second Penalty
+                0.5-Second Penalty
               </h3>
               <p className="text-xs text-[#9E907E] leading-relaxed mt-1.5">
-                Final time = Actual time + (Wrong Answers × 5 seconds). More correct answers and lower time rank higher!
+                Final time = Actual time + (Wrong Answers × 0.5s). Skipped questions receive NO penalty. Higher correct answers and lower time rank higher!
               </p>
             </div>
           </div>

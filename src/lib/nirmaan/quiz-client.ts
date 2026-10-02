@@ -46,21 +46,64 @@ export async function startQuiz(quizId: string): Promise<StartQuizResponse> {
 export async function saveAnswer(
   attemptId: string,
   questionId: string,
-  selectedAnswer: 'A' | 'B' | 'C' | 'D'
+  selectedAnswer: 'A' | 'B' | 'C' | 'D',
+  timeTakenSeconds = 0,
+  currentQuestionIndex = 0,
+  questionTimes: Record<string, number> = {}
 ): Promise<SaveAnswerResponse> {
   const { data, error } = await supabase.rpc('save_answer', {
     p_attempt_id: attemptId,
     p_question_id: questionId,
     p_selected_answer: selectedAnswer,
+    p_time_taken_seconds: timeTakenSeconds,
+    p_current_question_index: currentQuestionIndex,
+    p_question_times: questionTimes,
   });
 
   if (error) throw new Error(error.message);
   return data as SaveAnswerResponse;
 }
 
-export async function submitQuiz(attemptId: string): Promise<AttemptReviewResponse> {
+export async function saveQuizProgress(
+  attemptId: string,
+  currentQuestionIndex: number,
+  questionTimes: Record<string, number>
+): Promise<void> {
+  try {
+    await supabase.rpc('save_quiz_progress', {
+      p_attempt_id: attemptId,
+      p_current_question_index: currentQuestionIndex,
+      p_question_times: questionTimes,
+    });
+  } catch (err) {
+    console.warn('Silent saveQuizProgress fallback:', err);
+  }
+}
+
+export async function getUserAttemptForQuiz(quizId: string) {
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+  if (!user) return null;
+
+  const { data, error } = await supabase
+    .from('quiz_attempts')
+    .select('id, status, current_question_index, question_times')
+    .eq('quiz_id', quizId)
+    .eq('user_id', user.id)
+    .maybeSingle();
+
+  if (error) return null;
+  return data;
+}
+
+export async function submitQuiz(
+  attemptId: string,
+  finalQuestionTimes?: Record<string, number>
+): Promise<AttemptReviewResponse> {
   const { data, error } = await supabase.rpc('submit_quiz', {
     p_attempt_id: attemptId,
+    p_final_question_times: finalQuestionTimes || {},
   });
 
   if (error) throw new Error(error.message);
@@ -126,14 +169,37 @@ export async function adminCreateQuestion(payload: {
   return data as string;
 }
 
-export async function adminCreateQuiz(quizDate: string, title: string): Promise<string> {
+export async function adminCreateQuiz(
+  quizDate: string,
+  title: string,
+  startTime?: string,
+  endTime?: string
+): Promise<string> {
   const { data, error } = await supabase.rpc('admin_create_quiz', {
     p_quiz_date: quizDate,
     p_title: title,
+    p_start_time: startTime || null,
+    p_end_time: endTime || null,
   });
 
   if (error) throw new Error(error.message);
   return data as string;
+}
+
+export async function adminUpdateQuizSchedule(
+  quizId: string,
+  quizDate: string,
+  startTime: string,
+  endTime: string
+): Promise<void> {
+  const { error } = await supabase.rpc('admin_update_quiz_schedule', {
+    p_quiz_id: quizId,
+    p_quiz_date: quizDate,
+    p_start_time: startTime,
+    p_end_time: endTime,
+  });
+
+  if (error) throw new Error(error.message);
 }
 
 export async function adminAssignQuestions(quizId: string, questionIds: string[]): Promise<void> {
@@ -151,6 +217,52 @@ export async function adminPublishQuiz(quizId: string): Promise<void> {
   });
 
   if (error) throw new Error(error.message);
+}
+
+export async function adminDeactivateQuiz(quizId: string): Promise<void> {
+  // 1. Try secure RPC if deployed
+  const { error: rpcError } = await supabase.rpc('admin_deactivate_quiz', {
+    p_quiz_id: quizId,
+  });
+
+  if (!rpcError) {
+    return;
+  }
+
+  // 2. Direct Admin RLS update on quizzes table
+  const { data: updated, error: updateError } = await supabase
+    .from('quizzes')
+    .update({
+      status: 'closed',
+      updated_at: new Date().toISOString(),
+    })
+    .eq('id', quizId)
+    .eq('status', 'published')
+    .select();
+
+  if (updateError) {
+    throw new Error(updateError.message);
+  }
+
+  if (!updated || updated.length === 0) {
+    throw new Error('Quiz not found or not in published state.');
+  }
+
+  // 3. Log admin activity
+  try {
+    const { data: userData } = await supabase.auth.getUser();
+    if (userData?.user?.id) {
+      await supabase.from('admin_activity').insert({
+        admin_id: userData.user.id,
+        action: 'DEACTIVATE_QUIZ',
+        target_type: 'quiz',
+        target_id: quizId,
+        metadata: { deactivated_at: new Date().toISOString() },
+      });
+    }
+  } catch (logErr) {
+    console.warn('Failed to log admin activity:', logErr);
+  }
 }
 
 export async function adminGetAllQuestions(): Promise<Question[]> {

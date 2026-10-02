@@ -24,6 +24,38 @@ function NirmaanLogin() {
   const [successMsg, setSuccessMsg] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
 
+  // Check for auth errors in URL (e.g. from expired magic link or invalid token)
+  React.useEffect(() => {
+    if (typeof window === 'undefined') return;
+    const searchParams = new URLSearchParams(window.location.search);
+    const hashParams = new URLSearchParams(
+      window.location.hash.startsWith('#') ? window.location.hash.slice(1) : window.location.hash
+    );
+
+    const error = searchParams.get('error') || hashParams.get('error');
+    const errorCode = searchParams.get('error_code') || hashParams.get('error_code');
+    const errorDescription = searchParams.get('error_description') || hashParams.get('error_description');
+
+    if (error || errorCode || errorDescription) {
+      if (errorCode === 'otp_expired' || errorDescription?.toLowerCase().includes('expired')) {
+        setErrorMsg('The sign-in link or OTP has expired. Please enter your email and request a new code.');
+      } else {
+        setErrorMsg(
+          errorDescription
+            ? decodeURIComponent(errorDescription.replace(/\+/g, ' '))
+            : 'Authentication failed. Please try again.'
+        );
+      }
+      setMode('otp');
+      // Clean up hash/query in URL so it doesn't persist on refresh or interfere with new attempts
+      try {
+        window.history.replaceState({}, document.title, window.location.pathname);
+      } catch {
+        // ignore
+      }
+    }
+  }, []);
+
   // If already logged in, redirect to hub
   React.useEffect(() => {
     if (user) {
@@ -70,13 +102,14 @@ function NirmaanLogin() {
   const handleSendOtp = async (e: React.FormEvent) => {
     e.preventDefault();
     setErrorMsg(null);
+    setSuccessMsg(null);
     setLoading(true);
 
     try {
       await signInWithOtp(email.trim());
-      setSuccessMsg('OTP has been sent to your email.');
+      setSuccessMsg('A 6-digit OTP code has been sent to your email.');
     } catch (err: unknown) {
-      setErrorMsg(err instanceof Error ? err.message : 'Failed to send OTP.');
+      setErrorMsg(err instanceof Error ? err.message : 'Failed to send OTP code.');
     } finally {
       setLoading(false);
     }
@@ -85,13 +118,14 @@ function NirmaanLogin() {
   const handleVerifyOtp = async (e: React.FormEvent) => {
     e.preventDefault();
     setErrorMsg(null);
+    setSuccessMsg(null);
     setLoading(true);
 
     try {
       await verifyOtp(email.trim(), otpToken.trim());
       navigate({ to: '/nirmaan' });
     } catch (err: unknown) {
-      setErrorMsg(err instanceof Error ? err.message : 'Invalid OTP token.');
+      setErrorMsg(err instanceof Error ? err.message : 'Invalid or expired OTP code.');
     } finally {
       setLoading(false);
     }
