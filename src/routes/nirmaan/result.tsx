@@ -24,9 +24,15 @@ export const Route = createFileRoute('/nirmaan/result')({
 });
 
 function formatSeconds(sec: number): string {
+  if (typeof sec !== 'number' || isNaN(sec)) return '0s';
   const m = Math.floor(sec / 60);
   const s = sec % 60;
-  return `${m}:${String(s).padStart(2, '0')}`;
+  const isDecimal = Math.round(s * 10) !== Math.round(s) * 10;
+  const sFormatted = isDecimal ? s.toFixed(1) : String(Math.floor(s)).padStart(2, '0');
+  if (m === 0) {
+    return `${isDecimal ? s.toFixed(1) : s}s`;
+  }
+  return `${m}:${s < 10 ? '0' : ''}${sFormatted}`;
 }
 
 function NirmaanResultPage() {
@@ -108,22 +114,22 @@ function NirmaanResultPage() {
           </h1>
           <p className="text-sm text-neutral-400 max-w-md mx-auto">
             {isAutoSubmitted
-              ? 'Your 10-minute timer or the 10:00 PM IST cutoff was reached. Your answers have been recorded.'
+              ? 'Your timer or the quiz cutoff time was reached. Your answers have been recorded.'
               : 'Great job! Your answers have been evaluated and your rank has been calculated.'}
           </p>
 
           {/* Stats Grid */}
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-6 border-t border-neutral-800">
+          <div className="grid grid-cols-2 sm:grid-cols-5 gap-3 pt-6 border-t border-neutral-800">
             <div className="p-4 rounded-2xl bg-neutral-950/60 border border-neutral-800/80">
-              <div className="text-xs uppercase tracking-wider text-neutral-400 font-mono mb-1">Actual Time</div>
-              <div className="text-xl font-bold font-mono text-white flex items-center justify-center gap-1.5">
-                <Clock className="w-4 h-4 text-sky-400" />
-                <span>{formatSeconds(review.actual_time_seconds)}</span>
+              <div className="text-xs uppercase tracking-wider text-neutral-400 font-mono mb-1">Correct</div>
+              <div className="text-xl font-bold font-mono text-emerald-400 flex items-center justify-center gap-1.5">
+                <CheckCircle2 className="w-4 h-4 text-emerald-400" />
+                <span>{review.correct_count}</span>
               </div>
             </div>
 
             <div className="p-4 rounded-2xl bg-neutral-950/60 border border-neutral-800/80">
-              <div className="text-xs uppercase tracking-wider text-neutral-400 font-mono mb-1">Wrong Answers</div>
+              <div className="text-xs uppercase tracking-wider text-neutral-400 font-mono mb-1">Wrong</div>
               <div className="text-xl font-bold font-mono text-white flex items-center justify-center gap-1.5">
                 <XCircle className="w-4 h-4 text-red-400" />
                 <span>{review.wrong_count}</span>
@@ -131,13 +137,21 @@ function NirmaanResultPage() {
             </div>
 
             <div className="p-4 rounded-2xl bg-neutral-950/60 border border-neutral-800/80">
-              <div className="text-xs uppercase tracking-wider text-neutral-400 font-mono mb-1">Time Penalty</div>
+              <div className="text-xs uppercase tracking-wider text-neutral-400 font-mono mb-1">Skipped</div>
+              <div className="text-xl font-bold font-mono text-amber-300 flex items-center justify-center gap-1.5">
+                <HelpCircle className="w-4 h-4 text-amber-400" />
+                <span>{review.skipped_count || 0}</span>
+              </div>
+            </div>
+
+            <div className="p-4 rounded-2xl bg-neutral-950/60 border border-neutral-800/80">
+              <div className="text-xs uppercase tracking-wider text-neutral-400 font-mono mb-1">Penalty</div>
               <div className="text-xl font-bold font-mono text-amber-400 flex items-center justify-center gap-1">
                 <span>+{review.penalty_seconds}s</span>
               </div>
             </div>
 
-            <div className="p-4 rounded-2xl bg-neutral-950/60 border border-neutral-800/80 ring-1 ring-amber-500/30">
+            <div className="p-4 rounded-2xl bg-neutral-950/60 border border-neutral-800/80 ring-1 ring-amber-500/30 col-span-2 sm:col-span-1">
               <div className="text-xs uppercase tracking-wider text-amber-400/80 font-mono mb-1">Final Time</div>
               <div className="text-xl font-bold font-mono text-amber-300 flex items-center justify-center gap-1.5">
                 <Trophy className="w-4 h-4 text-amber-400" />
@@ -181,55 +195,72 @@ function NirmaanResultPage() {
           </h2>
 
           <div className="space-y-4">
-            {review.questions_review.map((item) => (
-              <div
-                key={item.display_order}
-                className="rounded-2xl border border-neutral-800 bg-neutral-900/40 p-6 space-y-4 transition"
-              >
-                <div className="flex items-center justify-between">
-                  <span className="text-xs uppercase tracking-wider font-mono text-neutral-400">
-                    Question {item.display_order}
-                  </span>
+            {review.questions_review.map((item) => {
+              const isSkipped = !item.selected_answer || item.is_skipped;
 
-                  {item.is_correct ? (
-                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 text-xs font-semibold">
-                      <CheckCircle2 className="w-3.5 h-3.5" />
-                      <span>Correct</span>
+              return (
+                <div
+                  key={item.display_order}
+                  className="rounded-2xl border border-neutral-800 bg-neutral-900/40 p-6 space-y-4 transition"
+                >
+                  <div className="flex items-center justify-between">
+                    <span className="text-xs uppercase tracking-wider font-mono text-neutral-400">
+                      Question {item.display_order}
                     </span>
-                  ) : (
-                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-red-500/10 text-red-400 border border-red-500/20 text-xs font-semibold">
-                      <XCircle className="w-3.5 h-3.5" />
-                      <span>Wrong (+5s)</span>
-                    </span>
+
+                    {item.is_correct ? (
+                      <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 text-xs font-semibold">
+                        <CheckCircle2 className="w-3.5 h-3.5" />
+                        <span>Correct</span>
+                      </span>
+                    ) : isSkipped ? (
+                      <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-500/10 text-amber-400 border border-amber-500/20 text-xs font-semibold">
+                        <HelpCircle className="w-3.5 h-3.5" />
+                        <span>Skipped (No Penalty)</span>
+                      </span>
+                    ) : (
+                      <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-red-500/10 text-red-400 border border-red-500/20 text-xs font-semibold">
+                        <XCircle className="w-3.5 h-3.5" />
+                        <span>Wrong (+0.5s)</span>
+                      </span>
+                    )}
+                  </div>
+
+                  <h3 className="text-base font-medium text-white">{item.question_text}</h3>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+                    <div className="p-3 rounded-xl bg-neutral-950 border border-neutral-800 flex items-center justify-between">
+                      <span className="text-neutral-400">Your Answer:</span>
+                      <span
+                        className={`font-mono font-bold ${
+                          item.is_correct
+                            ? 'text-emerald-400'
+                            : isSkipped
+                            ? 'text-amber-400'
+                            : 'text-red-400'
+                        }`}
+                      >
+                        {item.selected_answer ? `Option ${item.selected_answer}` : 'Skipped / Unanswered'}
+                      </span>
+                    </div>
+
+                    <div className="p-3 rounded-xl bg-neutral-950 border border-neutral-800 flex items-center justify-between">
+                      <span className="text-neutral-400">Correct Answer:</span>
+                      <span className="font-mono font-bold text-emerald-400">
+                        Option {item.correct_answer}
+                      </span>
+                    </div>
+                  </div>
+
+                  {item.explanation && (
+                    <div className="p-3.5 rounded-xl bg-neutral-950/80 border border-neutral-800/80 text-xs text-neutral-300 leading-relaxed">
+                      <span className="font-semibold text-neutral-200 block mb-1">Explanation:</span>
+                      {item.explanation}
+                    </div>
                   )}
                 </div>
-
-                <h3 className="text-base font-medium text-white">{item.question_text}</h3>
-
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
-                  <div className="p-3 rounded-xl bg-neutral-950 border border-neutral-800 flex items-center justify-between">
-                    <span className="text-neutral-400">Your Answer:</span>
-                    <span className={`font-mono font-bold ${item.is_correct ? 'text-emerald-400' : 'text-red-400'}`}>
-                      Option {item.selected_answer || 'None (Unanswered)'}
-                    </span>
-                  </div>
-
-                  <div className="p-3 rounded-xl bg-neutral-950 border border-neutral-800 flex items-center justify-between">
-                    <span className="text-neutral-400">Correct Answer:</span>
-                    <span className="font-mono font-bold text-emerald-400">
-                      Option {item.correct_answer}
-                    </span>
-                  </div>
-                </div>
-
-                {item.explanation && (
-                  <div className="p-3.5 rounded-xl bg-neutral-950/80 border border-neutral-800/80 text-xs text-neutral-300 leading-relaxed">
-                    <span className="font-semibold text-neutral-200 block mb-1">Explanation:</span>
-                    {item.explanation}
-                  </div>
-                )}
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </div>

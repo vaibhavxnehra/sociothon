@@ -53,19 +53,25 @@ export interface AttemptQuestionItem {
 }
 
 export interface StartQuizResponse {
+  status?: 'active' | 'completed' | 'auto_submitted';
   attempt_id: string;
-  quiz_id: string;
-  title: string;
-  started_at: string;
-  effective_end_time: string;
-  duration_seconds: number;
-  questions: AttemptQuestionItem[];
+  quiz_id?: string;
+  title?: string;
+  started_at?: string;
+  effective_end_time?: string;
+  duration_seconds?: number;
+  current_question_index?: number;
+  question_times?: Record<string, number>;
+  saved_answers?: Record<string, 'A' | 'B' | 'C' | 'D'>;
+  questions?: AttemptQuestionItem[];
+  message?: string;
 }
 
 export interface SaveAnswerResponse {
   success: boolean;
   question_id: string;
-  selected_answer: 'A' | 'B' | 'C' | 'D';
+  selected_answer?: 'A' | 'B' | 'C' | 'D';
+  time_taken_seconds?: number;
   saved_at: string;
 }
 
@@ -75,6 +81,7 @@ export interface QuestionReviewItem {
   selected_answer: string | null;
   correct_answer: string;
   is_correct: boolean;
+  is_skipped?: boolean;
   explanation?: string | null;
 }
 
@@ -89,6 +96,7 @@ export interface AttemptReviewResponse {
   actual_time_seconds: number;
   correct_count: number;
   wrong_count: number;
+  skipped_count?: number;
   penalty_seconds: number;
   final_time_seconds: number;
   questions_review: QuestionReviewItem[];
@@ -100,8 +108,10 @@ export interface DailyLeaderboardItem {
   full_name: string;
   avatar_url?: string | null;
   status: 'completed' | 'auto_submitted' | 'missed';
-  actual_time_seconds?: number | null;
+  correct_count?: number | null;
   wrong_count?: number | null;
+  skipped_count?: number | null;
+  actual_time_seconds?: number | null;
   penalty_seconds?: number | null;
   final_time_seconds?: number | null;
   submitted_at?: string | null;
