@@ -6,6 +6,46 @@ import socialCouncilLogo from "@/assets/social-council-logo.png";
 import { Countdown } from "./Countdown";
 
 const words = ["SOCI-O-THON & NIRMAAN"];
+const SPONSORS = [
+  {
+    name: "C.S.I.R. - INDIA",
+    logo: "/sponsors/csir-india.png",
+    alt: "Council of Scientific and Industrial Research (CSIR), India",
+    imageSurface: "bg-white p-2",
+  },
+  {
+    name: "IEEE",
+    logo: "/sponsors/ieee.png",
+    alt: "IEEE logo",
+    imageSurface: "bg-black",
+  },
+  {
+    name: "STARTUPJET",
+    logo: "/sponsors/startupjet.png",
+    alt: "STARTUPJET logo",
+    imageSurface: "bg-white p-2",
+  },
+];
+
+function SponsorMark({ sponsor }: { sponsor: (typeof SPONSORS)[number] }) {
+  return (
+    <div
+      role="group"
+      aria-label={sponsor.name}
+      className="w-full max-w-44 rounded-2xl border border-primary/60 bg-background/75 p-2 text-center shadow-2xl shadow-black/30 backdrop-blur-md sm:p-3"
+    >
+      <div className={`flex h-16 items-center justify-center overflow-hidden rounded-xl sm:h-24 ${sponsor.imageSurface}`}>
+        <img
+          src={sponsor.logo}
+          alt={sponsor.alt}
+          loading="lazy"
+          className="h-full w-full object-contain"
+        />
+      </div>
+      <p className="mt-2 min-h-8 text-[10px] font-bold leading-4 tracking-wide text-foreground sm:text-xs">{sponsor.name}</p>
+    </div>
+  );
+}
 
 export function Hero({ registerUrl }: { registerUrl: string }) {
   const scrollTo = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
@@ -158,6 +198,15 @@ export function Hero({ registerUrl }: { registerUrl: string }) {
         >
           <Countdown />
         </motion.div>
+
+        <div className="mx-auto mt-8 w-full max-w-2xl">
+          <h2 className="mb-4 text-center font-display text-sm font-bold tracking-[0.2em] text-gradient-primary uppercase">
+            Sponsors
+          </h2>
+          <div className="grid grid-cols-3 justify-items-center gap-2 sm:gap-4">
+            {SPONSORS.map((sponsor) => <SponsorMark key={sponsor.name} sponsor={sponsor} />)}
+          </div>
+        </div>
       </div>
     </section>
   );
