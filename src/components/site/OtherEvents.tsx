@@ -7,14 +7,14 @@ const COMPETITION_EVENTS = [
     tag: "PARCHHAI SOCH KI, DARPAN SAMAJ KA",
     icon: Film,
     description: "PRATIBIMB is a short-film competition that encourages students to reflect on societal issues through powerful storytelling. Participants may explore drama, documentary, and experimental cinema, using film to inspire awareness, dialogue, and positive change.",
-    registerUrl: "https://unstop.com/p/pratibimb-rajiv-gandhi-institute-of-petroleum-technology-rgipt-jais-uttar-pradesh-1750124?lb=WHOaY4dM&utm_medium=Share&utm_source=events&utm_campaign=Utkarkum62556"
+    registerUrl: "https://unstop.com/events/pratibimb-souhardya-26-the-social-festival-of-rgipt-rajiv-gandhi-institute-of-petroleum-technology-rgipt-jais-utt-1764842?lb=0Usp8895&utm_medium=Share&utm_source=WhatsApp"
   },
   {
     name: "DRISHTIKON",
     tag: "THE PHOTOGRAPHY CHALLENGE",
     icon: Camera,
     description: "DRISHTIKON is a photography competition that invites participants to capture stories, emotions, and social realities through their lenses. It celebrates creativity and distinctive perspectives, encouraging viewers to look beyond what meets the eye.",
-    registerUrl: "https://unstop.com/p/drishtikon-2026-rajiv-gandhi-institute-of-petroleum-technology-rgipt-jais-uttar-pradesh-1750037?lb=WHOaY4dM&utm_medium=Share&utm_source=events&utm_campaign=Utkarkum62556"
+    registerUrl: "https://unstop.com/events/drishtikon-souhardya-26-the-social-festival-of-rgipt-rajiv-gandhi-institute-of-petroleum-technology-rgipt-jais-ut-1764844?lb=0Usp8895&utm_medium=Share&utm_source=WhatsApp"
   }
 ];
 

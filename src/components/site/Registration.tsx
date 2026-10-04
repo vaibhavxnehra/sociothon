@@ -215,10 +215,10 @@ export function Registration({ registerUrl }: { registerUrl: string }) {
               <h4 className="font-display text-lg font-bold">PRATIBIMB</h4>
               <p className="mt-1 text-[10px] font-semibold tracking-[0.2em] text-primary uppercase">Scan to register</p>
               <div className="mt-5 grid aspect-square w-full max-w-[150px] place-items-center rounded-2xl bg-white p-3">
-                <img src={`https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=${encodeURIComponent("https://unstop.com/p/pratibimb-rajiv-gandhi-institute-of-petroleum-technology-rgipt-jais-uttar-pradesh-1750124?lb=WHOaY4dM&utm_medium=Share&utm_source=events&utm_campaign=Utkarkum62556")}`} alt="PRATIBIMB Registration QR" className="h-full w-full object-contain" />
+                <img src={`https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=${encodeURIComponent("https://unstop.com/events/pratibimb-souhardya-26-the-social-festival-of-rgipt-rajiv-gandhi-institute-of-petroleum-technology-rgipt-jais-utt-1764842?lb=0Usp8895&utm_medium=Share&utm_source=WhatsApp")}`} alt="PRATIBIMB Registration QR" className="h-full w-full object-contain" />
               </div>
               <a
-                href="https://unstop.com/p/pratibimb-rajiv-gandhi-institute-of-petroleum-technology-rgipt-jais-uttar-pradesh-1750124?lb=WHOaY4dM&utm_medium=Share&utm_source=events&utm_campaign=Utkarkum62556"
+                href="https://unstop.com/events/pratibimb-souhardya-26-the-social-festival-of-rgipt-rajiv-gandhi-institute-of-petroleum-technology-rgipt-jais-utt-1764842?lb=0Usp8895&utm_medium=Share&utm_source=WhatsApp"
                 target="_blank"
                 rel="noreferrer"
                 className="mt-6 inline-flex w-full max-w-[200px] items-center justify-center rounded-full bg-primary/20 border border-primary/40 px-6 py-2 font-display text-sm font-semibold text-primary transition-colors hover:bg-primary hover:text-primary-foreground animate-pulse-scale"
@@ -233,10 +233,10 @@ export function Registration({ registerUrl }: { registerUrl: string }) {
               <h4 className="font-display text-lg font-bold">DRISHTIKON</h4>
               <p className="mt-1 text-[10px] font-semibold tracking-[0.2em] text-primary uppercase">Scan to register</p>
               <div className="mt-5 grid aspect-square w-full max-w-[150px] place-items-center rounded-2xl bg-white p-3">
-                <img src={`https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=${encodeURIComponent("https://unstop.com/p/drishtikon-2026-rajiv-gandhi-institute-of-petroleum-technology-rgipt-jais-uttar-pradesh-1750037?lb=WHOaY4dM&utm_medium=Share&utm_source=events&utm_campaign=Utkarkum62556")}`} alt="DRISHTIKON Registration QR" className="h-full w-full object-contain" />
+                <img src={`https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=${encodeURIComponent("https://unstop.com/events/drishtikon-souhardya-26-the-social-festival-of-rgipt-rajiv-gandhi-institute-of-petroleum-technology-rgipt-jais-ut-1764844?lb=0Usp8895&utm_medium=Share&utm_source=WhatsApp")}`} alt="DRISHTIKON Registration QR" className="h-full w-full object-contain" />
               </div>
               <a
-                href="https://unstop.com/p/drishtikon-2026-rajiv-gandhi-institute-of-petroleum-technology-rgipt-jais-uttar-pradesh-1750037?lb=WHOaY4dM&utm_medium=Share&utm_source=events&utm_campaign=Utkarkum62556"
+                href="https://unstop.com/events/drishtikon-souhardya-26-the-social-festival-of-rgipt-rajiv-gandhi-institute-of-petroleum-technology-rgipt-jais-ut-1764844?lb=0Usp8895&utm_medium=Share&utm_source=WhatsApp"
                 target="_blank"
                 rel="noreferrer"
                 className="mt-6 inline-flex w-full max-w-[200px] items-center justify-center rounded-full bg-primary/20 border border-primary/40 px-6 py-2 font-display text-sm font-semibold text-primary transition-colors hover:bg-primary hover:text-primary-foreground animate-pulse-scale"
