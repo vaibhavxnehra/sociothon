@@ -66,6 +66,36 @@ export function Hero({ registerUrl }: { registerUrl: string }) {
       <div className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_top,transparent_0%,var(--background)_100%)]" />
       <div className="grid-noise absolute inset-0 -z-10 opacity-40" />
 
+      {/* Running Ribbon */}
+      <div className="absolute top-[80px] sm:top-[88px] inset-x-0 z-40 flex overflow-hidden whitespace-nowrap bg-primary text-primary-foreground py-2 shadow-[var(--shadow-glow)]">
+        <motion.div
+          className="flex min-w-max gap-12 font-display text-xs font-bold tracking-[0.2em] uppercase sm:text-sm"
+          animate={{ x: ["0%", "-50%"] }}
+          transition={{ repeat: Infinity, ease: "linear", duration: 25 }}
+        >
+          <div className="flex gap-12 px-6">
+            <span>🚨 Early Bird Registration Extended to 10th October</span>
+            <span>•</span>
+            <span>📝 PPT Submission Deadline Changed to 7th October</span>
+            <span>•</span>
+            <span>🚨 Early Bird Registration Extended to 10th October</span>
+            <span>•</span>
+            <span>📝 PPT Submission Deadline Changed to 7th October</span>
+            <span>•</span>
+          </div>
+          <div className="flex gap-12 px-6">
+            <span>🚨 Early Bird Registration Extended to 10th October</span>
+            <span>•</span>
+            <span>📝 PPT Submission Deadline Changed to 7th October</span>
+            <span>•</span>
+            <span>🚨 Early Bird Registration Extended to 10th October</span>
+            <span>•</span>
+            <span>📝 PPT Submission Deadline Changed to 7th October</span>
+            <span>•</span>
+          </div>
+        </motion.div>
+      </div>
+
       <motion.div
         aria-hidden="true"
         animate={{ y: [0, -18, 0] }}
