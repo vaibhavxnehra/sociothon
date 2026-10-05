@@ -71,16 +71,16 @@ export function Hero({ registerUrl }: { registerUrl: string }) {
         <motion.div
           className="flex min-w-max gap-12 font-display text-xs font-bold tracking-[0.2em] uppercase sm:text-sm"
           animate={{ x: ["0%", "-50%"] }}
-          transition={{ repeat: Infinity, ease: "linear", duration: 25 }}
+          transition={{ repeat: Infinity, ease: "linear", duration: 35 }}
         >
           <div className="flex gap-12 px-6">
             <span>🚨 Early Bird Registration Extended to 10th October</span>
             <span>•</span>
             <span>📝 PPT Submission Deadline Changed to 7th October</span>
             <span>•</span>
-            <span>🚨 Early Bird Registration Extended to 10th October</span>
+            <span>📄 Nirmaan Abstract Submission Extended to 10th October</span>
             <span>•</span>
-            <span>📝 PPT Submission Deadline Changed to 7th October</span>
+            <span>🏆 SOCI-O-THON Round 1: 7th - 10th October</span>
             <span>•</span>
           </div>
           <div className="flex gap-12 px-6">
@@ -88,9 +88,9 @@ export function Hero({ registerUrl }: { registerUrl: string }) {
             <span>•</span>
             <span>📝 PPT Submission Deadline Changed to 7th October</span>
             <span>•</span>
-            <span>🚨 Early Bird Registration Extended to 10th October</span>
+            <span>📄 Nirmaan Abstract Submission Extended to 10th October</span>
             <span>•</span>
-            <span>📝 PPT Submission Deadline Changed to 7th October</span>
+            <span>🏆 SOCI-O-THON Round 1: 7th - 10th October</span>
             <span>•</span>
           </div>
         </motion.div>
