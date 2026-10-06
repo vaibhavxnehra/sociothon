@@ -14,6 +14,12 @@ const SPONSORS = [
     imageSurface: "bg-white p-2",
   },
   {
+    name: "Punjab National Bank",
+    logo: "/sponsors/punjab-national-bank.jpg",
+    alt: "Punjab National Bank logo",
+    imageSurface: "bg-black",
+  },
+  {
     name: "IEEE",
     logo: "/sponsors/ieee.png",
     alt: "IEEE logo",
@@ -32,9 +38,9 @@ function SponsorMark({ sponsor }: { sponsor: (typeof SPONSORS)[number] }) {
     <div
       role="group"
       aria-label={sponsor.name}
-      className="w-full max-w-44 rounded-2xl border border-primary/60 bg-background/75 p-2 text-center shadow-2xl shadow-black/30 backdrop-blur-md sm:p-3"
+      className="w-full max-w-44 rounded-2xl border border-primary/60 bg-background/75 p-3 text-center shadow-2xl shadow-black/30 backdrop-blur-md"
     >
-      <div className={`flex h-16 items-center justify-center overflow-hidden rounded-xl sm:h-24 ${sponsor.imageSurface}`}>
+      <div className={`flex h-24 items-center justify-center overflow-hidden rounded-xl ${sponsor.imageSurface}`}>
         <img
           src={sponsor.logo}
           alt={sponsor.alt}
@@ -42,7 +48,7 @@ function SponsorMark({ sponsor }: { sponsor: (typeof SPONSORS)[number] }) {
           className="h-full w-full object-contain"
         />
       </div>
-      <p className="mt-2 min-h-8 text-[10px] font-bold leading-4 tracking-wide text-foreground sm:text-xs">{sponsor.name}</p>
+      <p className="mt-2 min-h-8 text-xs font-bold leading-4 tracking-wide text-foreground">{sponsor.name}</p>
     </div>
   );
 }
@@ -233,11 +239,11 @@ export function Hero({ registerUrl }: { registerUrl: string }) {
           <Countdown />
         </motion.div>
 
-        <div className="mx-auto mt-8 w-full max-w-2xl">
+        <div className="mx-auto mt-8 w-full max-w-md">
           <h2 className="mb-4 text-center font-display text-sm font-bold tracking-[0.2em] text-gradient-primary uppercase">
             Sponsors
           </h2>
-          <div className="grid grid-cols-3 justify-items-center gap-2 sm:gap-4">
+          <div className="grid grid-cols-2 justify-items-center gap-3 sm:gap-4">
             {SPONSORS.map((sponsor) => <SponsorMark key={sponsor.name} sponsor={sponsor} />)}
           </div>
         </div>
