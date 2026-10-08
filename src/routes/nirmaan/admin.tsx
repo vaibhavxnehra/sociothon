@@ -18,6 +18,7 @@ import {
   adminCreateQuiz,
   adminAssignQuestions,
   adminPublishQuiz,
+  adminDeactivateQuiz,
   adminGetAllQuestions,
   adminGetAllQuizzes,
 } from '../../lib/nirmaan/quiz-client';
@@ -26,6 +27,21 @@ import type { Question, Quiz } from '../../lib/nirmaan/types';
 export const Route = createFileRoute('/nirmaan/admin')({
   component: NirmaanAdminPage,
 });
+
+function formatTimeIST(isoString?: string | null): string {
+  if (!isoString) return '—';
+  try {
+    const d = new Date(isoString);
+    return d.toLocaleTimeString('en-US', {
+      timeZone: 'Asia/Kolkata',
+      hour: 'numeric',
+      minute: '2-digit',
+      hour12: true,
+    });
+  } catch {
+    return '—';
+  }
+}
 
 function NirmaanAdminPage() {
   const navigate = useNavigate();
@@ -53,6 +69,8 @@ function NirmaanAdminPage() {
     const ist = new Date(now.getTime() + 5.5 * 3600 * 1000);
     return ist.toISOString().split('T')[0];
   });
+  const [startTime, setStartTime] = useState('19:00');
+  const [endTime, setEndTime] = useState('22:00');
   const [quizTitle, setQuizTitle] = useState('Daily Speed Quiz');
   const [selectedQuizId, setSelectedQuizId] = useState<string>('');
   const [selectedQIds, setSelectedQIds] = useState<string[]>([]);
@@ -126,8 +144,18 @@ function NirmaanAdminPage() {
     setStatusMsg(null);
 
     try {
-      const newId = await adminCreateQuiz(quizDate, quizTitle.trim());
-      setStatusMsg({ type: 'success', text: `Quiz created for ${quizDate} (7:00 PM – 10:00 PM IST)!` });
+      const startTimeIso = new Date(`${quizDate}T${startTime}:00+05:30`).toISOString();
+      const endTimeIso = new Date(`${quizDate}T${endTime}:00+05:30`).toISOString();
+
+      if (new Date(endTimeIso) <= new Date(startTimeIso)) {
+        throw new Error('End time must be after start time.');
+      }
+
+      const newId = await adminCreateQuiz(quizDate, quizTitle.trim(), startTimeIso, endTimeIso);
+      setStatusMsg({
+        type: 'success',
+        text: `Quiz created for ${quizDate} (${formatTimeIST(startTimeIso)} – ${formatTimeIST(endTimeIso)} IST)!`,
+      });
       setSelectedQuizId(newId);
       await loadData();
       setActiveTab('create-quiz');
@@ -175,6 +203,33 @@ function NirmaanAdminPage() {
       await loadData();
     } catch (err: unknown) {
       setStatusMsg({ type: 'error', text: err instanceof Error ? err.message : 'Failed to publish quiz.' });
+    } finally {
+      setActionLoading(false);
+    }
+  };
+
+  // Handle Deactivating Quiz
+  const handleDeactivateQuiz = async (quizId: string) => {
+    const confirmationMessage =
+      'Are you sure you want to deactivate this quiz?\nParticipants will no longer be able to start this quiz. Existing attempts and results will be preserved.';
+
+    if (!window.confirm(confirmationMessage)) {
+      return;
+    }
+
+    setActionLoading(true);
+    setStatusMsg(null);
+
+    try {
+      await adminDeactivateQuiz(quizId);
+      setStatusMsg({ type: 'success', text: 'Quiz deactivated successfully.' });
+      await loadData();
+    } catch (err: unknown) {
+      console.error('Error deactivating quiz:', err);
+      setStatusMsg({
+        type: 'error',
+        text: err instanceof Error ? err.message : 'Failed to deactivate quiz.',
+      });
     } finally {
       setActionLoading(false);
     }
@@ -444,9 +499,66 @@ function NirmaanAdminPage() {
                     onChange={(e) => setQuizDate(e.target.value)}
                     className="w-full px-4 py-2.5 rounded-xl bg-neutral-950 border border-neutral-800 text-white text-sm focus:outline-none focus:border-amber-400 transition"
                   />
-                  <span className="text-xs text-neutral-500 block mt-1">
-                    Start: 7:00 PM IST | End: 10:00 PM IST (Automatic)
-                  </span>
+                </div>
+
+                {/* Start & End Time Pickers (IST) */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  <div>
+                    <label className="block text-xs font-mono text-neutral-300 mb-1">Start Time (IST)</label>
+                    <input
+                      type="time"
+                      required
+                      value={startTime}
+                      onChange={(e) => setStartTime(e.target.value)}
+                      className="w-full px-4 py-2.5 rounded-xl bg-neutral-950 border border-neutral-800 text-white text-sm focus:outline-none focus:border-amber-400 transition"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-xs font-mono text-neutral-300 mb-1">End Time (IST)</label>
+                    <input
+                      type="time"
+                      required
+                      value={endTime}
+                      onChange={(e) => setEndTime(e.target.value)}
+                      className="w-full px-4 py-2.5 rounded-xl bg-neutral-950 border border-neutral-800 text-white text-sm focus:outline-none focus:border-amber-400 transition"
+                    />
+                  </div>
+                </div>
+
+                {/* Quick Schedule Presets */}
+                <div className="space-y-1.5">
+                  <span className="text-[11px] font-mono text-neutral-400 block">Quick Schedule Presets:</span>
+                  <div className="flex flex-wrap gap-1.5">
+                    <button
+                      type="button"
+                      onClick={() => { setStartTime('08:00'); setEndTime('09:30'); }}
+                      className="px-2.5 py-1 rounded-lg bg-neutral-950 border border-neutral-800 text-[11px] font-mono text-neutral-300 hover:text-white hover:border-amber-500/50 transition cursor-pointer"
+                    >
+                      08:00 AM – 09:30 AM
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => { setStartTime('14:00'); setEndTime('16:00'); }}
+                      className="px-2.5 py-1 rounded-lg bg-neutral-950 border border-neutral-800 text-[11px] font-mono text-neutral-300 hover:text-white hover:border-amber-500/50 transition cursor-pointer"
+                    >
+                      02:00 PM – 04:00 PM
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => { setStartTime('18:30'); setEndTime('23:00'); }}
+                      className="px-2.5 py-1 rounded-lg bg-neutral-950 border border-neutral-800 text-[11px] font-mono text-neutral-300 hover:text-white hover:border-amber-500/50 transition cursor-pointer"
+                    >
+                      06:30 PM – 11:00 PM
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => { setStartTime('19:00'); setEndTime('22:00'); }}
+                      className="px-2.5 py-1 rounded-lg bg-neutral-950 border border-neutral-800 text-[11px] font-mono text-neutral-300 hover:text-white hover:border-amber-500/50 transition cursor-pointer"
+                    >
+                      07:00 PM – 10:00 PM
+                    </button>
+                  </div>
                 </div>
 
                 <div>
@@ -464,9 +576,9 @@ function NirmaanAdminPage() {
                 <button
                   type="submit"
                   disabled={actionLoading}
-                  className="w-full py-3 rounded-xl bg-amber-500 text-black font-semibold text-sm hover:bg-amber-400 transition disabled:opacity-50"
+                  className="w-full py-3 rounded-xl bg-amber-500 text-black font-semibold text-sm hover:bg-amber-400 transition disabled:opacity-50 cursor-pointer"
                 >
-                  {actionLoading ? 'Creating...' : 'Create Draft Quiz'}
+                  {actionLoading ? 'Creating...' : `Create Quiz (${startTime} – ${endTime} IST)`}
                 </button>
               </form>
             </div>
@@ -588,14 +700,26 @@ function NirmaanAdminPage() {
                           {q.status.toUpperCase()}
                         </span>
                       </td>
-                      <td className="py-4 px-4 text-xs font-mono text-neutral-400">7:00 PM – 10:00 PM</td>
+                      <td className="py-4 px-4 text-xs font-mono text-neutral-300">
+                        {formatTimeIST(q.start_time)} – {formatTimeIST(q.end_time)} IST
+                      </td>
                       <td className="py-4 px-4 text-right">
                         {q.status === 'draft' && (
                           <button
                             onClick={() => handlePublishQuiz(q.id)}
-                            className="px-3 py-1.5 rounded-lg bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 text-xs font-semibold hover:bg-emerald-500/20 transition"
+                            disabled={actionLoading}
+                            className="px-3 py-1.5 rounded-lg bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 text-xs font-semibold hover:bg-emerald-500/20 transition disabled:opacity-40"
                           >
                             Publish
+                          </button>
+                        )}
+                        {q.status === 'published' && (
+                          <button
+                            onClick={() => handleDeactivateQuiz(q.id)}
+                            disabled={actionLoading}
+                            className="px-3 py-1.5 rounded-lg bg-red-500/10 text-red-400 border border-red-500/20 text-xs font-semibold hover:bg-red-500/20 transition disabled:opacity-40"
+                          >
+                            Deactivate
                           </button>
                         )}
                       </td>
