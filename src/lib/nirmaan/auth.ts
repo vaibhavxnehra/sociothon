@@ -122,6 +122,33 @@ export function useAuth() {
     return data;
   };
 
+  const resetPasswordForEmail = async (email: string) => {
+    const emailRedirectTo = `${getAuthRedirectUrl()}/login?mode=reset`;
+    const { data, error } = await supabase.auth.resetPasswordForEmail(email, {
+      redirectTo: emailRedirectTo,
+    });
+    if (error) throw error;
+    return data;
+  };
+
+  const verifyRecoveryOtp = async (email: string, token: string) => {
+    const { data, error } = await supabase.auth.verifyOtp({
+      email,
+      token,
+      type: 'recovery',
+    });
+    if (error) throw error;
+    return data;
+  };
+
+  const updatePassword = async (password: string) => {
+    const { data, error } = await supabase.auth.updateUser({
+      password,
+    });
+    if (error) throw error;
+    return data;
+  };
+
   const signOut = async () => {
     const { error } = await supabase.auth.signOut();
     if (error) throw error;
@@ -140,6 +167,9 @@ export function useAuth() {
     signUp,
     signInWithOtp,
     verifyOtp,
+    resetPasswordForEmail,
+    verifyRecoveryOtp,
+    updatePassword,
     signOut,
     refreshProfile: () => (user ? fetchProfile(user.id) : Promise.resolve()),
   };

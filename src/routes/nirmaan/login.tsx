@@ -1,7 +1,8 @@
 import { createFileRoute, useNavigate } from '@tanstack/react-router';
 import React, { useState } from 'react';
-import { LogIn, UserPlus, Sparkles, ArrowRight, AlertCircle, CheckCircle2 } from 'lucide-react';
+import { LogIn, UserPlus, Sparkles, ArrowRight, AlertCircle, CheckCircle2, KeyRound, ArrowLeft } from 'lucide-react';
 import { useAuth } from '../../lib/nirmaan/auth';
+import { supabase } from '../../lib/nirmaan/supabase';
 
 export const Route = createFileRoute('/nirmaan/login')({
   component: NirmaanLogin,
@@ -9,11 +10,23 @@ export const Route = createFileRoute('/nirmaan/login')({
 
 function NirmaanLogin() {
   const navigate = useNavigate();
-  const { user, signIn, signUp, signInWithOtp, verifyOtp } = useAuth();
+  const {
+    user,
+    signIn,
+    signUp,
+    signInWithOtp,
+    verifyOtp,
+    resetPasswordForEmail,
+    verifyRecoveryOtp,
+    updatePassword,
+  } = useAuth();
 
-  const [mode, setMode] = useState<'signin' | 'signup' | 'otp'>('signin');
+  const [mode, setMode] = useState<'signin' | 'signup' | 'otp' | 'reset'>('signin');
+  const [resetStep, setResetStep] = useState<'request' | 'verify'>('request');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [newPassword, setNewPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
   const [fullName, setFullName] = useState('');
   const [college, setCollege] = useState('');
   const [rollNumber, setRollNumber] = useState('');
@@ -24,7 +37,7 @@ function NirmaanLogin() {
   const [successMsg, setSuccessMsg] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
 
-  // Check for auth errors in URL (e.g. from expired magic link or invalid token)
+  // Check for auth errors or recovery triggers in URL
   React.useEffect(() => {
     if (typeof window === 'undefined') return;
     const searchParams = new URLSearchParams(window.location.search);
@@ -53,15 +66,37 @@ function NirmaanLogin() {
       } catch {
         // ignore
       }
+      return;
+    }
+
+    const type = searchParams.get('type') || hashParams.get('type');
+    const modeParam = searchParams.get('mode');
+
+    if (modeParam === 'reset' || type === 'recovery') {
+      setMode('reset');
+      if (type === 'recovery') {
+        setResetStep('verify');
+      }
     }
   }, []);
 
-  // If already logged in, redirect to hub
+  // Listen for Supabase password recovery auth event
   React.useEffect(() => {
-    if (user) {
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((event) => {
+      if (event === 'PASSWORD_RECOVERY') {
+        setMode('reset');
+        setResetStep('verify');
+      }
+    });
+    return () => subscription.unsubscribe();
+  }, []);
+
+  // If already logged in and not currently resetting password, redirect to hub
+  React.useEffect(() => {
+    if (user && mode !== 'reset') {
       navigate({ to: '/nirmaan' });
     }
-  }, [user, navigate]);
+  }, [user, mode, navigate]);
 
   const handleSignIn = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -131,6 +166,59 @@ function NirmaanLogin() {
     }
   };
 
+  const handleRequestReset = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setErrorMsg(null);
+    setSuccessMsg(null);
+    setLoading(true);
+
+    try {
+      await resetPasswordForEmail(email.trim());
+      setSuccessMsg('A 6-digit recovery code and reset link have been sent to your email.');
+      setResetStep('verify');
+    } catch (err: unknown) {
+      setErrorMsg(err instanceof Error ? err.message : 'Failed to send recovery email.');
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleResetPassword = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setErrorMsg(null);
+    setSuccessMsg(null);
+
+    if (newPassword.length < 6) {
+      setErrorMsg('New password must be at least 6 characters.');
+      return;
+    }
+
+    if (newPassword !== confirmPassword) {
+      setErrorMsg('Passwords do not match.');
+      return;
+    }
+
+    setLoading(true);
+    try {
+      if (!user && otpToken.trim()) {
+        await verifyRecoveryOtp(email.trim(), otpToken.trim());
+      }
+      await updatePassword(newPassword);
+      setSuccessMsg('Password updated successfully! Redirecting...');
+      setTimeout(() => {
+        navigate({ to: '/nirmaan' });
+      }, 1200);
+    } catch (err: unknown) {
+      setErrorMsg(
+        err instanceof Error
+          ? err.message
+          : 'Failed to update password. Please check your recovery code or request a new one.'
+      );
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <div className="min-h-screen bg-neutral-950 text-white flex items-center justify-center p-4 sm:p-6">
       <div className="w-full max-w-md border border-neutral-800 bg-neutral-900/60 rounded-3xl p-6 sm:p-8 backdrop-blur-xl shadow-2xl space-y-6">
@@ -140,7 +228,9 @@ function NirmaanLogin() {
             <Sparkles className="w-6 h-6 text-black" />
           </div>
           <h1 className="text-2xl font-bold tracking-tight text-white">NIRMAAN Daily Quiz</h1>
-          <p className="text-xs text-neutral-400 font-mono">Sign in to participate in the speed challenge</p>
+          <p className="text-xs text-neutral-400 font-mono">
+            {mode === 'reset' ? 'Reset your account password' : 'Sign in to participate in the speed challenge'}
+          </p>
         </div>
 
         {/* Tab Switcher */}
@@ -198,7 +288,21 @@ function NirmaanLogin() {
             </div>
 
             <div>
-              <label className="block text-xs font-medium text-neutral-300 mb-1.5">Password</label>
+              <div className="flex items-center justify-between mb-1.5">
+                <label className="block text-xs font-medium text-neutral-300">Password</label>
+                <button
+                  type="button"
+                  onClick={() => {
+                    setMode('reset');
+                    setResetStep('request');
+                    setErrorMsg(null);
+                    setSuccessMsg(null);
+                  }}
+                  className="text-xs text-amber-400 hover:text-amber-300 transition"
+                >
+                  Forgot password?
+                </button>
+              </div>
               <input
                 type="password"
                 required
@@ -340,6 +444,158 @@ function NirmaanLogin() {
                 <ArrowRight className="w-4 h-4" />
               </button>
             </form>
+          </div>
+        )}
+
+        {/* Password Reset Flow */}
+        {mode === 'reset' && (
+          <div className="space-y-4">
+            <div className="flex items-center justify-between pb-2 border-b border-neutral-800">
+              <div className="flex items-center gap-2">
+                <KeyRound className="w-4 h-4 text-amber-400" />
+                <span className="text-sm font-semibold text-white">Reset Password</span>
+              </div>
+              <button
+                type="button"
+                onClick={() => {
+                  setMode('signin');
+                  setErrorMsg(null);
+                  setSuccessMsg(null);
+                }}
+                className="text-xs text-neutral-400 hover:text-white flex items-center gap-1 transition"
+              >
+                <ArrowLeft className="w-3.5 h-3.5" />
+                <span>Back to Sign In</span>
+              </button>
+            </div>
+
+            {resetStep === 'request' ? (
+              <form onSubmit={handleRequestReset} className="space-y-3.5">
+                <div>
+                  <label className="block text-xs font-medium text-neutral-300 mb-1.5">Registered Email Address</label>
+                  <input
+                    type="email"
+                    required
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    placeholder="you@rgipt.ac.in"
+                    className="w-full px-4 py-2.5 rounded-xl bg-neutral-950 border border-neutral-800 text-white text-sm focus:outline-none focus:border-white/40 transition placeholder:text-neutral-600"
+                  />
+                  <p className="text-[11px] text-neutral-500 mt-1.5 leading-relaxed">
+                    We will send a 6-digit recovery code and reset instructions to your registered email via Brevo.
+                  </p>
+                </div>
+
+                <button
+                  type="submit"
+                  disabled={loading}
+                  className="w-full py-3 rounded-xl bg-white text-black font-semibold text-sm hover:bg-neutral-200 transition flex items-center justify-center gap-2 disabled:opacity-50"
+                >
+                  <KeyRound className="w-4 h-4" />
+                  <span>{loading ? 'Sending Code...' : 'Send Recovery Code'}</span>
+                </button>
+
+                <div className="text-center pt-2">
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setResetStep('verify');
+                      setErrorMsg(null);
+                    }}
+                    className="text-xs text-neutral-400 hover:text-amber-400 transition"
+                  >
+                    Already have a 6-digit code? Enter it here &rarr;
+                  </button>
+                </div>
+              </form>
+            ) : (
+              <form onSubmit={handleResetPassword} className="space-y-3.5">
+                <div>
+                  <label className="block text-xs font-medium text-neutral-300 mb-1.5">Email Address</label>
+                  <input
+                    type="email"
+                    required
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    placeholder="you@rgipt.ac.in"
+                    className="w-full px-4 py-2.5 rounded-xl bg-neutral-950 border border-neutral-800 text-white text-sm focus:outline-none focus:border-white/40 transition placeholder:text-neutral-600"
+                  />
+                </div>
+
+                {!user && (
+                  <div>
+                    <label className="block text-xs font-medium text-neutral-300 mb-1.5">6-Digit Recovery Code</label>
+                    <input
+                      type="text"
+                      required
+                      value={otpToken}
+                      onChange={(e) => setOtpToken(e.target.value)}
+                      placeholder="123456"
+                      className="w-full px-4 py-2.5 rounded-xl bg-neutral-950 border border-neutral-800 text-white text-sm font-mono tracking-widest text-center focus:outline-none focus:border-white/40 transition"
+                    />
+                  </div>
+                )}
+
+                <div>
+                  <label className="block text-xs font-medium text-neutral-300 mb-1.5">New Password</label>
+                  <input
+                    type="password"
+                    required
+                    minLength={6}
+                    value={newPassword}
+                    onChange={(e) => setNewPassword(e.target.value)}
+                    placeholder="At least 6 characters"
+                    className="w-full px-4 py-2.5 rounded-xl bg-neutral-950 border border-neutral-800 text-white text-sm focus:outline-none focus:border-white/40 transition placeholder:text-neutral-600"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-xs font-medium text-neutral-300 mb-1.5">Confirm New Password</label>
+                  <input
+                    type="password"
+                    required
+                    minLength={6}
+                    value={confirmPassword}
+                    onChange={(e) => setConfirmPassword(e.target.value)}
+                    placeholder="Re-enter new password"
+                    className="w-full px-4 py-2.5 rounded-xl bg-neutral-950 border border-neutral-800 text-white text-sm focus:outline-none focus:border-white/40 transition placeholder:text-neutral-600"
+                  />
+                </div>
+
+                <button
+                  type="submit"
+                  disabled={loading}
+                  className="w-full py-3 rounded-xl bg-white text-black font-semibold text-sm hover:bg-neutral-200 transition flex items-center justify-center gap-2 disabled:opacity-50"
+                >
+                  <CheckCircle2 className="w-4 h-4" />
+                  <span>{loading ? 'Updating Password...' : 'Reset Password & Sign In'}</span>
+                </button>
+
+                <div className="flex items-center justify-between pt-2 text-xs">
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setResetStep('request');
+                      setErrorMsg(null);
+                    }}
+                    className="text-neutral-400 hover:text-white transition"
+                  >
+                    &larr; Resend recovery code
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setMode('signin');
+                      setErrorMsg(null);
+                      setSuccessMsg(null);
+                    }}
+                    className="text-amber-400 hover:text-amber-300 transition"
+                  >
+                    Back to Sign In
+                  </button>
+                </div>
+              </form>
+            )}
           </div>
         )}
       </div>
