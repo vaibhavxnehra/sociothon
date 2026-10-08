@@ -91,6 +91,13 @@ function NirmaanLogin() {
     return () => subscription.unsubscribe();
   }, []);
 
+  // If user object has email and email state is empty, auto-populate email
+  React.useEffect(() => {
+    if (user?.email && !email) {
+      setEmail(user.email);
+    }
+  }, [user, email]);
+
   // If already logged in and not currently resetting password, redirect to hub
   React.useEffect(() => {
     if (user && mode !== 'reset') {
@@ -188,6 +195,17 @@ function NirmaanLogin() {
     setErrorMsg(null);
     setSuccessMsg(null);
 
+    const targetEmail = (user?.email || email).trim();
+    if (!targetEmail) {
+      setErrorMsg('Please provide your registered email address.');
+      return;
+    }
+
+    if (!user && !otpToken.trim()) {
+      setErrorMsg('Please enter the 6-digit recovery code sent to your email.');
+      return;
+    }
+
     if (newPassword.length < 6) {
       setErrorMsg('New password must be at least 6 characters.');
       return;
@@ -201,7 +219,7 @@ function NirmaanLogin() {
     setLoading(true);
     try {
       if (!user && otpToken.trim()) {
-        await verifyRecoveryOtp(email.trim(), otpToken.trim());
+        await verifyRecoveryOtp(targetEmail, otpToken.trim());
       }
       await updatePassword(newPassword);
       setSuccessMsg('Password updated successfully! Redirecting...');
@@ -515,10 +533,11 @@ function NirmaanLogin() {
                   <input
                     type="email"
                     required
-                    value={email}
+                    readOnly={Boolean(user?.email)}
+                    value={user?.email || email}
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="you@rgipt.ac.in"
-                    className="w-full px-4 py-2.5 rounded-xl bg-neutral-950 border border-neutral-800 text-white text-sm focus:outline-none focus:border-white/40 transition placeholder:text-neutral-600"
+                    className="w-full px-4 py-2.5 rounded-xl bg-neutral-950 border border-neutral-800 text-white text-sm focus:outline-none focus:border-white/40 transition placeholder:text-neutral-600 read-only:opacity-70"
                   />
                 </div>
 
