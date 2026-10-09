@@ -1,6 +1,7 @@
 import { createFileRoute, Link, useNavigate } from '@tanstack/react-router';
 import { useEffect, useState } from 'react';
 import {
+  ArrowLeft,
   ArrowRight,
   BarChart2,
   BookOpen,
@@ -248,6 +249,14 @@ function NirmaanHub() {
               <BarChart2 className="w-4 h-4 text-[#D5C7B3]" />
               <span>View Leaderboard</span>
             </Link>
+
+            <a
+              href="/"
+              className="inline-flex items-center gap-2.5 px-6 py-3 rounded-full border border-white/20 bg-black/40 hover:bg-white/10 hover:border-white/30 backdrop-blur-md text-[#E8E0D5] font-medium text-sm transition-all duration-200"
+            >
+              <ArrowLeft className="w-4 h-4 text-[#D5C7B3]" />
+              <span>Main Website</span>
+            </a>
           </div>
 
           {/* Daily Challenge Window tag */}
