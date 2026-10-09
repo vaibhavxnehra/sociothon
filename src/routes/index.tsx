@@ -10,6 +10,7 @@ import { Registration } from "@/components/site/Registration";
 import { Rewards } from "@/components/site/Rewards";
 import { Team } from "@/components/site/Team";
 import { Explore } from "@/components/site/Explore";
+import { HowToReach } from "@/components/site/HowToReach";
 import { Footer } from "@/components/site/Footer";
 import { SplashOverlay } from "@/components/site/SplashOverlay";
 
@@ -75,6 +76,7 @@ function Index() {
         <Rewards />
         <Team />
         <Explore />
+        <HowToReach />
       </main>
       <Footer />
     </div>
