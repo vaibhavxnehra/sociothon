@@ -80,9 +80,9 @@ export function Hero({ registerUrl }: { registerUrl: string }) {
           transition={{ repeat: Infinity, ease: "linear", duration: 45 }}
         >
           <div className="flex gap-12 px-6">
-            <span>🚨 Early Bird Registration Extended to 10th October</span>
+            <span>🚨 Early Bird Registration Extended to 15th October</span>
             <span>•</span>
-            <span>📝 SOCI-O-THON PPT Submission Deadline Changed to 7th October</span>
+            <span>📝 SOCI-O-THON PPT Submission Deadline Changed to 10th October</span>
             <span>•</span>
             <span>📄 Nirmaan Abstract Submission Extended to 10th October</span>
             <span>•</span>
@@ -92,9 +92,9 @@ export function Hero({ registerUrl }: { registerUrl: string }) {
             <span>•</span>
           </div>
           <div className="flex gap-12 px-6">
-            <span>🚨 Early Bird Registration Extended to 10th October</span>
+            <span>🚨 Early Bird Registration Extended to 15th October</span>
             <span>•</span>
-            <span>📝 SOCI-O-THON PPT Submission Deadline Changed to 7th October</span>
+            <span>📝 SOCI-O-THON PPT Submission Deadline Changed to 10th October</span>
             <span>•</span>
             <span>📄 Nirmaan Abstract Submission Extended to 10th October</span>
             <span>•</span>
