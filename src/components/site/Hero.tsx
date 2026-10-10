@@ -82,11 +82,11 @@ export function Hero({ registerUrl }: { registerUrl: string }) {
           <div className="flex gap-12 px-6">
             <span>🚨 Early Bird Registration Extended to 15th October</span>
             <span>•</span>
-            <span>📝 SOCI-O-THON PPT Submission Deadline Changed to 10th October</span>
+            <span>📝 SOCI-O-THON PPT Submission Deadline Changed to 13th October</span>
             <span>•</span>
             <span>📄 Nirmaan Abstract Submission Extended to 10th October</span>
             <span>•</span>
-            <span>🏆 SOCI-O-THON Round 1: 7th - 10th October</span>
+            <span>🏆 SOCI-O-THON Round 1: 13th - 15th October</span>
             <span>•</span>
             <span>🧠 Nirmaan Daily Quiz: 7 PM - 10 PM IST (Winners get exciting rewards!)</span>
             <span>•</span>
@@ -94,11 +94,11 @@ export function Hero({ registerUrl }: { registerUrl: string }) {
           <div className="flex gap-12 px-6">
             <span>🚨 Early Bird Registration Extended to 15th October</span>
             <span>•</span>
-            <span>📝 SOCI-O-THON PPT Submission Deadline Changed to 10th October</span>
+            <span>📝 SOCI-O-THON PPT Submission Deadline Changed to 13th October</span>
             <span>•</span>
             <span>📄 Nirmaan Abstract Submission Extended to 10th October</span>
             <span>•</span>
-            <span>🏆 SOCI-O-THON Round 1: 7th - 10th October</span>
+            <span>🏆 SOCI-O-THON Round 1: 13th - 15th October</span>
             <span>•</span>
             <span>🧠 Nirmaan Daily Quiz: 7 PM - 10 PM IST (Winners get exciting rewards!)</span>
             <span>•</span>
