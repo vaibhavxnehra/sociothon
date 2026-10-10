@@ -53,9 +53,11 @@ export function HowToReach() {
                   </div>
                   <h3 className="text-xl font-display font-semibold text-foreground">By Flight</h3>
                 </div>
-                <p className="text-sm text-muted-foreground leading-relaxed">
-                  The nearest major airports are <strong>Chaudhary Charan Singh International Airport, Lucknow (LKO)</strong> (~110 km) and <strong>Prayagraj Airport (IXD)</strong> (~100 km). From the airport, you can hire a taxi or take a bus/train to reach the campus.
-                </p>
+                <ul className="text-sm text-muted-foreground space-y-3 mt-2">
+                  <li className="flex justify-between items-center border-b border-white/5 pb-2"><span>Ayodhya Airport (AY)</span> <span className="font-semibold text-primary/90">97 KM</span></li>
+                  <li className="flex justify-between items-center border-b border-white/5 pb-2"><span>Chaudhary Charan Singh International Airport, Lucknow (LKO)</span> <span className="font-semibold text-primary/90 text-right ml-4">103 KM</span></li>
+                  <li className="flex justify-between items-center pt-1"><span>Prayagraj Airport (IXD)</span> <span className="font-semibold text-primary/90">156 KM</span></li>
+                </ul>
               </div>
             </Reveal>
 
@@ -65,11 +67,17 @@ export function HowToReach() {
                   <div className="w-12 h-12 shrink-0 rounded-full bg-primary/20 flex items-center justify-center text-primary">
                     <Train className="w-6 h-6" />
                   </div>
-                  <h3 className="text-xl font-display font-semibold text-foreground">By Train</h3>
+                  <h3 className="text-xl font-display font-semibold text-foreground">By Rail</h3>
                 </div>
-                <p className="text-sm text-muted-foreground leading-relaxed">
-                  The closest railway station is <strong>Jais (JAIS)</strong>, which is just 2.5 km from the campus. Other major nearby stations are <strong>Rae Bareli Junction (RBL)</strong> (~30 km) and <strong>Amethi (AME)</strong> (~35 km). Regular autos and e-rickshaws are available from Jais station to the campus.
-                </p>
+                <ul className="text-sm text-muted-foreground space-y-3 mt-2">
+                  <li className="flex justify-between items-center border-b border-white/5 pb-2"><span>Jais (JAIS)</span> <span className="font-semibold text-primary/90">1.5 KM</span></li>
+                  <li className="flex justify-between items-center border-b border-white/5 pb-2"><span>Raebareli Junction (RBL)</span> <span className="font-semibold text-primary/90">30 KM</span></li>
+                  <li className="flex justify-between items-center border-b border-white/5 pb-2"><span>Amethi Railway Station (AME)</span> <span className="font-semibold text-primary/90">35 KM</span></li>
+                  <li className="flex justify-between items-center border-b border-white/5 pb-2"><span>Lucknow Junction (LJN)</span> <span className="font-semibold text-primary/90">95 KM</span></li>
+                  <li className="flex justify-between items-center border-b border-white/5 pb-2"><span>Varanasi Junction (BSB)</span> <span className="font-semibold text-primary/90">210 KM</span></li>
+                  <li className="flex justify-between items-center border-b border-white/5 pb-2"><span>Sultanpur Junction (SLN)</span> <span className="font-semibold text-primary/90">59 KM</span></li>
+                  <li className="flex justify-between items-center pt-1"><span>Gauriganj Railway Station (GNG)</span> <span className="font-semibold text-primary/90">18 KM</span></li>
+                </ul>
               </div>
             </Reveal>
 
@@ -81,9 +89,14 @@ export function HowToReach() {
                   </div>
                   <h3 className="text-xl font-display font-semibold text-foreground">By Road</h3>
                 </div>
-                <p className="text-sm text-muted-foreground leading-relaxed">
-                  RGIPT is situated on the Rae Bareli-Sultanpur Highway. It is well-connected by road to major cities like Lucknow, Prayagraj, and Varanasi. UPSRTC buses run frequently between Lucknow/Rae Bareli and Sultanpur, dropping right at the campus gate.
-                </p>
+                <ul className="text-sm text-muted-foreground space-y-3 mt-2">
+                  <li className="flex justify-between items-center border-b border-white/5 pb-2"><span>Raebareli</span> <span className="font-semibold text-primary/90">29 KM</span></li>
+                  <li className="flex justify-between items-center border-b border-white/5 pb-2"><span>Ayodhya</span> <span className="font-semibold text-primary/90">97 KM</span></li>
+                  <li className="flex justify-between items-center border-b border-white/5 pb-2"><span>Lucknow</span> <span className="font-semibold text-primary/90">103 KM</span></li>
+                  <li className="flex justify-between items-center border-b border-white/5 pb-2"><span>Prayagraj</span> <span className="font-semibold text-primary/90">156 KM</span></li>
+                  <li className="flex justify-between items-center border-b border-white/5 pb-2"><span>Varanasi</span> <span className="font-semibold text-primary/90">196 KM</span></li>
+                  <li className="flex justify-between items-center pt-1"><span>Sultanpur Junction</span> <span className="font-semibold text-primary/90">80 KM</span></li>
+                </ul>
               </div>
             </Reveal>
           </div>
