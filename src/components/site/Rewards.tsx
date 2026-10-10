@@ -4,16 +4,10 @@ import { Reveal, SectionHeading, Counter } from "./primitives";
 const REWARDS = [
   {
     icon: Trophy,
-    title: "SOCI-O-THON Prize Pool",
-    body: "₹30,000 in prizes, plus Special and Additional Awards and Recognitions for standout teams.",
+    title: "Combined Prize Pool",
+    body: "₹50,000 total prize pool for SOCI-O-THON and NIRMAAN, plus Special Awards, trophies, and goodies for standout teams.",
     highlight: true,
-    amount: 30000,
-  },
-  {
-    icon: Gift,
-    title: "NIRMAAN Prize Pool",
-    body: "₹10,000 in prizes, plus trophies and goodies awarded to theme-wise winners.",
-    amount: 10000,
+    amount: 50000,
   },
   {
     icon: Award,

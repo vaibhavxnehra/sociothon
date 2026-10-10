@@ -232,12 +232,12 @@ export function Events() {
                   <div className="space-y-4">
                     <Reveal>
                       <div className="lift-card rounded-2xl border border-primary/40 bg-primary/10 p-6 text-center">
-                        <p className="text-xs font-semibold tracking-[0.24em] text-primary uppercase">Prize Pool</p>
+                        <p className="text-xs font-semibold tracking-[0.24em] text-primary uppercase">Combined Prize Pool</p>
                         <p className="mt-2 font-display text-5xl font-extrabold text-gradient-primary">
-                          <Counter to={30000} prefix="₹" />
+                          <Counter to={50000} prefix="₹" />
                         </p>
                         <p className="mt-2 text-sm text-muted-foreground">
-                          Plus Special &amp; Additional Awards and Recognitions
+                          For SOCI-O-THON & NIRMAAN, plus Special Awards
                         </p>
                       </div>
                     </Reveal>
@@ -363,7 +363,7 @@ export function Events() {
                         <Trophy className="h-5 w-5 text-primary" />
                         <h4 className="mt-3 font-display text-lg font-bold">Rewards</h4>
                         <p className="mt-2 text-sm text-muted-foreground">
-                          ₹10,000 as prize pool, trophies, goodies and other exciting prizes! + Certificate of Participation
+                          Share of the ₹50,000 Combined Prize Pool, trophies, goodies and other exciting prizes! + Certificate of Participation
                         </p>
                         <div className="mt-4 pt-4 border-t border-primary/20">
                           <h4 className="font-display text-base font-bold text-primary">Publication Opportunity</h4>

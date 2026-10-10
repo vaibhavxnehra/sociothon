@@ -16,7 +16,7 @@ import { SplashOverlay } from "@/components/site/SplashOverlay";
 
 const TITLE = "SOCI-O-THON & NIRMAAN 2026 | RGIPT Souhardya";
 const DESCRIPTION =
-  "SOUHARDYA 2026 presents SOCI-O-THON & NIRMAAN- a national social innovation hackathon and conference at RGIPT, Jais, Amethi on 30–31 October 2026. ₹30,000 prize pool. Register now.";
+  "SOUHARDYA 2026 presents SOCI-O-THON & NIRMAAN- a national social innovation hackathon and conference at RGIPT, Jais, Amethi on 30–31 October 2026. ₹50,000 prize pool. Register now.";
 
 // Scrolls to the registration section
 const REGISTER_URL = "#register";
