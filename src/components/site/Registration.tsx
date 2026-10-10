@@ -13,7 +13,7 @@ import paymentQr from "@/assets/payment-qr.jpg";
 
 const FEES = [
   { window: "Before 15th October", fee: "₹500/-", stay: "" },
-  { window: "15th October - 29th October", fee: "₹750/-", stay: "" },
+  { window: "15th October - 20th October", fee: "₹750/-", stay: "" },
   { window: "On Spot Registration", fee: "₹1,000/-", stay: "" },
 ];
 
