@@ -73,7 +73,6 @@ function Index() {
         <OtherEvents />
         <Timeline />
         <Registration registerUrl={REGISTER_URL} />
-        <Rewards />
         <Team />
         <Explore />
         <HowToReach />
